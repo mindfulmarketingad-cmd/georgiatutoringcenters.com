@@ -249,12 +249,21 @@ function main() {
 
   listings.sort((a, b) => b.rating * Math.log10(b.reviewCount + 10) - a.rating * Math.log10(a.reviewCount + 10));
 
-  const payload = {
-    generatedAt: new Date().toISOString(),
-    isSample,
-    count: listings.length,
-    listings,
-  };
+  // Keep the previous timestamp when nothing changed, so rebuilding does not
+  // produce a meaningless diff in version control.
+  let generatedAt = new Date().toISOString();
+  if (existsSync(outFile)) {
+    try {
+      const previous = JSON.parse(readFileSync(outFile, "utf8"));
+      if (JSON.stringify(previous.listings) === JSON.stringify(listings) && previous.generatedAt) {
+        generatedAt = previous.generatedAt;
+      }
+    } catch {
+      // A corrupt or older file just means we write a fresh timestamp.
+    }
+  }
+
+  const payload = { generatedAt, isSample, count: listings.length, listings };
   writeFileSync(outFile, JSON.stringify(payload, null, 2) + "\n");
   console.log(
     `Imported ${listings.length} listings${isSample ? " (SAMPLE DATA — add an Outscraper export to data/outscraper/)" : ""}.`
