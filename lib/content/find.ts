@@ -1,0 +1,140 @@
+import { cities, services, type Listing } from "@/lib/listings";
+import type { Faq } from "./types";
+
+export type FindPage = {
+  slug: string;
+  kind: "city" | "service";
+  key: string;
+  label: string;
+  h1: string;
+  metaTitle: string;
+  description: string;
+  intro: string[];
+  listings: Listing[];
+  faqs: Faq[];
+};
+
+const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
+  "math-tutoring": {
+    blurb:
+      "Math is the most requested subject at Georgia tutoring centers, covering everything from multiplication fluency in elementary school through Algebra II, pre-calculus and AP Calculus.",
+    who: "students who are a grade level behind, students in a jump year such as sixth or ninth grade, and strong students taking an advanced course for the first time",
+  },
+  "reading-tutoring": {
+    blurb:
+      "Reading and literacy programs cover phonics, fluency, vocabulary and comprehension, and are the highest-value early intervention available to a Georgia family.",
+    who: "early elementary readers, students who decode slowly, and older students whose comprehension lags their grade",
+  },
+  "test-prep": {
+    blurb:
+      "Test prep centers focus on the SAT, ACT, and admissions or placement exams, including score-threshold planning for Georgia scholarship programs.",
+    who: "high school sophomores and juniors building toward a target score",
+  },
+  "stem-and-coding": {
+    blurb:
+      "STEM and coding programs blend academic support with project work: robotics, programming, engineering challenges and lab science.",
+    who: "students who need science support and students who learn best by building",
+  },
+  "special-needs-support": {
+    blurb:
+      "Specialized programs serve students with dyslexia, ADHD and other learning differences using structured, explicit instruction and documented progress monitoring.",
+    who: "students with an evaluation, a school support plan, or a persistent gap that general tutoring has not closed",
+  },
+  "early-learning": {
+    blurb:
+      "Early learning programs build kindergarten readiness: letter sounds, number sense, fine motor skills and the routines of a school day.",
+    who: "pre-K and kindergarten students, and rising first graders",
+  },
+  "homework-help": {
+    blurb:
+      "Homework help and study skills programs give students a supervised place to work, plus coaching on planning, note-taking and test preparation.",
+    who: "students who understand the material but struggle to complete and submit work",
+  },
+  "online-tutoring": {
+    blurb:
+      "Online tutoring removes drive time and widens the pool of subject specialists, which matters most for families outside metro Atlanta.",
+    who: "middle and high school students, and any family with a tight afternoon schedule",
+  },
+};
+
+function cityFaqs(city: string, count: number): Faq[] {
+  return [
+    {
+      q: `How many tutoring centers are listed in ${city}?`,
+      a: `Our directory currently lists ${count} tutoring and learning ${count === 1 ? "center" : "centers"} serving ${city}, Georgia. Each listing includes hours, contact details, ratings and the subjects the center covers.`,
+    },
+    {
+      q: `How much does tutoring cost in ${city}?`,
+      a: `Most families in ${city} pay roughly $40 to $80 per hour for small-group instruction and $60 to $120 per hour for one-to-one tutoring. Monthly learning center memberships commonly run $150 to $500. See our cost guides for a full breakdown.`,
+    },
+    {
+      q: `What should I ask a ${city} tutoring center before enrolling?`,
+      a: `Ask what the intake assessment measures, who will teach your child each week, the student-to-instructor ratio, the total first-month cost including fees, and how progress will be reported to you.`,
+    },
+  ];
+}
+
+function serviceFaqs(label: string, count: number): Faq[] {
+  return [
+    {
+      q: `How many Georgia centers offer ${label.toLowerCase()}?`,
+      a: `We currently list ${count} Georgia ${count === 1 ? "center" : "centers"} offering ${label.toLowerCase()}. Use the city filters to narrow the list to your area.`,
+    },
+    {
+      q: `How do I compare ${label.toLowerCase()} programs?`,
+      a: `Compare instructor credentials, the student-to-instructor ratio, how progress is measured, session length and the total monthly cost. A center that assesses before quoting a package is usually the safer choice.`,
+    },
+    {
+      q: `How quickly should we see results?`,
+      a: `Expect the first month to be diagnostic and confidence-building, with visible improvement on homework by roughly week five. If nothing has changed by week six, ask the center to revise the plan.`,
+    },
+  ];
+}
+
+export function findPages(): FindPage[] {
+  const pages: FindPage[] = [];
+
+  for (const group of cities()) {
+    pages.push({
+      slug: `tutoring-centers-in-${group.citySlug}`,
+      kind: "city",
+      key: group.citySlug,
+      label: group.city,
+      h1: `Tutoring Centers in ${group.city}, GA`,
+      metaTitle: `Tutoring Centers in ${group.city}, GA | ${group.count} Learning Centers`,
+      description: `Compare ${group.count} tutoring and learning centers in ${group.city}, Georgia. Hours, ratings, subjects, phone numbers and directions for every center.`,
+      intro: [
+        `${group.city} families have ${group.count} tutoring and learning ${group.count === 1 ? "center" : "centers"} in this directory, covering math, reading, test prep and homework support. Every listing below shows hours of operation, review counts, contact details and the subjects each center teaches.`,
+        `Sort through the list, toggle the map to see which centers are closest to your school or office, and use the filter chips to jump to a specific subject.`,
+      ],
+      listings: group.listings,
+      faqs: cityFaqs(group.city, group.count),
+    });
+  }
+
+  for (const group of services()) {
+    const copy = SERVICE_COPY[group.slug];
+    pages.push({
+      slug: `${group.slug}-in-georgia`,
+      kind: "service",
+      key: group.slug,
+      label: group.label,
+      h1: `${group.label} in Georgia`,
+      metaTitle: `${group.label} in Georgia | ${group.count} Tutoring Centers`,
+      description: `Find ${group.label.toLowerCase()} across Georgia. Compare ${group.count} centers by city, hours, ratings and cost.`,
+      intro: [
+        copy?.blurb ??
+          `${group.label} programs across Georgia, compared by city, hours, ratings and price.`,
+        `The ${group.count} ${group.count === 1 ? "center" : "centers"} below offer ${group.label.toLowerCase()}. This page is most useful for ${copy?.who ?? "families comparing programs across several cities"}.`,
+      ],
+      listings: group.listings,
+      faqs: serviceFaqs(group.label, group.count),
+    });
+  }
+
+  return pages;
+}
+
+export function getFindPage(slug: string): FindPage | undefined {
+  return findPages().find((p) => p.slug === slug);
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Georgia Tutoring Centers",
+  "short_name": "GA Tutoring",
+  "description": "Find tutoring and learning centers across Georgia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3f8f46",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

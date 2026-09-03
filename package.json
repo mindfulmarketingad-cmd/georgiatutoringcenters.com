@@ -1,0 +1,26 @@
+{
+  "name": "georgiatutoringcenters",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run import && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "import": "node scripts/import-outscraper.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.4",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.4",
+    "typescript": "5.8.3"
+  }
+}

@@ -1,0 +1,4328 @@
+{
+  "generatedAt": "2026-09-03T22:26:55.353Z",
+  "isSample": true,
+  "count": 60,
+  "listings": [
+    {
+      "id": "sample-0015",
+      "slug": "storybook-literacy-house-macon",
+      "name": "Storybook Literacy House - Macon",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Phonics",
+        "Reading Tutoring",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0114",
+      "website": "https://www.example.com/storybook-literacy-house",
+      "street": "1298 Sycamore Way",
+      "city": "Macon",
+      "citySlug": "macon",
+      "state": "Georgia",
+      "postalCode": "31210",
+      "fullAddress": "1298 Sycamore Way, Macon, GA 31210",
+      "latitude": 32.8549,
+      "longitude": -83.7338,
+      "rating": 4.9,
+      "reviewCount": 178,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 18,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Macon and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        }
+      ]
+    },
+    {
+      "id": "sample-0048",
+      "slug": "summit-scholars-tutoring-peachtree-city",
+      "name": "Summit Scholars Tutoring - Peachtree City",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Test Prep",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0147",
+      "website": "https://www.example.com/summit-scholars-tutoring",
+      "street": "1529 Broad St",
+      "city": "Peachtree City",
+      "citySlug": "peachtree-city",
+      "state": "Georgia",
+      "postalCode": "30269",
+      "fullAddress": "1529 Broad St, Peachtree City, GA 30269",
+      "latitude": 33.39405,
+      "longitude": -84.58605,
+      "rating": 4.9,
+      "reviewCount": 175,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 11,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Peachtree City and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0007",
+      "slug": "robot-garden-stem-lab-augusta",
+      "name": "Robot Garden STEM Lab - Augusta",
+      "category": "STEM education center",
+      "subtypes": [
+        "STEM",
+        "Coding",
+        "Robotics"
+      ],
+      "phone": "+1 470-555-0106",
+      "website": "https://www.example.com/robot-garden-stem-lab",
+      "street": "1242 Sycamore Way",
+      "city": "Augusta",
+      "citySlug": "augusta",
+      "state": "Georgia",
+      "postalCode": "30904",
+      "fullAddress": "1242 Sycamore Way, Augusta, GA 30904",
+      "latitude": 33.4665,
+      "longitude": -82.0185,
+      "rating": 4.8,
+      "reviewCount": 186,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 10,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Augusta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0040",
+      "slug": "sunbelt-reading-clinic-decatur",
+      "name": "Sunbelt Reading Clinic - Decatur",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Reading Tutoring",
+        "Dyslexia Support",
+        "Literacy"
+      ],
+      "phone": "+1 470-555-0139",
+      "website": "https://www.example.com/sunbelt-reading-clinic",
+      "street": "1473 Broad St",
+      "city": "Decatur",
+      "citySlug": "decatur",
+      "state": "Georgia",
+      "postalCode": "30030",
+      "fullAddress": "1473 Broad St, Decatur, GA 30030",
+      "latitude": 33.77305,
+      "longitude": -84.29205,
+      "rating": 4.8,
+      "reviewCount": 183,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 23,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Decatur and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        }
+      ]
+    },
+    {
+      "id": "sample-0032",
+      "slug": "summit-scholars-tutoring-johns-creek",
+      "name": "Summit Scholars Tutoring - Johns Creek",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Test Prep",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0131",
+      "website": "https://www.example.com/summit-scholars-tutoring",
+      "street": "1417 Broad St",
+      "city": "Johns Creek",
+      "citySlug": "johns-creek",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1417 Broad St, Johns Creek, GA 30097",
+      "latitude": 34.02815,
+      "longitude": -84.20035,
+      "rating": 4.7,
+      "reviewCount": 191,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 15,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Johns Creek and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0024",
+      "slug": "sunbelt-reading-clinic-alpharetta",
+      "name": "Sunbelt Reading Clinic - Alpharetta",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Reading Tutoring",
+        "Dyslexia Support",
+        "Literacy"
+      ],
+      "phone": "+1 470-555-0123",
+      "website": "https://www.example.com/sunbelt-reading-clinic",
+      "street": "1361 Broad St",
+      "city": "Alpharetta",
+      "citySlug": "alpharetta",
+      "state": "Georgia",
+      "postalCode": "30022",
+      "fullAddress": "1361 Broad St, Alpharetta, GA 30022",
+      "latitude": 34.05785,
+      "longitude": -84.28265,
+      "rating": 4.6,
+      "reviewCount": 199,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 7,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Alpharetta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        }
+      ]
+    },
+    {
+      "id": "sample-0057",
+      "slug": "ridgeview-academic-coaching-valdosta",
+      "name": "Ridgeview Academic Coaching - Valdosta",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Study Skills",
+        "Homework Help",
+        "Online Tutoring"
+      ],
+      "phone": "+1 470-555-0156",
+      "website": "https://www.example.com/ridgeview-academic-coaching",
+      "street": "1592 Peachtree Rd NE",
+      "city": "Valdosta",
+      "citySlug": "valdosta",
+      "state": "Georgia",
+      "postalCode": "31602",
+      "fullAddress": "1592 Peachtree Rd NE, Valdosta, GA 31602",
+      "latitude": 30.8382,
+      "longitude": -83.274,
+      "rating": 4.6,
+      "reviewCount": 196,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 20,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Valdosta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0016",
+      "slug": "summit-scholars-tutoring-athens",
+      "name": "Summit Scholars Tutoring - Athens",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Test Prep",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0115",
+      "website": "https://www.example.com/summit-scholars-tutoring",
+      "street": "1305 Broad St",
+      "city": "Athens",
+      "citySlug": "athens",
+      "state": "Georgia",
+      "postalCode": "30606",
+      "fullAddress": "1305 Broad St, Athens, GA 30606",
+      "latitude": 33.93975,
+      "longitude": -83.40135,
+      "rating": 4.5,
+      "reviewCount": 207,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 19,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Athens and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0049",
+      "slug": "peachtree-learning-lab-woodstock",
+      "name": "Peachtree Learning Lab - Woodstock",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0148",
+      "website": "https://www.example.com/peachtree-learning-lab",
+      "street": "1536 Peachtree Rd NE",
+      "city": "Woodstock",
+      "citySlug": "woodstock",
+      "state": "Georgia",
+      "postalCode": "30188",
+      "fullAddress": "1536 Peachtree Rd NE, Woodstock, GA 30188",
+      "latitude": 34.108,
+      "longitude": -84.5209,
+      "rating": 4.5,
+      "reviewCount": 204,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 12,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Woodstock and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0008",
+      "slug": "sunbelt-reading-clinic-augusta",
+      "name": "Sunbelt Reading Clinic - Augusta",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Reading Tutoring",
+        "Dyslexia Support",
+        "Literacy"
+      ],
+      "phone": "+1 470-555-0107",
+      "website": "https://www.example.com/sunbelt-reading-clinic",
+      "street": "1249 Broad St",
+      "city": "Augusta",
+      "citySlug": "augusta",
+      "state": "Georgia",
+      "postalCode": "30904",
+      "fullAddress": "1249 Broad St, Augusta, GA 30904",
+      "latitude": 33.47575,
+      "longitude": -82.00525,
+      "rating": 4.4,
+      "reviewCount": 215,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 11,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Augusta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0041",
+      "slug": "ridgeview-academic-coaching-decatur",
+      "name": "Ridgeview Academic Coaching - Decatur",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Study Skills",
+        "Homework Help",
+        "Online Tutoring"
+      ],
+      "phone": "+1 470-555-0140",
+      "website": "https://www.example.com/ridgeview-academic-coaching",
+      "street": "1480 Peachtree Rd NE",
+      "city": "Decatur",
+      "citySlug": "decatur",
+      "state": "Georgia",
+      "postalCode": "30030",
+      "fullAddress": "1480 Peachtree Rd NE, Decatur, GA 30030",
+      "latitude": 33.7823,
+      "longitude": -84.3038,
+      "rating": 4.4,
+      "reviewCount": 212,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 4,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Decatur and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0033",
+      "slug": "peachtree-learning-lab-johns-creek",
+      "name": "Peachtree Learning Lab - Johns Creek",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0132",
+      "website": "https://www.example.com/peachtree-learning-lab",
+      "street": "1424 Peachtree Rd NE",
+      "city": "Johns Creek",
+      "citySlug": "johns-creek",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1424 Peachtree Rd NE, Johns Creek, GA 30097",
+      "latitude": 34.0374,
+      "longitude": -84.1871,
+      "rating": 4.3,
+      "reviewCount": 220,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 16,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Johns Creek and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0004",
+      "slug": "red-clay-test-prep-savannah",
+      "name": "Red Clay Test Prep - Savannah",
+      "category": "Test preparation center",
+      "subtypes": [
+        "Test Prep",
+        "SAT",
+        "ACT"
+      ],
+      "phone": "+1 470-555-0103",
+      "website": "https://www.example.com/red-clay-test-prep",
+      "street": "1221 Church St",
+      "city": "Savannah",
+      "citySlug": "savannah",
+      "state": "Georgia",
+      "postalCode": "31401",
+      "fullAddress": "1221 Church St, Savannah, GA 31401",
+      "latitude": 32.07115,
+      "longitude": -81.08895,
+      "rating": 4.9,
+      "reviewCount": 99,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 7,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Savannah and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        }
+      ]
+    },
+    {
+      "id": "sample-0025",
+      "slug": "ridgeview-academic-coaching-roswell",
+      "name": "Ridgeview Academic Coaching - Roswell",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Study Skills",
+        "Homework Help",
+        "Online Tutoring"
+      ],
+      "phone": "+1 470-555-0124",
+      "website": "https://www.example.com/ridgeview-academic-coaching",
+      "street": "1368 Peachtree Rd NE",
+      "city": "Roswell",
+      "citySlug": "roswell",
+      "state": "Georgia",
+      "postalCode": "30075",
+      "fullAddress": "1368 Peachtree Rd NE, Roswell, GA 30075",
+      "latitude": 34.044,
+      "longitude": -84.3469,
+      "rating": 4.2,
+      "reviewCount": 228,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 8,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Roswell and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0058",
+      "slug": "camellia-learning-center-warner-robins",
+      "name": "Camellia Learning Center - Warner Robins",
+      "category": "Learning center",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Enrichment"
+      ],
+      "phone": "+1 470-555-0157",
+      "website": "https://www.example.com/camellia-learning-center",
+      "street": "1599 Main St",
+      "city": "Warner Robins",
+      "citySlug": "warner-robins",
+      "state": "Georgia",
+      "postalCode": "31088",
+      "fullAddress": "1599 Main St, Warner Robins, GA 31088",
+      "latitude": 32.58825,
+      "longitude": -83.63145,
+      "rating": 4.2,
+      "reviewCount": 225,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 21,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Warner Robins and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0037",
+      "slug": "southern-scholars-center-lawrenceville",
+      "name": "Southern Scholars Center - Lawrenceville",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Study Skills",
+        "Test Prep"
+      ],
+      "phone": "+1 470-555-0136",
+      "website": "https://www.example.com/southern-scholars-center",
+      "street": "1452 Highland Ave",
+      "city": "Lawrenceville",
+      "citySlug": "lawrenceville",
+      "state": "Georgia",
+      "postalCode": "30043",
+      "fullAddress": "1452 Highland Ave, Lawrenceville, GA 30043",
+      "latitude": 33.9517,
+      "longitude": -83.9984,
+      "rating": 4.9,
+      "reviewCount": 96,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 20,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Lawrenceville and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0029",
+      "slug": "gwinnett-bridge-learning-sandy-springs",
+      "name": "Gwinnett Bridge Learning - Sandy Springs",
+      "category": "Special education school",
+      "subtypes": [
+        "Special Needs Support",
+        "ADHD Coaching"
+      ],
+      "phone": "+1 470-555-0128",
+      "website": "https://www.example.com/gwinnett-bridge-learning",
+      "street": "1396 Highland Ave",
+      "city": "Sandy Springs",
+      "citySlug": "sandy-springs",
+      "state": "Georgia",
+      "postalCode": "30328",
+      "fullAddress": "1396 Highland Ave, Sandy Springs, GA 30328",
+      "latitude": 33.9269,
+      "longitude": -84.3648,
+      "rating": 4.8,
+      "reviewCount": 104,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 12,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Sandy Springs and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0021",
+      "slug": "southern-scholars-center-marietta",
+      "name": "Southern Scholars Center - Marietta",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Study Skills",
+        "Test Prep"
+      ],
+      "phone": "+1 470-555-0120",
+      "website": "https://www.example.com/southern-scholars-center",
+      "street": "1340 Highland Ave",
+      "city": "Marietta",
+      "citySlug": "marietta",
+      "state": "Georgia",
+      "postalCode": "30062",
+      "fullAddress": "1340 Highland Ave, Marietta, GA 30062",
+      "latitude": 33.9601,
+      "longitude": -84.5274,
+      "rating": 4.7,
+      "reviewCount": 112,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 4,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Marietta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0017",
+      "slug": "peachtree-learning-lab-athens",
+      "name": "Peachtree Learning Lab - Athens",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0116",
+      "website": "https://www.example.com/peachtree-learning-lab",
+      "street": "1312 Peachtree Rd NE",
+      "city": "Athens",
+      "citySlug": "athens",
+      "state": "Georgia",
+      "postalCode": "30606",
+      "fullAddress": "1312 Peachtree Rd NE, Athens, GA 30606",
+      "latitude": 33.949,
+      "longitude": -83.4131,
+      "rating": 4.1,
+      "reviewCount": 236,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 20,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Athens and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0050",
+      "slug": "bright-steps-tutoring-center-woodstock",
+      "name": "Bright Steps Tutoring Center - Woodstock",
+      "category": "Learning center",
+      "subtypes": [
+        "Early Learning",
+        "Reading Tutoring",
+        "Phonics"
+      ],
+      "phone": "+1 470-555-0149",
+      "website": "https://www.example.com/bright-steps-tutoring-center",
+      "street": "1543 Main St",
+      "city": "Woodstock",
+      "citySlug": "woodstock",
+      "state": "Georgia",
+      "postalCode": "30188",
+      "fullAddress": "1543 Main St, Woodstock, GA 30188",
+      "latitude": 34.09225,
+      "longitude": -84.50765,
+      "rating": 4.1,
+      "reviewCount": 233,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 13,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Woodstock and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0054",
+      "slug": "little-learners-studio-newnan",
+      "name": "Little Learners Studio - Newnan",
+      "category": "Educational institution",
+      "subtypes": [
+        "Early Learning",
+        "Pre-K Readiness"
+      ],
+      "phone": "+1 470-555-0153",
+      "website": "https://www.example.com/little-learners-studio",
+      "street": "1571 Mill Creek Dr",
+      "city": "Newnan",
+      "citySlug": "newnan",
+      "state": "Georgia",
+      "postalCode": "30263",
+      "fullAddress": "1571 Mill Creek Dr, Newnan, GA 30263",
+      "latitude": 33.38345,
+      "longitude": -84.80995,
+      "rating": 4.7,
+      "reviewCount": 109,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 17,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Newnan and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0013",
+      "slug": "gwinnett-bridge-learning-macon",
+      "name": "Gwinnett Bridge Learning - Macon",
+      "category": "Special education school",
+      "subtypes": [
+        "Special Needs Support",
+        "ADHD Coaching"
+      ],
+      "phone": "+1 470-555-0112",
+      "website": "https://www.example.com/gwinnett-bridge-learning",
+      "street": "1284 Highland Ave",
+      "city": "Macon",
+      "citySlug": "macon",
+      "state": "Georgia",
+      "postalCode": "31210",
+      "fullAddress": "1284 Highland Ave, Macon, GA 31210",
+      "latitude": 32.8614,
+      "longitude": -83.7353,
+      "rating": 4.6,
+      "reviewCount": 120,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 16,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Macon and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0046",
+      "slug": "chattahoochee-prep-works-peachtree-city",
+      "name": "Chattahoochee Prep Works - Peachtree City",
+      "category": "Test preparation center",
+      "subtypes": [
+        "SAT Prep",
+        "ACT Prep",
+        "Exam Coaching"
+      ],
+      "phone": "+1 470-555-0145",
+      "website": "https://www.example.com/chattahoochee-prep-works",
+      "street": "1515 Mill Creek Dr",
+      "city": "Peachtree City",
+      "citySlug": "peachtree-city",
+      "state": "Georgia",
+      "postalCode": "30269",
+      "fullAddress": "1515 Mill Creek Dr, Peachtree City, GA 30269",
+      "latitude": 33.40055,
+      "longitude": -84.58755,
+      "rating": 4.6,
+      "reviewCount": 117,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 9,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Peachtree City and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        }
+      ]
+    },
+    {
+      "id": "sample-0005",
+      "slug": "southern-scholars-center-savannah",
+      "name": "Southern Scholars Center - Savannah",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Study Skills",
+        "Test Prep"
+      ],
+      "phone": "+1 470-555-0104",
+      "website": "https://www.example.com/southern-scholars-center",
+      "street": "1228 Highland Ave",
+      "city": "Savannah",
+      "citySlug": "savannah",
+      "state": "Georgia",
+      "postalCode": "31401",
+      "fullAddress": "1228 Highland Ave, Savannah, GA 31401",
+      "latitude": 32.0804,
+      "longitude": -81.1007,
+      "rating": 4.5,
+      "reviewCount": 128,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 8,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Savannah and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0009",
+      "slug": "ridgeview-academic-coaching-augusta",
+      "name": "Ridgeview Academic Coaching - Augusta",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Study Skills",
+        "Homework Help",
+        "Online Tutoring"
+      ],
+      "phone": "+1 470-555-0108",
+      "website": "https://www.example.com/ridgeview-academic-coaching",
+      "street": "1256 Peachtree Rd NE",
+      "city": "Augusta",
+      "citySlug": "augusta",
+      "state": "Georgia",
+      "postalCode": "30904",
+      "fullAddress": "1256 Peachtree Rd NE, Augusta, GA 30904",
+      "latitude": 33.485,
+      "longitude": -82.017,
+      "rating": 4,
+      "reviewCount": 244,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 12,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Augusta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0042",
+      "slug": "camellia-learning-center-decatur",
+      "name": "Camellia Learning Center - Decatur",
+      "category": "Learning center",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Enrichment"
+      ],
+      "phone": "+1 470-555-0141",
+      "website": "https://www.example.com/camellia-learning-center",
+      "street": "1487 Main St",
+      "city": "Decatur",
+      "citySlug": "decatur",
+      "state": "Georgia",
+      "postalCode": "30030",
+      "fullAddress": "1487 Main St, Decatur, GA 30030",
+      "latitude": 33.76655,
+      "longitude": -84.29055,
+      "rating": 4,
+      "reviewCount": 241,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 5,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Decatur and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0038",
+      "slug": "little-learners-studio-lawrenceville",
+      "name": "Little Learners Studio - Lawrenceville",
+      "category": "Educational institution",
+      "subtypes": [
+        "Early Learning",
+        "Pre-K Readiness"
+      ],
+      "phone": "+1 470-555-0137",
+      "website": "https://www.example.com/little-learners-studio",
+      "street": "1459 Mill Creek Dr",
+      "city": "Lawrenceville",
+      "citySlug": "lawrenceville",
+      "state": "Georgia",
+      "postalCode": "30043",
+      "fullAddress": "1459 Mill Creek Dr, Lawrenceville, GA 30043",
+      "latitude": 33.96095,
+      "longitude": -83.98515,
+      "rating": 4.5,
+      "reviewCount": 125,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 21,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Lawrenceville and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0030",
+      "slug": "chattahoochee-prep-works-sandy-springs",
+      "name": "Chattahoochee Prep Works - Sandy Springs",
+      "category": "Test preparation center",
+      "subtypes": [
+        "SAT Prep",
+        "ACT Prep",
+        "Exam Coaching"
+      ],
+      "phone": "+1 470-555-0129",
+      "website": "https://www.example.com/chattahoochee-prep-works",
+      "street": "1403 Mill Creek Dr",
+      "city": "Sandy Springs",
+      "citySlug": "sandy-springs",
+      "state": "Georgia",
+      "postalCode": "30328",
+      "fullAddress": "1403 Mill Creek Dr, Sandy Springs, GA 30328",
+      "latitude": 33.93615,
+      "longitude": -84.37655,
+      "rating": 4.4,
+      "reviewCount": 133,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 13,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Sandy Springs and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        }
+      ]
+    },
+    {
+      "id": "sample-0034",
+      "slug": "bright-steps-tutoring-center-duluth",
+      "name": "Bright Steps Tutoring Center - Duluth",
+      "category": "Learning center",
+      "subtypes": [
+        "Early Learning",
+        "Reading Tutoring",
+        "Phonics"
+      ],
+      "phone": "+1 470-555-0133",
+      "website": "https://www.example.com/bright-steps-tutoring-center",
+      "street": "1431 Main St",
+      "city": "Duluth",
+      "citySlug": "duluth",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1431 Main St, Duluth, GA 30097",
+      "latitude": 33.99565,
+      "longitude": -84.14485,
+      "rating": 3.9,
+      "reviewCount": 249,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 17,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Duluth and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0022",
+      "slug": "little-learners-studio-alpharetta",
+      "name": "Little Learners Studio - Alpharetta",
+      "category": "Educational institution",
+      "subtypes": [
+        "Early Learning",
+        "Pre-K Readiness"
+      ],
+      "phone": "+1 470-555-0121",
+      "website": "https://www.example.com/little-learners-studio",
+      "street": "1347 Mill Creek Dr",
+      "city": "Alpharetta",
+      "citySlug": "alpharetta",
+      "state": "Georgia",
+      "postalCode": "30022",
+      "fullAddress": "1347 Mill Creek Dr, Alpharetta, GA 30022",
+      "latitude": 34.06435,
+      "longitude": -84.28415,
+      "rating": 4.3,
+      "reviewCount": 141,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 5,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Alpharetta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0055",
+      "slug": "robot-garden-stem-lab-valdosta",
+      "name": "Robot Garden STEM Lab - Valdosta",
+      "category": "STEM education center",
+      "subtypes": [
+        "STEM",
+        "Coding",
+        "Robotics"
+      ],
+      "phone": "+1 470-555-0154",
+      "website": "https://www.example.com/robot-garden-stem-lab",
+      "street": "1578 Sycamore Way",
+      "city": "Valdosta",
+      "citySlug": "valdosta",
+      "state": "Georgia",
+      "postalCode": "31602",
+      "fullAddress": "1578 Sycamore Way, Valdosta, GA 31602",
+      "latitude": 30.8447,
+      "longitude": -83.2755,
+      "rating": 4.3,
+      "reviewCount": 138,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 18,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Valdosta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0014",
+      "slug": "chattahoochee-prep-works-macon",
+      "name": "Chattahoochee Prep Works - Macon",
+      "category": "Test preparation center",
+      "subtypes": [
+        "SAT Prep",
+        "ACT Prep",
+        "Exam Coaching"
+      ],
+      "phone": "+1 470-555-0113",
+      "website": "https://www.example.com/chattahoochee-prep-works",
+      "street": "1291 Mill Creek Dr",
+      "city": "Macon",
+      "citySlug": "macon",
+      "state": "Georgia",
+      "postalCode": "31210",
+      "fullAddress": "1291 Mill Creek Dr, Macon, GA 31210",
+      "latitude": 32.87065,
+      "longitude": -83.72205,
+      "rating": 4.2,
+      "reviewCount": 149,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 17,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Macon and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0047",
+      "slug": "storybook-literacy-house-peachtree-city",
+      "name": "Storybook Literacy House - Peachtree City",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Phonics",
+        "Reading Tutoring",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0146",
+      "website": "https://www.example.com/storybook-literacy-house",
+      "street": "1522 Sycamore Way",
+      "city": "Peachtree City",
+      "citySlug": "peachtree-city",
+      "state": "Georgia",
+      "postalCode": "30269",
+      "fullAddress": "1522 Sycamore Way, Peachtree City, GA 30269",
+      "latitude": 33.3848,
+      "longitude": -84.5993,
+      "rating": 4.2,
+      "reviewCount": 146,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 10,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Peachtree City and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0006",
+      "slug": "little-learners-studio-savannah",
+      "name": "Little Learners Studio - Savannah",
+      "category": "Educational institution",
+      "subtypes": [
+        "Early Learning",
+        "Pre-K Readiness"
+      ],
+      "phone": "+1 470-555-0105",
+      "website": "https://www.example.com/little-learners-studio",
+      "street": "1235 Mill Creek Dr",
+      "city": "Savannah",
+      "citySlug": "savannah",
+      "state": "Georgia",
+      "postalCode": "31401",
+      "fullAddress": "1235 Mill Creek Dr, Savannah, GA 31401",
+      "latitude": 32.08965,
+      "longitude": -81.08745,
+      "rating": 4.1,
+      "reviewCount": 157,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 9,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Savannah and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0039",
+      "slug": "robot-garden-stem-lab-lawrenceville",
+      "name": "Robot Garden STEM Lab - Lawrenceville",
+      "category": "STEM education center",
+      "subtypes": [
+        "STEM",
+        "Coding",
+        "Robotics"
+      ],
+      "phone": "+1 470-555-0138",
+      "website": "https://www.example.com/robot-garden-stem-lab",
+      "street": "1466 Sycamore Way",
+      "city": "Lawrenceville",
+      "citySlug": "lawrenceville",
+      "state": "Georgia",
+      "postalCode": "30043",
+      "fullAddress": "1466 Sycamore Way, Lawrenceville, GA 30043",
+      "latitude": 33.9452,
+      "longitude": -83.9969,
+      "rating": 4.1,
+      "reviewCount": 154,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 22,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Lawrenceville and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        }
+      ]
+    },
+    {
+      "id": "sample-0031",
+      "slug": "storybook-literacy-house-johns-creek",
+      "name": "Storybook Literacy House - Johns Creek",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Phonics",
+        "Reading Tutoring",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0130",
+      "website": "https://www.example.com/storybook-literacy-house",
+      "street": "1410 Sycamore Way",
+      "city": "Johns Creek",
+      "citySlug": "johns-creek",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1410 Sycamore Way, Johns Creek, GA 30097",
+      "latitude": 34.0189,
+      "longitude": -84.1886,
+      "rating": 4,
+      "reviewCount": 162,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 14,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Johns Creek and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0023",
+      "slug": "robot-garden-stem-lab-alpharetta",
+      "name": "Robot Garden STEM Lab - Alpharetta",
+      "category": "STEM education center",
+      "subtypes": [
+        "STEM",
+        "Coding",
+        "Robotics"
+      ],
+      "phone": "+1 470-555-0122",
+      "website": "https://www.example.com/robot-garden-stem-lab",
+      "street": "1354 Sycamore Way",
+      "city": "Alpharetta",
+      "citySlug": "alpharetta",
+      "state": "Georgia",
+      "postalCode": "30022",
+      "fullAddress": "1354 Sycamore Way, Alpharetta, GA 30022",
+      "latitude": 34.0486,
+      "longitude": -84.2709,
+      "rating": 3.9,
+      "reviewCount": 170,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 6,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Alpharetta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0056",
+      "slug": "sunbelt-reading-clinic-valdosta",
+      "name": "Sunbelt Reading Clinic - Valdosta",
+      "category": "Reading tutor",
+      "subtypes": [
+        "Reading Tutoring",
+        "Dyslexia Support",
+        "Literacy"
+      ],
+      "phone": "+1 470-555-0155",
+      "website": "https://www.example.com/sunbelt-reading-clinic",
+      "street": "1585 Broad St",
+      "city": "Valdosta",
+      "citySlug": "valdosta",
+      "state": "Georgia",
+      "postalCode": "31602",
+      "fullAddress": "1585 Broad St, Valdosta, GA 31602",
+      "latitude": 30.82895,
+      "longitude": -83.28725,
+      "rating": 3.9,
+      "reviewCount": 167,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 19,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Valdosta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0003",
+      "slug": "magnolia-math-academy-atlanta",
+      "name": "Magnolia Math Academy - Atlanta",
+      "category": "Math tutoring center",
+      "subtypes": [
+        "Math Tutoring",
+        "Algebra",
+        "Calculus"
+      ],
+      "phone": "+1 470-555-0102",
+      "website": "https://www.example.com/magnolia-math-academy",
+      "street": "1214 Oak Grove Ln",
+      "city": "Atlanta",
+      "citySlug": "atlanta",
+      "state": "Georgia",
+      "postalCode": "30309",
+      "fullAddress": "1214 Oak Grove Ln, Atlanta, GA 30309",
+      "latitude": 33.7898,
+      "longitude": -84.3963,
+      "rating": 4.2,
+      "reviewCount": 70,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 6,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Atlanta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0011",
+      "slug": "kite-and-compass-tutoring-columbus",
+      "name": "Kite & Compass Tutoring - Columbus",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Online Tutoring",
+        "Test Prep",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0110",
+      "website": "https://www.example.com/kite-compass-tutoring",
+      "street": "1270 Oak Grove Ln",
+      "city": "Columbus",
+      "citySlug": "columbus",
+      "state": "Georgia",
+      "postalCode": "31904",
+      "fullAddress": "1270 Oak Grove Ln, Columbus, GA 31904",
+      "latitude": 32.5143,
+      "longitude": -84.9763,
+      "rating": 4.3,
+      "reviewCount": 62,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 14,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Columbus and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0019",
+      "slug": "magnolia-math-academy-marietta",
+      "name": "Magnolia Math Academy - Marietta",
+      "category": "Math tutoring center",
+      "subtypes": [
+        "Math Tutoring",
+        "Algebra",
+        "Calculus"
+      ],
+      "phone": "+1 470-555-0118",
+      "website": "https://www.example.com/magnolia-math-academy",
+      "street": "1326 Oak Grove Ln",
+      "city": "Marietta",
+      "citySlug": "marietta",
+      "state": "Georgia",
+      "postalCode": "30062",
+      "fullAddress": "1326 Oak Grove Ln, Marietta, GA 30062",
+      "latitude": 33.9666,
+      "longitude": -84.5289,
+      "rating": 4.4,
+      "reviewCount": 54,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 22,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Marietta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0036",
+      "slug": "red-clay-test-prep-duluth",
+      "name": "Red Clay Test Prep - Duluth",
+      "category": "Test preparation center",
+      "subtypes": [
+        "Test Prep",
+        "SAT",
+        "ACT"
+      ],
+      "phone": "+1 470-555-0135",
+      "website": "https://www.example.com/red-clay-test-prep",
+      "street": "1445 Church St",
+      "city": "Duluth",
+      "citySlug": "duluth",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1445 Church St, Duluth, GA 30097",
+      "latitude": 34.01415,
+      "longitude": -84.14335,
+      "rating": 4.2,
+      "reviewCount": 67,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 19,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Duluth and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        }
+      ]
+    },
+    {
+      "id": "sample-0028",
+      "slug": "blue-heron-study-center-sandy-springs",
+      "name": "Blue Heron Study Center - Sandy Springs",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Science",
+        "Math Tutoring"
+      ],
+      "phone": "+1 470-555-0127",
+      "website": "https://www.example.com/blue-heron-study-center",
+      "street": "1389 Church St",
+      "city": "Sandy Springs",
+      "citySlug": "sandy-springs",
+      "state": "Georgia",
+      "postalCode": "30328",
+      "fullAddress": "1389 Church St, Sandy Springs, GA 30328",
+      "latitude": 33.94265,
+      "longitude": -84.37805,
+      "rating": 4.1,
+      "reviewCount": 75,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 11,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Sandy Springs and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0044",
+      "slug": "blue-heron-study-center-kennesaw",
+      "name": "Blue Heron Study Center - Kennesaw",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Science",
+        "Math Tutoring"
+      ],
+      "phone": "+1 470-555-0143",
+      "website": "https://www.example.com/blue-heron-study-center",
+      "street": "1501 Church St",
+      "city": "Kennesaw",
+      "citySlug": "kennesaw",
+      "state": "Georgia",
+      "postalCode": "30144",
+      "fullAddress": "1501 Church St, Kennesaw, GA 30144",
+      "latitude": 34.03365,
+      "longitude": -84.60825,
+      "rating": 4.3,
+      "reviewCount": 59,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 7,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Kennesaw and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0020",
+      "slug": "red-clay-test-prep-marietta",
+      "name": "Red Clay Test Prep - Marietta",
+      "category": "Test preparation center",
+      "subtypes": [
+        "Test Prep",
+        "SAT",
+        "ACT"
+      ],
+      "phone": "+1 470-555-0119",
+      "website": "https://www.example.com/red-clay-test-prep",
+      "street": "1333 Church St",
+      "city": "Marietta",
+      "citySlug": "marietta",
+      "state": "Georgia",
+      "postalCode": "30062",
+      "fullAddress": "1333 Church St, Marietta, GA 30062",
+      "latitude": 33.95085,
+      "longitude": -84.54065,
+      "rating": 4,
+      "reviewCount": 83,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 23,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Marietta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0027",
+      "slug": "kite-and-compass-tutoring-roswell",
+      "name": "Kite & Compass Tutoring - Roswell",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Online Tutoring",
+        "Test Prep",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0126",
+      "website": "https://www.example.com/kite-compass-tutoring",
+      "street": "1382 Oak Grove Ln",
+      "city": "Roswell",
+      "citySlug": "roswell",
+      "state": "Georgia",
+      "postalCode": "30075",
+      "fullAddress": "1382 Oak Grove Ln, Roswell, GA 30075",
+      "latitude": 34.0375,
+      "longitude": -84.3454,
+      "rating": 4.5,
+      "reviewCount": 46,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 10,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Roswell and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0052",
+      "slug": "red-clay-test-prep-newnan",
+      "name": "Red Clay Test Prep - Newnan",
+      "category": "Test preparation center",
+      "subtypes": [
+        "Test Prep",
+        "SAT",
+        "ACT"
+      ],
+      "phone": "+1 470-555-0151",
+      "website": "https://www.example.com/red-clay-test-prep",
+      "street": "1557 Church St",
+      "city": "Newnan",
+      "citySlug": "newnan",
+      "state": "Georgia",
+      "postalCode": "30263",
+      "fullAddress": "1557 Church St, Newnan, GA 30263",
+      "latitude": 33.38995,
+      "longitude": -84.81145,
+      "rating": 4.4,
+      "reviewCount": 51,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 15,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Newnan and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        }
+      ]
+    },
+    {
+      "id": "sample-0002",
+      "slug": "bright-steps-tutoring-center-atlanta",
+      "name": "Bright Steps Tutoring Center - Atlanta",
+      "category": "Learning center",
+      "subtypes": [
+        "Early Learning",
+        "Reading Tutoring",
+        "Phonics"
+      ],
+      "phone": "+1 470-555-0101",
+      "website": "https://www.example.com/bright-steps-tutoring-center",
+      "street": "1207 Main St",
+      "city": "Atlanta",
+      "citySlug": "atlanta",
+      "state": "Georgia",
+      "postalCode": "30309",
+      "fullAddress": "1207 Main St, Atlanta, GA 30309",
+      "latitude": 33.78055,
+      "longitude": -84.38455,
+      "rating": 4.6,
+      "reviewCount": 41,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 5,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Atlanta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0053",
+      "slug": "southern-scholars-center-newnan",
+      "name": "Southern Scholars Center - Newnan",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Study Skills",
+        "Test Prep"
+      ],
+      "phone": "+1 470-555-0152",
+      "website": "https://www.example.com/southern-scholars-center",
+      "street": "1564 Highland Ave",
+      "city": "Newnan",
+      "citySlug": "newnan",
+      "state": "Georgia",
+      "postalCode": "30263",
+      "fullAddress": "1564 Highland Ave, Newnan, GA 30263",
+      "latitude": 33.3742,
+      "longitude": -84.7982,
+      "rating": 4,
+      "reviewCount": 80,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 16,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Newnan and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0012",
+      "slug": "blue-heron-study-center-columbus",
+      "name": "Blue Heron Study Center - Columbus",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Science",
+        "Math Tutoring"
+      ],
+      "phone": "+1 470-555-0111",
+      "website": "https://www.example.com/blue-heron-study-center",
+      "street": "1277 Church St",
+      "city": "Columbus",
+      "citySlug": "columbus",
+      "state": "Georgia",
+      "postalCode": "31904",
+      "fullAddress": "1277 Church St, Columbus, GA 31904",
+      "latitude": 32.49855,
+      "longitude": -84.96305,
+      "rating": 3.9,
+      "reviewCount": 91,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 15,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Columbus and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0045",
+      "slug": "gwinnett-bridge-learning-kennesaw",
+      "name": "Gwinnett Bridge Learning - Kennesaw",
+      "category": "Special education school",
+      "subtypes": [
+        "Special Needs Support",
+        "ADHD Coaching"
+      ],
+      "phone": "+1 470-555-0144",
+      "website": "https://www.example.com/gwinnett-bridge-learning",
+      "street": "1508 Highland Ave",
+      "city": "Kennesaw",
+      "citySlug": "kennesaw",
+      "state": "Georgia",
+      "postalCode": "30144",
+      "fullAddress": "1508 Highland Ave, Kennesaw, GA 30144",
+      "latitude": 34.0179,
+      "longitude": -84.62,
+      "rating": 3.9,
+      "reviewCount": 88,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 8,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Kennesaw and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "special-needs-support",
+          "label": "Special Needs Support"
+        }
+      ]
+    },
+    {
+      "id": "sample-0060",
+      "slug": "blue-heron-study-center-warner-robins",
+      "name": "Blue Heron Study Center - Warner Robins",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Homework Help",
+        "Science",
+        "Math Tutoring"
+      ],
+      "phone": "+1 470-555-0159",
+      "website": "https://www.example.com/blue-heron-study-center",
+      "street": "1613 Church St",
+      "city": "Warner Robins",
+      "citySlug": "warner-robins",
+      "state": "Georgia",
+      "postalCode": "31088",
+      "fullAddress": "1613 Church St, Warner Robins, GA 31088",
+      "latitude": 32.60675,
+      "longitude": -83.62995,
+      "rating": 4.5,
+      "reviewCount": 43,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 23,
+      "priceRange": "$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Warner Robins and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "stem-and-coding",
+          "label": "STEM & Coding"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0035",
+      "slug": "magnolia-math-academy-duluth",
+      "name": "Magnolia Math Academy - Duluth",
+      "category": "Math tutoring center",
+      "subtypes": [
+        "Math Tutoring",
+        "Algebra",
+        "Calculus"
+      ],
+      "phone": "+1 470-555-0134",
+      "website": "https://www.example.com/magnolia-math-academy",
+      "street": "1438 Oak Grove Ln",
+      "city": "Duluth",
+      "citySlug": "duluth",
+      "state": "Georgia",
+      "postalCode": "30097",
+      "fullAddress": "1438 Oak Grove Ln, Duluth, GA 30097",
+      "latitude": 34.0049,
+      "longitude": -84.1566,
+      "rating": 4.6,
+      "reviewCount": 38,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 18,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Duluth and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0010",
+      "slug": "camellia-learning-center-columbus",
+      "name": "Camellia Learning Center - Columbus",
+      "category": "Learning center",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Enrichment"
+      ],
+      "phone": "+1 470-555-0109",
+      "website": "https://www.example.com/camellia-learning-center",
+      "street": "1263 Main St",
+      "city": "Columbus",
+      "citySlug": "columbus",
+      "state": "Georgia",
+      "postalCode": "31904",
+      "fullAddress": "1263 Main St, Columbus, GA 31904",
+      "latitude": 32.50505,
+      "longitude": -84.96455,
+      "rating": 4.7,
+      "reviewCount": 33,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 13,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Flexible after-school and weekend scheduling built around busy family calendars. Serving families across Columbus and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0043",
+      "slug": "kite-and-compass-tutoring-kennesaw",
+      "name": "Kite & Compass Tutoring - Kennesaw",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Online Tutoring",
+        "Test Prep",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0142",
+      "website": "https://www.example.com/kite-compass-tutoring",
+      "street": "1494 Oak Grove Ln",
+      "city": "Kennesaw",
+      "citySlug": "kennesaw",
+      "state": "Georgia",
+      "postalCode": "30144",
+      "fullAddress": "1494 Oak Grove Ln, Kennesaw, GA 30144",
+      "latitude": 34.0244,
+      "longitude": -84.6215,
+      "rating": 4.7,
+      "reviewCount": 30,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 6,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Kennesaw and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0018",
+      "slug": "bright-steps-tutoring-center-athens",
+      "name": "Bright Steps Tutoring Center - Athens",
+      "category": "Learning center",
+      "subtypes": [
+        "Early Learning",
+        "Reading Tutoring",
+        "Phonics"
+      ],
+      "phone": "+1 470-555-0117",
+      "website": "https://www.example.com/bright-steps-tutoring-center",
+      "street": "1319 Main St",
+      "city": "Athens",
+      "citySlug": "athens",
+      "state": "Georgia",
+      "postalCode": "30606",
+      "fullAddress": "1319 Main St, Athens, GA 30606",
+      "latitude": 33.93325,
+      "longitude": -83.42485,
+      "rating": 4.8,
+      "reviewCount": 25,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 21,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Small class sizes, progress reports for parents, and free consultations before enrolling. Serving families across Athens and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        }
+      ]
+    },
+    {
+      "id": "sample-0051",
+      "slug": "magnolia-math-academy-woodstock",
+      "name": "Magnolia Math Academy - Woodstock",
+      "category": "Math tutoring center",
+      "subtypes": [
+        "Math Tutoring",
+        "Algebra",
+        "Calculus"
+      ],
+      "phone": "+1 470-555-0150",
+      "website": "https://www.example.com/magnolia-math-academy",
+      "street": "1550 Oak Grove Ln",
+      "city": "Woodstock",
+      "citySlug": "woodstock",
+      "state": "Georgia",
+      "postalCode": "30188",
+      "fullAddress": "1550 Oak Grove Ln, Woodstock, GA 30188",
+      "latitude": 34.1015,
+      "longitude": -84.5194,
+      "rating": 4.8,
+      "reviewCount": 22,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 14,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Diagnostic assessment first, then a paced program that families can follow week to week. Serving families across Woodstock and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "2-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-1PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "1-5PM"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0026",
+      "slug": "camellia-learning-center-roswell",
+      "name": "Camellia Learning Center - Roswell",
+      "category": "Learning center",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Enrichment"
+      ],
+      "phone": "+1 470-555-0125",
+      "website": "https://www.example.com/camellia-learning-center",
+      "street": "1375 Main St",
+      "city": "Roswell",
+      "citySlug": "roswell",
+      "state": "Georgia",
+      "postalCode": "30075",
+      "fullAddress": "1375 Main St, Roswell, GA 30075",
+      "latitude": 34.02825,
+      "longitude": -84.35865,
+      "rating": 4.9,
+      "reviewCount": 17,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 9,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Certified teachers work with students from kindergarten through high school on the exact skills their class is covering now. Serving families across Roswell and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "early-learning",
+          "label": "Early Learning"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    },
+    {
+      "id": "sample-0059",
+      "slug": "kite-and-compass-tutoring-warner-robins",
+      "name": "Kite & Compass Tutoring - Warner Robins",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Online Tutoring",
+        "Test Prep",
+        "Writing"
+      ],
+      "phone": "+1 470-555-0158",
+      "website": "https://www.example.com/kite-compass-tutoring",
+      "street": "1606 Oak Grove Ln",
+      "city": "Warner Robins",
+      "citySlug": "warner-robins",
+      "state": "Georgia",
+      "postalCode": "31088",
+      "fullAddress": "1606 Oak Grove Ln, Warner Robins, GA 31088",
+      "latitude": 32.5975,
+      "longitude": -83.6182,
+      "rating": 4.9,
+      "reviewCount": 14,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 22,
+      "priceRange": "$$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "Mixes in-center sessions with online tutoring so students never miss a week. Serving families across Warner Robins and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "9AM-7PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "9AM-5PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "10AM-3PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "test-prep",
+          "label": "Test Prep"
+        },
+        {
+          "slug": "online-tutoring",
+          "label": "Online Tutoring"
+        }
+      ]
+    },
+    {
+      "id": "sample-0001",
+      "slug": "peachtree-learning-lab-atlanta",
+      "name": "Peachtree Learning Lab - Atlanta",
+      "category": "Tutoring service",
+      "subtypes": [
+        "Math Tutoring",
+        "Reading Tutoring",
+        "Homework Help"
+      ],
+      "phone": "+1 470-555-0100",
+      "website": "https://www.example.com/peachtree-learning-lab",
+      "street": "1200 Peachtree Rd NE",
+      "city": "Atlanta",
+      "citySlug": "atlanta",
+      "state": "Georgia",
+      "postalCode": "30309",
+      "fullAddress": "1200 Peachtree Rd NE, Atlanta, GA 30309",
+      "latitude": 33.7713,
+      "longitude": -84.3978,
+      "rating": 3.9,
+      "reviewCount": 12,
+      "reviewsLink": "",
+      "googleMapsLink": "",
+      "photosCount": 4,
+      "priceRange": "$$",
+      "businessStatus": "OPERATIONAL",
+      "verified": true,
+      "about": "One-to-one instruction with a written learning plan for every student, plus small-group sessions after school. Serving families across Atlanta and nearby Georgia communities.",
+      "hours": [
+        {
+          "day": "Monday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Thursday",
+          "hours": "3-8PM"
+        },
+        {
+          "day": "Friday",
+          "hours": "3-6PM"
+        },
+        {
+          "day": "Saturday",
+          "hours": "9AM-2PM"
+        },
+        {
+          "day": "Sunday",
+          "hours": "Closed"
+        }
+      ],
+      "services": [
+        {
+          "slug": "math-tutoring",
+          "label": "Math Tutoring"
+        },
+        {
+          "slug": "reading-tutoring",
+          "label": "Reading & Literacy"
+        },
+        {
+          "slug": "homework-help",
+          "label": "Homework Help"
+        }
+      ]
+    }
+  ]
+}
