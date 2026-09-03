@@ -37,7 +37,7 @@ export function pageMeta({
       siteName: site.name,
       type,
       locale: "en_US",
-      images: [{ url: `${site.url}/logo.svg`, width: 1200, height: 630, alt: site.name }],
+      images: [{ url: `${site.url}/og-image.png`, width: 1200, height: 630, alt: site.name }],
       ...(published ? { publishedTime: published } : {}),
       ...(modified ? { modifiedTime: modified } : {}),
     },
@@ -45,7 +45,7 @@ export function pageMeta({
       card: "summary_large_image",
       title,
       description,
-      images: [`${site.url}/logo.svg`],
+      images: [`${site.url}/og-image.png`],
     },
   };
 }
@@ -172,7 +172,7 @@ export function articleSchema(input: {
       "@type": "Organization",
       name: site.name,
       url: site.url,
-      logo: { "@type": "ImageObject", url: `${site.url}/logo.svg` },
+      logo: { "@type": "ImageObject", url: `${site.url}/logo-mark.svg` },
     },
   };
 }
@@ -185,7 +185,7 @@ export function organizationSchema() {
     name: site.name,
     url: site.url,
     description: site.description,
-    logo: { "@type": "ImageObject", url: `${site.url}/logo.svg` },
+    logo: { "@type": "ImageObject", url: `${site.url}/logo-mark.svg` },
     areaServed: { "@type": "State", name: "Georgia" },
     sameAs: [site.social.facebook, site.social.instagram, site.social.twitter],
     contactPoint: [

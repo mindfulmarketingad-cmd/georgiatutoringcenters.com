@@ -35,7 +35,7 @@ script context, and all first-party JavaScript is bundled from `'self'`.
 - All page content is rendered through React, which escapes by default.
 - `dangerouslySetInnerHTML` is used in exactly one place, `components/JsonLd.tsx`,
   and only with `JSON.stringify` output whose `<` characters are escaped to
-  `<`, so a listing name can never close the script tag.
+  their unicode form, so a listing name can never close the script tag.
 - Search queries are decoded, stripped of angle brackets and length-capped
   (`app/search/[query]/page.tsx`) before being rendered or used.
 - Listing data is normalised at import time rather than trusted at render time.
