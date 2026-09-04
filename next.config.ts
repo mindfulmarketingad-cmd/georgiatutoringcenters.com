@@ -40,11 +40,18 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   trailingSlash: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  // Every image on the site is a pre-optimised static asset (SVG logos, PNG
+  // icons and the social card), so the image optimizer — and its sharp
+  // dependency — is not needed at runtime.
+  images: { unoptimized: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
   async redirects() {
+    // Redirect sources are matched case-insensitively, so a /Find -> /find
+    // rule would also match /find and loop. Next 16 routes case-sensitively,
+    // which means mixed-case URLs 404 instead of duplicating a page; internal
+    // links and canonical tags are all lowercase.
     return [{ source: "/home", destination: "/", permanent: true }];
   },
 };

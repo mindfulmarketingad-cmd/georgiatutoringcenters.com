@@ -41,10 +41,6 @@ export default function HeroCarousel({ listings }: Props) {
   }, [coords, listings]);
 
   useEffect(() => {
-    setIndex(0);
-  }, [coords]);
-
-  useEffect(() => {
     if (paused || slides.length < 2) return;
     const timer = window.setInterval(() => setIndex((i) => (i + 1) % slides.length), 6000);
     return () => window.clearInterval(timer);
@@ -60,6 +56,9 @@ export default function HeroCarousel({ listings }: Props) {
       (position) => {
         setCoords({ lat: position.coords.latitude, lng: position.coords.longitude });
         setGeoState("granted");
+        // The slide order changes with the new coordinates, so restart at the
+        // nearest center rather than whichever index was showing.
+        setIndex(0);
       },
       () => setGeoState("denied"),
       { enableHighAccuracy: false, timeout: 8000, maximumAge: 600000 }

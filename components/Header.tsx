@@ -3,16 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { headerLinks, site } from "@/lib/site";
 
 export default function Header() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  // The menu remembers which route it was opened on, so navigating anywhere
+  // closes it without an effect that would re-render the header twice.
+  const [openedOn, setOpenedOn] = useState<string | null>(null);
+  const open = openedOn === pathname;
 
   const isCurrent = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -29,7 +28,7 @@ export default function Header() {
           className="nav-toggle"
           aria-expanded={open}
           aria-controls="primary-navigation"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpenedOn(open ? null : pathname)}
         >
           {open ? "Close" : "Menu"}
         </button>

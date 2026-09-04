@@ -3,6 +3,10 @@
 A directory of tutoring and learning centers across Georgia, built with Next.js 15
 (App Router), TypeScript and no runtime CSS framework.
 
+## Requirements
+
+Node 20.9 or newer (`.nvmrc` pins 22). Next 16, React 19.
+
 ## Quick start
 
 ```bash
@@ -88,7 +92,7 @@ links back to its hub, to sibling pages and to the homepage.
 | Site name, domain, email, social links, AdSense client | `lib/site.ts` |
 | Header and footer links, hub blocks | `lib/site.ts` |
 | Security headers and CSP | `next.config.ts` |
-| URL canonicalisation (casing, trailing slash) | `middleware.ts` |
+| Redirects | `next.config.ts` |
 | Blog, cost guide and find-page copy | `lib/content/` |
 
 ### Environment variables
@@ -96,6 +100,15 @@ links back to its hub, to sibling pages and to the homepage.
 | Variable | Purpose |
 | --- | --- |
 | `CONTACT_WEBHOOK_URL` | Optional. Where `/api/contact` forwards validated submissions (any JSON webhook: email service, form backend, automation). Without it the form tells visitors to email directly instead of silently dropping messages. |
+
+## URLs
+
+Routes are lowercase and case-sensitive under Next 16, so `/Find` returns 404
+rather than duplicating `/find`; every internal link and canonical tag uses the
+lowercase form. Trailing slashes redirect to the canonical path automatically
+(`trailingSlash: false`). There is deliberately **no middleware** — the site is
+fully static plus one API route, and an edge function in front of every request
+is a runtime failure mode with nothing to gain here.
 
 ## Maps
 
