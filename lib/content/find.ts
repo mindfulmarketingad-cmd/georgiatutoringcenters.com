@@ -5,7 +5,7 @@ export type FindPage = {
   slug: string;
   /** A page with a single listing is too thin to index; it stays crawlable and linked. */
   noindex: boolean;
-  kind: "city" | "service";
+  kind: "city" | "service" | "city-service";
   key: string;
   label: string;
   h1: string;
@@ -14,6 +14,9 @@ export type FindPage = {
   intro: string[];
   listings: Listing[];
   faqs: Faq[];
+  /** Set on "city-service" pages so the view can link back to each parent page. */
+  cityPage?: { slug: string; label: string };
+  servicePage?: { slug: string; label: string };
 };
 
 const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
@@ -26,6 +29,11 @@ const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
     blurb:
       "Reading and literacy programs cover phonics, fluency, vocabulary and comprehension, and are the highest-value early intervention available to a Georgia family.",
     who: "early elementary readers, students who decode slowly, and older students whose comprehension lags their grade",
+  },
+  "english-tutoring": {
+    blurb:
+      "English and language arts tutoring covers grammar, essay writing, literature analysis and vocabulary, building on the reading foundation for students in upper elementary through high school.",
+    who: "middle and high school students working on essays and literature, and any student whose writing needs more structure than a classroom can give it",
   },
   "test-prep": {
     blurb:
@@ -58,6 +66,35 @@ const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
     who: "middle and high school students, and any family with a tight afternoon schedule",
   },
 };
+
+const SERVICE_TUTOR: Record<string, { label: string; slugWord: string }> = {
+  "math-tutoring": { label: "Math Tutors", slugWord: "math-tutors" },
+  "reading-tutoring": { label: "Reading Tutors", slugWord: "reading-tutors" },
+  "english-tutoring": { label: "English Tutors", slugWord: "english-tutors" },
+  "test-prep": { label: "Test Prep Tutors", slugWord: "test-prep-tutors" },
+  "stem-and-coding": { label: "STEM & Coding Tutors", slugWord: "stem-tutors" },
+  "special-needs-support": { label: "Special Needs Tutors", slugWord: "special-needs-tutors" },
+  "early-learning": { label: "Early Learning Tutors", slugWord: "early-learning-tutors" },
+  "homework-help": { label: "Homework Help Tutors", slugWord: "homework-help-tutors" },
+  "online-tutoring": { label: "Online Tutors", slugWord: "online-tutors" },
+};
+
+function cityServiceFaqs(tutorLabel: string, city: string, count: number): Faq[] {
+  return [
+    {
+      q: `How many ${tutorLabel.toLowerCase()} are in ${city}, Georgia?`,
+      a: `We currently list ${count} ${tutorLabel.toLowerCase()} serving ${city}. Each listing includes hours, contact details, ratings and a direct phone number.`,
+    },
+    {
+      q: `How do I pick between them?`,
+      a: `Ask what the intake assessment measures, who teaches your child each week, the student-to-instructor ratio, the total first-month cost, and how progress is reported. See our cost guides for what a fair quote looks like in Georgia.`,
+    },
+    {
+      q: `Is there a closer option outside ${city}?`,
+      a: `Check the nearby city pages linked below, or browse this subject across all of Georgia for the full list.`,
+    },
+  ];
+}
 
 function cityFaqs(city: string, count: number): Faq[] {
   return [
@@ -134,6 +171,41 @@ export function findPages(): FindPage[] {
       listings: group.listings,
       faqs: serviceFaqs(group.label, group.count),
     });
+  }
+
+  for (const cityGroup of cities()) {
+    for (const serviceGroup of services()) {
+      const matches = cityGroup.listings.filter((listing) =>
+        listing.services.some((s) => s.slug === serviceGroup.slug)
+      );
+      if (!matches.length) continue;
+
+      const tutor = SERVICE_TUTOR[serviceGroup.slug] ?? {
+        label: `${serviceGroup.label} Tutors`,
+        slugWord: `${serviceGroup.slug}-tutors`,
+      };
+      const cityPageSlug = `tutoring-centers-in-${cityGroup.citySlug}`;
+      const servicePageSlug = `${serviceGroup.slug}-in-georgia`;
+
+      pages.push({
+        slug: `${tutor.slugWord}-in-${cityGroup.citySlug}`,
+        noindex: matches.length < 2,
+        kind: "city-service",
+        key: `${serviceGroup.slug}:${cityGroup.citySlug}`,
+        label: `${tutor.label} in ${cityGroup.city}`,
+        h1: `${tutor.label} in ${cityGroup.city}, GA`,
+        metaTitle: `${tutor.label} in ${cityGroup.city}, GA | ${matches.length} ${matches.length === 1 ? "Center" : "Centers"}`,
+        description: `Compare ${matches.length} ${tutor.label.toLowerCase()} in ${cityGroup.city}, Georgia. Hours, ratings, phone numbers and directions for each center.`,
+        intro: [
+          `${cityGroup.city} families have ${matches.length} ${tutor.label.toLowerCase()} listed in this directory. Every listing below shows hours of operation, review counts and contact details.`,
+          `For every subject in ${cityGroup.city}, see the full ${cityGroup.city} city guide. For ${serviceGroup.label.toLowerCase()} statewide, see the Georgia-wide subject page.`,
+        ],
+        listings: matches,
+        faqs: cityServiceFaqs(tutor.label, cityGroup.city, matches.length),
+        cityPage: { slug: cityPageSlug, label: cityGroup.city },
+        servicePage: { slug: servicePageSlug, label: serviceGroup.label },
+      });
+    }
   }
 
   return pages;

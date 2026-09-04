@@ -32,22 +32,37 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
           label: service.label,
           href: `/find/${service.slug}-in-georgia`,
         }))
-      : cities()
-          .slice(0, 10)
-          .map((city) => ({
-            label: city.city,
-            href: `/find/tutoring-centers-in-${city.citySlug}`,
-          }));
+      : page.kind === "service"
+        ? cities()
+            .slice(0, 10)
+            .map((city) => ({
+              label: city.city,
+              href: `/find/tutoring-centers-in-${city.citySlug}`,
+            }))
+        : [
+            ...(page.cityPage ? [{ label: page.cityPage.label, href: `/find/${page.cityPage.slug}` }] : []),
+            ...(page.servicePage
+              ? [{ label: page.servicePage.label, href: `/find/${page.servicePage.slug}` }]
+              : []),
+          ];
 
   const siblings = findPages()
     .filter((p) => p.kind === page.kind && p.slug !== page.slug)
+    .filter((p) =>
+      page.kind === "city-service"
+        ? p.cityPage?.slug === page.cityPage?.slug || p.servicePage?.slug === page.servicePage?.slug
+        : true
+    )
     .slice(0, 10);
+
+  const eyebrow =
+    page.kind === "city" ? "City guide" : page.kind === "service" ? "Subject guide" : "City and subject guide";
 
   return (
     <>
       <PageBanner
         title={page.h1}
-        eyebrow={page.kind === "city" ? "City guide" : "Subject guide"}
+        eyebrow={eyebrow}
         image={photoFor(page.slug).banner}
         alt={photoFor(page.slug).alt}
         priority
@@ -99,7 +114,9 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
           <h2>
             {page.kind === "city"
               ? `Tutoring centers in ${page.label}, ranked`
-              : `${page.label} centers in Georgia, ranked`}
+              : page.kind === "service"
+                ? `${page.label} centers in Georgia, ranked`
+                : `${page.label}, ranked`}
             {paged.pageCount > 1 ? ` (page ${paged.page} of ${paged.pageCount})` : ""}
           </h2>
           <p className="lede">
@@ -139,6 +156,15 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
             format, and our <Link href="/blog">learning blog</Link> covers what effective tutoring
             looks like week to week.
           </p>
+
+          {page.kind === "city-service" && page.cityPage && page.servicePage && (
+            <p>
+              See every subject in{" "}
+              <Link href={`/find/${page.cityPage.slug}`}>{page.cityPage.label}</Link>, or{" "}
+              {page.servicePage.label.toLowerCase()} across{" "}
+              <Link href={`/find/${page.servicePage.slug}`}>all of Georgia</Link>.
+            </p>
+          )}
 
           <h2>Keep browsing</h2>
           <LinkList

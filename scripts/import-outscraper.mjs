@@ -187,9 +187,13 @@ function parseAttributes(raw) {
     if (!values || typeof values !== "object") continue;
     const items = Object.entries(values)
       .filter(([, on]) => on === true)
-      .map(([label]) => label);
+      .map(([label]) => label)
+      .sort((a, b) => a.localeCompare(b));
     if (items.length) groups.push({ group, items });
   }
+  // Alphabetical so a feature list reads as a scannable index rather than
+  // whatever order Google's export happened to emit.
+  groups.sort((a, b) => a.group.localeCompare(b.group));
   return groups;
 }
 
@@ -334,7 +338,8 @@ function splitList(value) {
 
 const SERVICE_RULES = [
   { slug: "math-tutoring", label: "Math Tutoring", match: /math|algebra|geometry|calculus|kumon|mathnasium/i },
-  { slug: "reading-tutoring", label: "Reading & Literacy", match: /read|literacy|phonics|dyslex|writing/i },
+  { slug: "reading-tutoring", label: "Reading & Literacy", match: /read|literacy|phonics|dyslex/i },
+  { slug: "english-tutoring", label: "English Tutoring", match: /english|language arts|\bela\b|grammar|literature|essay|vocabulary|writing/i },
   { slug: "test-prep", label: "Test Prep", match: /test prep|sat|act|gre|gmat|exam|prep/i },
   { slug: "stem-and-coding", label: "STEM & Coding", match: /stem|robot|coding|code|engineer|science/i },
   { slug: "special-needs-support", label: "Special Needs Support", match: /special|dyslex|adhd|learning difference|therapy/i },

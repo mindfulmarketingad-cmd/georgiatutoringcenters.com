@@ -52,8 +52,9 @@ The importer also:
 
 - builds a URL slug per business (`/partners/<business-name>-<city>`), de-duplicating collisions;
 - parses `working_hours` from JSON, dict or `"Monday: 9AM-5PM, ..."` string forms;
-- tags each listing with subject areas (math, reading, test prep, STEM, special
-  needs, early learning, homework help, online) used by the `/find` subject pages;
+- tags each listing with subject areas (math, reading, English, test prep, STEM,
+  special needs, early learning, homework help, online) used by the `/find`
+  subject pages;
 - ranks listings by rating weighted with review volume;
 - parses the `about` column, which holds a JSON map of attribute groups rather
   than prose, into a features list ("Online classes", "Wheelchair accessible
@@ -84,18 +85,31 @@ The directory is ~900 centers, so listing pages are paginated at 30 per page
 220 KB per page. Each page carries its own canonical URL, continuous numbering
 and `ItemList` structured data, and every page is in the sitemap.
 
-City pages with only one listing are too thin to index. They stay crawlable and
-linked so nothing 404s, but they are marked `noindex, follow` and left out of
-the sitemap; they become indexable automatically once a second center is
-listed in that city.
+City pages, and city+subject pages (below), with only one listing are too thin
+to index. They stay crawlable and linked so nothing 404s, but they are marked
+`noindex, follow` and left out of the sitemap; they become indexable
+automatically once a second center is listed there.
+
+## City + subject pages
+
+For every city/subject pair with at least one listing, `lib/content/find.ts`
+also generates a combined page such as `/find/math-tutors-in-atlanta` ("Math
+Tutors in Atlanta, GA"), one level deeper than the plain city and subject
+pages. Each one links back to its parent city page and parent subject page,
+and to sibling combos in the same city or for the same subject, so the
+internal linking runs Home → Find → City or Subject → City + Subject →
+individual profile. The tutor-style label and slug per subject (`math-tutoring`
+→ "Math Tutors" / `math-tutors-in-<city>`) live in the `SERVICE_TUTOR` map in
+that file.
 
 ## Site structure
 
 ```
 /                         Home: hero carousel, six hub blocks, SEO sections, FAQs
 /find                     Hub: browse by city and subject
-/find/[slug]              City pages (tutoring-centers-in-<city>) and subject pages
-/find/[slug]/page/[n]     Later pages of a long city or subject list
+/find/[slug]              City pages, subject pages, and city+subject pages
+                          (e.g. math-tutors-in-atlanta)
+/find/[slug]/page/[n]     Later pages of a long city, subject or combo list
 /partners                 Hub: complete numbered listicle
 /partners/page/[n]        Later pages of the directory
 /partners/[slug]          Individual business profile (full Outscraper data)

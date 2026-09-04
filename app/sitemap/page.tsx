@@ -16,16 +16,59 @@ export const metadata: Metadata = pageMeta({
   path: "/sitemap",
 });
 
+const collator = new Intl.Collator("en", { sensitivity: "base", numeric: true });
+const byLabel = <T,>(items: T[], label: (item: T) => string) =>
+  [...items].sort((a, b) => collator.compare(label(a), label(b)));
+
 export default function SitemapPage() {
-  const cityPages = findPages().filter((p) => p.kind === "city");
-  const servicePages = findPages().filter((p) => p.kind === "service");
+  const cityPages = byLabel(
+    findPages().filter((p) => p.kind === "city"),
+    (p) => p.h1
+  );
+  const servicePages = byLabel(
+    findPages().filter((p) => p.kind === "service"),
+    (p) => p.h1
+  );
+  const cityServicePages = byLabel(
+    findPages().filter((p) => p.kind === "city-service" && !p.noindex),
+    (p) => p.h1
+  );
+  const sortedAuthors = byLabel(authors, (a) => a.name);
+  const sortedCostGuides = byLabel(costGuides, (g) => g.title);
+  const sortedBlogPosts = byLabel(blogPosts, (post) => post.title);
+  const sortedListings = byLabel(listings, (l) => l.name);
+
+  const mainPages = byLabel(
+    [
+      { href: "/", label: "Home" },
+      { href: "/find", label: "Find a tutoring center" },
+      { href: "/partners", label: "Partner directory" },
+      { href: "/reviews", label: "Reviews" },
+      { href: "/costs", label: "Costs and pricing" },
+      { href: "/blog", label: "Learning blog" },
+      { href: "/search", label: "Search" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+      { href: "/authors", label: "Our editorial team" },
+    ],
+    (p) => p.label
+  );
+  const legalPages = byLabel(
+    [
+      { href: "/disclaimer", label: "Disclaimer" },
+      { href: "/privacy", label: "Privacy policy" },
+      { href: "/terms", label: "Terms of use" },
+      { href: "/sitemap", label: "Sitemap" },
+    ],
+    (p) => p.label
+  );
 
   return (
     <>
       <PageBanner title="Sitemap" eyebrow="Site index" priority>
         <ul className="banner-facts">
           <li>{listings.length} center profiles</li>
-          <li>{cityPages.length + servicePages.length} find pages</li>
+          <li>{cityPages.length + servicePages.length + cityServicePages.length} find pages</li>
           <li>{blogPosts.length + costGuides.length} guides</li>
         </ul>
       </PageBanner>
@@ -41,21 +84,16 @@ export default function SitemapPage() {
 
           <h2>Main pages</h2>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/find">Find a tutoring center</Link></li>
-            <li><Link href="/partners">Partner directory</Link></li>
-            <li><Link href="/reviews">Reviews</Link></li>
-            <li><Link href="/costs">Costs and pricing</Link></li>
-            <li><Link href="/blog">Learning blog</Link></li>
-            <li><Link href="/search">Search</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/authors">Our editorial team</Link></li>
+            {mainPages.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
           </ul>
 
-          <h2>Authors ({authors.length})</h2>
+          <h2>Authors ({sortedAuthors.length})</h2>
           <ul>
-            {authors.map((author) => (
+            {sortedAuthors.map((author) => (
               <li key={author.slug}>
                 <Link href={`/authors/${author.slug}`}>{author.name}</Link> &mdash; {author.role}
               </li>
@@ -64,10 +102,11 @@ export default function SitemapPage() {
 
           <h2>Legal</h2>
           <ul>
-            <li><Link href="/disclaimer">Disclaimer</Link></li>
-            <li><Link href="/privacy">Privacy policy</Link></li>
-            <li><Link href="/terms">Terms of use</Link></li>
-            <li><Link href="/sitemap">Sitemap</Link></li>
+            {legalPages.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
           </ul>
 
           <h2>Find by city ({cityPages.length})</h2>
@@ -88,27 +127,36 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Cost guides ({costGuides.length})</h2>
+          <h2>Find by city and subject ({cityServicePages.length})</h2>
           <ul>
-            {costGuides.map((guide) => (
+            {cityServicePages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/find/${page.slug}`}>{page.h1}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Cost guides ({sortedCostGuides.length})</h2>
+          <ul>
+            {sortedCostGuides.map((guide) => (
               <li key={guide.slug}>
                 <Link href={`/costs/${guide.slug}`}>{guide.title}</Link>
               </li>
             ))}
           </ul>
 
-          <h2>Blog guides ({blogPosts.length})</h2>
+          <h2>Blog guides ({sortedBlogPosts.length})</h2>
           <ul>
-            {blogPosts.map((post) => (
+            {sortedBlogPosts.map((post) => (
               <li key={post.slug}>
                 <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               </li>
             ))}
           </ul>
 
-          <h2>Tutoring center profiles ({listings.length})</h2>
+          <h2>Tutoring center profiles ({sortedListings.length})</h2>
           <ul>
-            {listings.map((listing) => (
+            {sortedListings.map((listing) => (
               <li key={listing.slug}>
                 <Link href={`/partners/${listing.slug}`}>{listing.name}</Link> &middot;{" "}
                 <Link href={`/reviews/${listing.slug}`}>reviews</Link>
