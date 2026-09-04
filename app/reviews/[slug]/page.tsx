@@ -87,24 +87,6 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </p>
           <SampleNotice />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{listing.rating || "n/a"}</b>
-              <span>Star rating</span>
-            </div>
-            <div className="stat">
-              <b>{listing.reviewCount.toLocaleString()}</b>
-              <span>Reviews</span>
-            </div>
-            <div className="stat">
-              <b>{cityAverage || "n/a"}</b>
-              <span>{listing.city} average</span>
-            </div>
-            <div className="stat">
-              <b>{listing.photosCount}</b>
-              <span>Photos on file</span>
-            </div>
-          </div>
 
           <div className="listicle-actions">
             <Link className="btn" href={`/partners/${listing.slug}`}>

@@ -33,6 +33,10 @@ export default function SitemapPage() {
     findPages().filter((p) => p.kind === "city-service" && !p.noindex),
     (p) => p.h1
   );
+  const keywordPages = byLabel(
+    findPages().filter((p) => p.kind === "city-keyword" && !p.noindex),
+    (p) => p.h1
+  );
   const countyPages = byLabel(
     findPages().filter((p) => p.kind === "county"),
     (p) => p.h1
@@ -79,7 +83,7 @@ export default function SitemapPage() {
         <ul className="banner-facts">
           <li>{listings.length} center profiles</li>
           <li>
-            {cityPages.length + servicePages.length + cityServicePages.length + countyPages.length + zipPages.length}{" "}
+            {cityPages.length + servicePages.length + cityServicePages.length + keywordPages.length + countyPages.length + zipPages.length}{" "}
             find pages
           </li>
           <li>{blogPosts.length + costGuides.length} guides</li>
@@ -118,6 +122,15 @@ export default function SitemapPage() {
             {legalPages.map((page) => (
               <li key={page.href}>
                 <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Find by Service and City ({keywordPages.length})</h2>
+          <ul>
+            {keywordPages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/find/${page.slug}`}>{page.h1}</Link>
               </li>
             ))}
           </ul>

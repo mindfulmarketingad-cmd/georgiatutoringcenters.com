@@ -14,6 +14,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://lh3.googleusercontent.com https://lh4.googleusercontent.com https://lh5.googleusercontent.com https://lh6.googleusercontent.com https://streetviewpixels-pa.googleapis.com https://maps.googleapis.com https://tile.openstreetmap.org https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://tpc.googlesyndication.com",
   "font-src 'self' data:",
+  "media-src 'self'",
   "connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net",
   "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com",
   "manifest-src 'self'",
@@ -59,7 +60,30 @@ const nextConfig: NextConfig = {
     // rule would also match /find and loop. Next 16 routes case-sensitively,
     // which means mixed-case URLs 404 instead of duplicating a page; internal
     // links and canonical tags are all lowercase.
-    return [{ source: "/home", destination: "/", permanent: true }];
+    return [
+      { source: "/home", destination: "/", permanent: true },
+      // Keyword pages superseded these generic combos; keep the old URLs alive.
+      {
+        source: "/find/online-tutors-in-:city",
+        destination: "/find/online-tutoring-services-in-:city",
+        permanent: true,
+      },
+      {
+        source: "/find/online-tutors-in-:city/page/:n",
+        destination: "/find/online-tutoring-services-in-:city/page/:n",
+        permanent: true,
+      },
+      {
+        source: "/find/test-prep-tutors-in-:city",
+        destination: "/find/sat-act-tutoring-in-:city",
+        permanent: true,
+      },
+      {
+        source: "/find/test-prep-tutors-in-:city/page/:n",
+        destination: "/find/sat-act-tutoring-in-:city/page/:n",
+        permanent: true,
+      },
+    ];
   },
 };
 

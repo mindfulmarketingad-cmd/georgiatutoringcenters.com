@@ -681,6 +681,22 @@ li { margin-bottom: 0.4em; }
   height: clamp(320px, 38vw, 480px);
   object-fit: cover;
 }
+/* Sits over the poster image, under the title bar. */
+.page-banner-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-banner-video { display: none; }
+}
+/* Not worth 1.7 MB of cellular data for decoration: phones keep the poster. */
+@media (max-width: 780px) {
+  .page-banner-video { display: none; }
+}
 .page-banner-inner {
   position: absolute;
   inset: 0;

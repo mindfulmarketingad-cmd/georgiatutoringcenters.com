@@ -124,6 +124,29 @@ with counts, rating and review aggregates), so no two pages share boilerplate.
 both are in the header nav, the footer and the Find hub, and both carry a
 client-side ZIP / county / city search (`components/CountyZipSearch.tsx`).
 
+## Keyword pages
+
+`KEYWORD_VARIANTS` in `lib/content/find.ts` defines page families that target a
+specific search phrase per city:
+
+| Page | Sourced from | Cities |
+| --- | --- | --- |
+| Online Tutoring Services in [City] Georgia | the `online-tutoring` tag | 66 |
+| SAT & ACT Tutoring in [City] Georgia | the `test-prep` tag plus explicit SAT/ACT mentions | 35 |
+| SAT Tutoring & Prep in [City] Georgia | listings naming the SAT | 4 |
+| ACT Tutoring & Prep in [City] Georgia | listings naming the ACT | 4 |
+
+A variant may declare `replaces`, naming the generic "<Service> Tutors in
+[City], GA" combo it supersedes; that combo is then skipped so two pages never
+carry the same listings. Online and test prep are replaced this way, and
+`next.config.ts` redirects the retired URLs.
+
+SAT and ACT are matched case-sensitively (`\bSAT\b`) against the business name,
+category, subtypes and summary, so "impact" or "sat down" cannot match. Only 4
+Georgia cities in the current data name either test explicitly, which is why
+those two families are small — they are built from real signal rather than
+assigned to every test-prep centre.
+
 ## City + subject pages
 
 For every city/subject pair with at least one listing, `lib/content/find.ts`
@@ -143,7 +166,8 @@ that file.
 /find                     Hub: browse by city and subject
 /counties                 Hub: every Georgia county in the directory
 /zip-codes                Hub: every Georgia ZIP code in the directory
-/find/[slug]              City, subject, city+subject, county and ZIP pages
+/find-index.json          Static search index behind the Find hub search box
+/find/[slug]              City, subject, city+subject, keyword, county and ZIP pages
                           (e.g. math-tutors-in-atlanta,
                           tutoring-centers-in-fulton-county,
                           tutoring-centers-in-30309)

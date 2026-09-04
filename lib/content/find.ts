@@ -8,7 +8,7 @@ export type FindPage = {
   slug: string;
   /** A page with a single listing is too thin to index; it stays crawlable and linked. */
   noindex: boolean;
-  kind: "city" | "service" | "city-service" | "county" | "zip";
+  kind: "city" | "service" | "city-service" | "county" | "zip" | "city-keyword";
   key: string;
   label: string;
   h1: string;
@@ -101,6 +101,78 @@ const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
     who: "middle and high school students, and any family with a tight afternoon schedule",
   },
 };
+
+/**
+ * Keyword page families that target a specific phrasing, e.g. "SAT Tutoring &
+ * Prep in Atlanta Georgia". Each one supersedes the generic "<Service> Tutors
+ * in <City>, GA" combo it lists in `replaces`, so a city never ends up with two
+ * pages carrying the same listings.
+ */
+type KeywordVariant = {
+  key: string;
+  slugWord: string;
+  label: string;
+  /** The service combo this page replaces, if any. */
+  replaces?: string;
+  match: (listing: Listing) => boolean;
+  blurb: string;
+  guidance: string;
+};
+
+const searchText = (listing: Listing) =>
+  [listing.name, listing.category, listing.subtypes.join(" "), listing.about].join(" ");
+
+/** Acronyms are matched case-sensitively so "impact" or "sat down" cannot match. */
+const mentionsSat = (listing: Listing) => /\bSAT\b/.test(searchText(listing));
+const mentionsAct = (listing: Listing) => /\bACT\b/.test(searchText(listing));
+const hasService = (listing: Listing, slug: string) =>
+  listing.services.some((service) => service.slug === slug);
+
+const KEYWORD_VARIANTS: KeywordVariant[] = [
+  {
+    key: "online-tutoring-services",
+    slugWord: "online-tutoring-services",
+    label: "Online Tutoring Services",
+    replaces: "online-tutoring",
+    match: (listing) => hasService(listing, "online-tutoring"),
+    blurb:
+      "Online tutoring removes the drive, opens up evening slots and widens the pool of subject specialists well beyond what is within range of a school-night commute.",
+    guidance:
+      "Before booking online sessions, check three things: that your child gets a consistent instructor rather than whoever is free, that the platform has a shared whiteboard the student can actually write on, and that you receive a session summary you can read afterwards.",
+  },
+  {
+    key: "sat-act-tutoring",
+    slugWord: "sat-act-tutoring",
+    label: "SAT & ACT Tutoring",
+    replaces: "test-prep",
+    match: (listing) =>
+      hasService(listing, "test-prep") || mentionsSat(listing) || mentionsAct(listing),
+    blurb:
+      "College admission test preparation covers both exams, and most centers coach whichever one a student scores better on rather than pushing a single test.",
+    guidance:
+      "Sit one timed practice SAT and one timed practice ACT a week apart before you buy anything. Whichever produces the better percentile is the test to prepare for, and preparing for the wrong one is the most common wasted expense in test prep.",
+  },
+  {
+    key: "sat-tutoring-prep",
+    slugWord: "sat-tutoring-prep",
+    label: "SAT Tutoring & Prep",
+    match: mentionsSat,
+    blurb:
+      "These centers name the SAT specifically in their programs, rather than offering test preparation in general.",
+    guidance:
+      "Ask how recently the material was rebuilt for the digital SAT, how many full-length practice tests are included and whether they are proctored, and how many instructional hours a package actually contains. Twenty to forty hours between sittings is the usual range for a meaningful gain.",
+  },
+  {
+    key: "act-tutoring-prep",
+    slugWord: "act-tutoring-prep",
+    label: "ACT Tutoring & Prep",
+    match: mentionsAct,
+    blurb:
+      "These centers name the ACT specifically in their programs, rather than offering test preparation in general.",
+    guidance:
+      "The ACT rewards pace more than the SAT does, and it carries a science reasoning section that trips up students who have never practised it under time. Ask how the program drills timing, and whether science reasoning is taught as its own skill.",
+  },
+];
 
 const SERVICE_TUTOR: Record<string, { label: string; slugWord: string }> = {
   "math-tutoring": { label: "Math Tutors", slugWord: "math-tutors" },
@@ -242,8 +314,16 @@ export function findPages(): FindPage[] {
     });
   }
 
+  const supersededServices = new Set(
+    KEYWORD_VARIANTS.map((variant) => variant.replaces).filter(Boolean) as string[]
+  );
+
   for (const cityGroup of cities()) {
     for (const serviceGroup of services()) {
+      // A keyword page covers this service in this city; skip the generic combo
+      // so the two do not compete with the same listings.
+      if (supersededServices.has(serviceGroup.slug)) continue;
+
       const matches = cityGroup.listings.filter((listing) =>
         listing.services.some((s) => s.slug === serviceGroup.slug)
       );
@@ -273,6 +353,62 @@ export function findPages(): FindPage[] {
         faqs: cityServiceFaqs(tutor.label, cityGroup.city, matches.length),
         cityPage: { slug: cityPageSlug, label: cityGroup.city },
         servicePage: { slug: servicePageSlug, label: serviceGroup.label },
+      });
+    }
+  }
+
+  for (const cityGroup of cities()) {
+    for (const variant of KEYWORD_VARIANTS) {
+      const matches = cityGroup.listings.filter(variant.match);
+      if (!matches.length) continue;
+
+      const mix = subjectMix(matches);
+      const { average, reviews } = ratingSummary(matches);
+      const noun = matches.length === 1 ? "center" : "centers";
+
+      pages.push({
+        slug: `${variant.slugWord}-in-${cityGroup.citySlug}`,
+        noindex: matches.length < 2,
+        kind: "city-keyword",
+        key: `${variant.key}:${cityGroup.citySlug}`,
+        label: `${variant.label} in ${cityGroup.city}`,
+        h1: `${variant.label} in ${cityGroup.city} Georgia`,
+        metaTitle: `${variant.label} in ${cityGroup.city} Georgia | ${matches.length} ${matches.length === 1 ? "Center" : "Centers"}`,
+        description: `Compare ${matches.length} ${variant.label.toLowerCase()} ${noun} in ${cityGroup.city}, Georgia. Hours, ratings, phone numbers and directions for each one.`,
+        intro: [
+          `${cityGroup.city} has ${matches.length} ${noun} in this directory offering ${variant.label.toLowerCase()}. ${variant.blurb}`,
+          `${variant.guidance}${average ? ` The ${noun} below average ${average} stars across ${reviews.toLocaleString("en-US")} reviews.` : ""}`,
+        ],
+        listings: matches,
+        faqs: [
+          {
+            q: `How many ${variant.label.toLowerCase()} options are there in ${cityGroup.city}?`,
+            a: `This directory lists ${matches.length} ${noun} in ${cityGroup.city}, Georgia offering ${variant.label.toLowerCase()}. Each listing carries hours, contact details and review counts.`,
+          },
+          {
+            q: `What should I ask before booking?`,
+            a: variant.guidance,
+          },
+          {
+            q: `What does this cost in ${cityGroup.city}?`,
+            a: `Georgia rates run roughly $40 to $80 per hour in small groups and $60 to $120 one-to-one, with test preparation courses between $300 and $1,200. Our cost guides break the ranges down by format.`,
+          },
+        ],
+        cityPage: { slug: `tutoring-centers-in-${cityGroup.citySlug}`, label: cityGroup.city },
+        related: mix.length
+          ? [
+              {
+                heading: `Other Tutoring in ${cityGroup.city}`,
+                items: [
+                  {
+                    href: `/find/tutoring-centers-in-${cityGroup.citySlug}`,
+                    label: `Tutoring centers in ${cityGroup.city}`,
+                    note: `${cityGroup.count} ${cityGroup.count === 1 ? "center" : "centers"}`,
+                  },
+                ],
+              },
+            ]
+          : undefined,
       });
     }
   }

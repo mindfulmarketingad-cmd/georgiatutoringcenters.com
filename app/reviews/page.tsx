@@ -50,24 +50,6 @@ export default function ReviewsHub() {
           </p>
           <SampleNotice />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{averageRating()}</b>
-              <span>Average rating</span>
-            </div>
-            <div className="stat">
-              <b>{totalReviews().toLocaleString()}</b>
-              <span>Reviews counted</span>
-            </div>
-            <div className="stat">
-              <b>{listings.filter((l) => l.rating >= 4.5).length}</b>
-              <span>Centers rated 4.5+</span>
-            </div>
-            <div className="stat">
-              <b>{listings.length}</b>
-              <span>Centers reviewed</span>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -12,6 +12,11 @@ type Props = {
   image?: string;
   alt?: string;
   priority?: boolean;
+  /**
+   * Optional looping background video. The image stays underneath as the
+   * poster, and CSS hides the video for visitors who prefer reduced motion.
+   */
+  video?: string;
   /** Short key facts or a call to action, shown in the panel below the title. */
   children?: React.ReactNode;
 };
@@ -22,6 +27,7 @@ export default function PageBanner({
   image,
   alt = "",
   priority = false,
+  video,
   children,
 }: Props) {
   const [src, setSrc] = useState(image || DEFAULT_IMAGE);
@@ -48,6 +54,20 @@ export default function PageBanner({
         ref={checkOnMount}
         onError={fallBack}
       />
+      {video && (
+        <video
+          className="page-banner-video"
+          src={video}
+          poster={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+      )}
       <div className="page-banner-inner">
         <div className="page-banner-bar">
           {eyebrow && <span className="page-banner-eyebrow">{eyebrow}</span>}

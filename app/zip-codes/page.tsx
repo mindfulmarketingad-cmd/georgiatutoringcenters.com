@@ -8,7 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import CountyZipSearch, { type CountyEntry, type ZipEntry } from "@/components/CountyZipSearch";
 import { photos } from "@/lib/photos";
 import { counties, countyOf, countySlugOf } from "@/lib/content/counties";
-import { averageRating, listings, totalReviews } from "@/lib/listings";
+import { listings } from "@/lib/listings";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -47,7 +47,6 @@ function zipRows(): ZipEntry[] {
 export default function ZipCodesHub() {
   const zips = zipRows();
   const countyGroups = counties();
-  const indexable = zips.filter((zip) => zip.count > 1).length;
 
   const countyEntries: CountyEntry[] = countyGroups.map((group) => ({
     county: group.county,
@@ -85,24 +84,6 @@ export default function ZipCodesHub() {
 
           <CountyZipSearch zips={zips} counties={countyEntries} />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{zips.length}</b>
-              <span>ZIP codes covered</span>
-            </div>
-            <div className="stat">
-              <b>{indexable}</b>
-              <span>With two or more centers</span>
-            </div>
-            <div className="stat">
-              <b>{averageRating()}</b>
-              <span>Average rating</span>
-            </div>
-            <div className="stat">
-              <b>{totalReviews().toLocaleString()}</b>
-              <span>Reviews</span>
-            </div>
-          </div>
         </div>
       </section>
 

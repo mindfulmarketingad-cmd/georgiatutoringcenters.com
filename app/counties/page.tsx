@@ -8,7 +8,7 @@ import Faqs from "@/components/Faqs";
 import JsonLd from "@/components/JsonLd";
 import { photos } from "@/lib/photos";
 import { counties, countyOf } from "@/lib/content/counties";
-import { averageRating, listings, totalReviews } from "@/lib/listings";
+import { listings } from "@/lib/listings";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -80,24 +80,6 @@ export default function CountiesHub() {
             and how those centers rate.
           </p>
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{groups.length}</b>
-              <span>Counties covered</span>
-            </div>
-            <div className="stat">
-              <b>{cityCount}</b>
-              <span>Cities</span>
-            </div>
-            <div className="stat">
-              <b>{averageRating()}</b>
-              <span>Average rating</span>
-            </div>
-            <div className="stat">
-              <b>{totalReviews().toLocaleString()}</b>
-              <span>Reviews</span>
-            </div>
-          </div>
         </div>
       </section>
 

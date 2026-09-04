@@ -64,6 +64,7 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
     city: "City guide",
     service: "Subject guide",
     "city-service": "City and subject guide",
+    "city-keyword": "City guide",
     county: "County guide",
     zip: "ZIP code guide",
   }[page.kind];
@@ -72,9 +73,10 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
     city: `Tutoring centers in ${page.label}, ranked`,
     service: `${page.label} centers in Georgia, ranked`,
     "city-service": `${page.label}, ranked`,
+    "city-keyword": `${page.label}, ranked`,
     county: `Tutoring centers in ${page.label}, ranked`,
     zip: `Tutoring centers in ${page.label}, ranked`,
-  }[page.kind];
+  }[page.kind] as string;
 
   return (
     <>
@@ -110,20 +112,6 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
           ))}
           <SampleNotice />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{page.listings.length}</b>
-              <span>Centers on this page</span>
-            </div>
-            <div className="stat">
-              <b>{rating || "n/a"}</b>
-              <span>Average rating</span>
-            </div>
-            <div className="stat">
-              <b>{reviews.toLocaleString()}</b>
-              <span>Total reviews</span>
-            </div>
-          </div>
         </div>
       </section>
 

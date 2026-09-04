@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageBanner from "@/components/PageBanner";
 import { photos } from "@/lib/photos";
 import Faqs from "@/components/Faqs";
-import { cities, listings, services } from "@/lib/listings";
+import { cities, listings } from "@/lib/listings";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -42,24 +42,6 @@ export default function AboutPage() {
             your child, on the same set of facts, without a sales pitch in the middle.
           </p>
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{listings.length}</b>
-              <span>Centers listed</span>
-            </div>
-            <div className="stat">
-              <b>{cities().length}</b>
-              <span>Cities covered</span>
-            </div>
-            <div className="stat">
-              <b>{services().length}</b>
-              <span>Subject areas</span>
-            </div>
-            <div className="stat">
-              <b>Free</b>
-              <span>For families</span>
-            </div>
-          </div>
 
           <h2>What We Do</h2>
           <p>

@@ -82,6 +82,7 @@ export default function HomePage() {
         eyebrow="The #1 resource for tutoring and learning services in Georgia"
         image="/photos/tutor-and-student-banner.jpg"
         alt="A tutor working one to one with a student"
+        video="/video/students-outside.webm"
         priority
       >
         <SearchForm />

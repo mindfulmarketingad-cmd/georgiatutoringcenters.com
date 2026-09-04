@@ -57,24 +57,6 @@ export default function PartnersView({ page }: { page: number }) {
           </p>
           <SampleNotice />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{listings.length}</b>
-              <span>Centers</span>
-            </div>
-            <div className="stat">
-              <b>{cityGroups.length}</b>
-              <span>Cities</span>
-            </div>
-            <div className="stat">
-              <b>{averageRating()}</b>
-              <span>Average rating</span>
-            </div>
-            <div className="stat">
-              <b>{totalReviews().toLocaleString()}</b>
-              <span>Reviews</span>
-            </div>
-          </div>
         </div>
       </section>
 

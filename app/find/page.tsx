@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageBanner from "@/components/PageBanner";
 import { photos } from "@/lib/photos";
 import LinkList from "@/components/LinkList";
+import FindSearch from "@/components/FindSearch";
 import Listicle from "@/components/Listicle";
 import Faqs from "@/components/Faqs";
 import SampleNotice from "@/components/SampleNotice";
@@ -49,29 +50,14 @@ export default function FindHub() {
       <section className="section">
         <div className="wrap">
           <p className="lede">
-            Two ways in: pick your city, or pick the subject your child needs help with. Every page
-            below is a numbered listicle with hours, ratings, phone numbers and a toggleable map.
+            Search every Find page below, or pick your city, county, ZIP code or subject. Each one
+            is a numbered listicle with hours, ratings, phone numbers and a toggleable map.
           </p>
+
+          <FindSearch />
+
           <SampleNotice />
 
-          <div className="stat-row">
-            <div className="stat">
-              <b>{listings.length}</b>
-              <span>Centers listed</span>
-            </div>
-            <div className="stat">
-              <b>{cityGroups.length}</b>
-              <span>Cities covered</span>
-            </div>
-            <div className="stat">
-              <b>{serviceGroups.length}</b>
-              <span>Subject areas</span>
-            </div>
-            <div className="stat">
-              <b>{countyGroups.length}</b>
-              <span>Counties</span>
-            </div>
-          </div>
         </div>
       </section>
 
