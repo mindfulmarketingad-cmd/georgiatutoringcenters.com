@@ -119,7 +119,7 @@ export default function HomePage() {
       <section className="section">
         <div className="wrap">
           <SampleNotice />
-          <h2>Start with a hub</h2>
+          <h2>Start With a Hub</h2>
           <p className="lede" style={{ marginBottom: "1.6rem" }}>
             Six places to begin, depending on what you need today.
           </p>
@@ -148,7 +148,7 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>Jumpstart learning with our One-to-One Instruction</h2>
+          <h2>Jumpstart Learning With Our One-to-One Instruction</h2>
           <div className="photo-split">
             <div>
               <p>
@@ -182,7 +182,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <h2>What is Georgia Tutoring Centers?</h2>
+          <h2>What Is Georgia Tutoring Centers?</h2>
           <p>
             Georgia Tutoring Centers is an independent directory of tutoring and learning centers
             operating across the state, from metro Atlanta through Savannah, Augusta, Columbus,
@@ -233,7 +233,7 @@ export default function HomePage() {
             caption="Many Georgia centers now teach online with the same instructors who teach in the building."
           />
 
-          <h2>Browse Georgia tutoring centers by city</h2>
+          <h2>Browse Georgia Tutoring Centers by City</h2>
           <LinkList
             split
             items={cityGroups.map((city) => ({
@@ -243,7 +243,7 @@ export default function HomePage() {
             }))}
           />
 
-          <h2>Browse by subject</h2>
+          <h2>Browse by Subject</h2>
           <LinkList
             split
             items={serviceGroups.map((service) => ({
@@ -257,7 +257,7 @@ export default function HomePage() {
 
       <section className="section section--soft">
         <div className="wrap">
-          <h2>Guides and cost breakdowns</h2>
+          <h2>Guides and Cost Breakdowns</h2>
           <LinkList
             split
             items={[

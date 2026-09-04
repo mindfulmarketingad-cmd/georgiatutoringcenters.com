@@ -12,6 +12,7 @@ import { findPages, type FindPage } from "@/lib/content/find";
 import { averageRating, cities, services, totalReviews } from "@/lib/listings";
 import { paginate, pageHref } from "@/lib/pagination";
 import { itemListSchema } from "@/lib/seo";
+import { titleCase } from "@/lib/text";
 
 /**
  * One page of a city or subject listing. The busiest subject page carries
@@ -129,8 +130,8 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
       <section className="section section--tint">
         <div className="wrap">
           <h2>
-            {listHeading}
-            {paged.pageCount > 1 ? ` (page ${paged.page} of ${paged.pageCount})` : ""}
+            {titleCase(listHeading)}
+            {paged.pageCount > 1 ? ` (Page ${paged.page} of ${paged.pageCount})` : ""}
           </h2>
           <p className="lede">
             Ranked by rating and review volume, showing {paged.startIndex}&ndash;
@@ -156,7 +157,7 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
 
       <section className="section">
         <div className="wrap prose">
-          <h2>How to choose between these centers</h2>
+          <h2>How to Choose Between These Centers</h2>
           <p>
             Shortlist two or three, then ask each the same five questions: what the intake
             assessment measures, who teaches your child each week, the student-to-instructor ratio
@@ -181,12 +182,12 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
 
           {page.related?.map((block) => (
             <div key={block.heading}>
-              <h2>{block.heading}</h2>
+              <h2>{titleCase(block.heading)}</h2>
               <LinkList split={block.items.length > 6} items={block.items} />
             </div>
           ))}
 
-          <h2>Keep browsing</h2>
+          <h2>Keep Browsing</h2>
           <LinkList
             split
             items={siblings.map((sibling) => ({

@@ -83,7 +83,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
 
-          <h2>Coverage areas</h2>
+          <h2>Coverage Areas</h2>
           <ul>
             {author.covers.map((topic) => (
               <li key={topic}>{topic}</li>
@@ -105,7 +105,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
 
           {guides.length > 0 && (
             <>
-              <h2>Cost guides by {author.name}</h2>
+              <h2>Cost Guides by {author.name}</h2>
               <LinkList
                 items={guides.map((guide) => ({
                   href: `/costs/${guide.slug}`,
@@ -116,7 +116,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
             </>
           )}
 
-          <h2>Corrections and contact</h2>
+          <h2>Corrections and Contact</h2>
           <p>
             Spotted something out of date or wrong in one of these guides? Send it through the{" "}
             <Link href="/contact">contact page</Link> and we will correct it. Our editorial approach

@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
         <div className="wrap prose">
           <p className="form-help">Last updated: {updated}</p>
 
-          <h2>Information only</h2>
+          <h2>Information Only</h2>
           <p>
             Everything published on {site.domain} is provided for general information. It is not
             educational, legal, financial, medical or professional advice, and it should not be
@@ -37,7 +37,7 @@ export default function DisclaimerPage() {
             child&apos;s situation.
           </p>
 
-          <h2>Listing accuracy</h2>
+          <h2>Listing Accuracy</h2>
           <p>
             Business listings are compiled from public data sources and normalised for comparison.
             Hours of operation, phone numbers, websites, pricing, program offerings, ratings and
@@ -46,7 +46,7 @@ export default function DisclaimerPage() {
             details directly with a center before making a decision or traveling to a location.
           </p>
 
-          <h2>No endorsement</h2>
+          <h2>No Endorsement</h2>
           <p>
             A listing on this site is not an endorsement, recommendation, certification or guarantee
             of a business, its instructors, its curriculum or its results. We are not affiliated
@@ -55,7 +55,7 @@ export default function DisclaimerPage() {
             publicly reported rating and review data only.
           </p>
 
-          <h2>Pricing figures</h2>
+          <h2>Pricing Figures</h2>
           <p>
             Price ranges published in our <Link href="/costs">cost guides</Link> are general market
             estimates for Georgia, gathered from published rates and typical market patterns. They
@@ -63,7 +63,7 @@ export default function DisclaimerPage() {
             written quote from any provider before committing.
           </p>
 
-          <h2>Third-party links</h2>
+          <h2>Third-Party Links</h2>
           <p>
             This site links to third-party websites we do not control. We are not responsible for
             the content, accuracy, privacy practices or availability of those sites. Following an
@@ -77,7 +77,7 @@ export default function DisclaimerPage() {
             influence which businesses are listed or how they are ranked.
           </p>
 
-          <h2>Limitation of liability</h2>
+          <h2>Limitation of Liability</h2>
           <p>
             To the fullest extent permitted by law, {site.name} is not liable for any loss or damage
             arising from your use of this site or from any decision made in reliance on information

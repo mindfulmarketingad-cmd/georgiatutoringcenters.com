@@ -43,10 +43,10 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <h2>Send a message</h2>
+          <h2>Send a Message</h2>
           <ContactForm />
 
-          <h2>What we can help with</h2>
+          <h2>What We Can Help With</h2>
           <ul>
             <li>
               <strong>Adding a tutoring center.</strong> Send the business name, address, phone
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </li>
           </ul>
 
-          <h2>What we cannot help with</h2>
+          <h2>What We Cannot Help With</h2>
           <p>
             We are a directory, not a tutoring provider. We cannot schedule sessions, quote prices,
             handle billing disputes or pass messages to a center. For any of those, contact the

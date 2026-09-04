@@ -91,7 +91,7 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
             priority
           />
 
-          <h2>Price ranges at a glance</h2>
+          <h2>Price Ranges at a Glance</h2>
           <div className="table-scroll">
             <table className="data-table">
               <caption className="form-help">
@@ -120,7 +120,7 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
 
           <AuthorCard author={author} />
 
-          <h2>Find centers in this price range</h2>
+          <h2>Find Centers in This Price Range</h2>
           <p>
             Use the <Link href="/find">Find hub</Link> to shortlist centers in your city, then check
             the <Link href="/reviews">Reviews hub</Link> before you call. Every listing in the{" "}
@@ -128,7 +128,7 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
             the business reports one.
           </p>
 
-          <h2>Other cost guides</h2>
+          <h2>Other Cost Guides</h2>
           <LinkList
             items={others.map((other) => ({
               href: `/costs/${other.slug}`,

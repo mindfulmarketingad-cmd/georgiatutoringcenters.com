@@ -47,8 +47,8 @@ export default async function SearchHub({
           {query && (
             <>
               <h2>
-                {results.length} {results.length === 1 ? "result" : "results"} for &ldquo;{query}
-                &rdquo;
+                {results.length} {results.length === 1 ? "result" : "results"} For &Ldquo;{query}
+                &Rdquo;
               </h2>
               {results.length === 0 ? (
                 <p className="notice">
@@ -75,7 +75,7 @@ export default async function SearchHub({
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Popular searches</h2>
+          <h2>Popular Searches</h2>
           <LinkList
             split
             items={popularSearches.map((term) => ({

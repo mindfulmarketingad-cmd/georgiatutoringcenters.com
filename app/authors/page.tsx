@@ -44,7 +44,7 @@ export default function AuthorsHub() {
 
       <section className="section section--tint">
         <div className="wrap prose">
-          <h2>How we work</h2>
+          <h2>How We Work</h2>
           <p>
             Guides are written from published research on instruction and from the pricing and
             program patterns we see across the centers in this directory. We do not accept payment
@@ -56,7 +56,7 @@ export default function AuthorsHub() {
             tell us through the contact page and we will correct it and note the change.
           </p>
 
-          <h2>Author pages</h2>
+          <h2>Author Pages</h2>
           <LinkList
             items={authors.map((author) => ({
               href: `/authors/${author.slug}`,

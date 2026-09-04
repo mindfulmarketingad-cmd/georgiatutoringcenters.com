@@ -95,7 +95,7 @@ export default async function SearchQueryPage({
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Other popular searches</h2>
+          <h2>Other Popular Searches</h2>
           <LinkList
             split
             items={popularSearches

@@ -52,7 +52,7 @@ export default function BlogHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>All guides</h2>
+          <h2>All Guides</h2>
           <LinkList
             items={blogPosts.map((post) => ({
               href: `/blog/${post.slug}`,
@@ -65,7 +65,7 @@ export default function BlogHub() {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>Where to go next</h2>
+          <h2>Where to Go Next</h2>
           <p>
             Ready to compare actual centers? Start with the <Link href="/find">Find hub</Link> for
             your city or subject, check the <Link href="/costs">cost guides</Link> to set a budget,

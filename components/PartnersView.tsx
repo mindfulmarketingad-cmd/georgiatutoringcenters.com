@@ -81,8 +81,8 @@ export default function PartnersView({ page }: { page: number }) {
       <section className="section section--tint">
         <div className="wrap">
           <h2>
-            All Georgia tutoring centers
-            {paged.pageCount > 1 ? ` (page ${paged.page} of ${paged.pageCount})` : ""}
+            All Georgia Tutoring Centers
+            {paged.pageCount > 1 ? ` (Page ${paged.page} of ${paged.pageCount})` : ""}
           </h2>
           <p className="lede">
             Showing {paged.startIndex}&ndash;{paged.startIndex + paged.items.length - 1} of{" "}
@@ -117,7 +117,7 @@ export default function PartnersView({ page }: { page: number }) {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>How this directory is put together</h2>
+          <h2>How This Directory Is Put Together</h2>
           <p>
             Listings are compiled from public business data and normalised into a single format so
             every center can be compared on the same fields. Ranking is calculated from rating and

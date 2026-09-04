@@ -116,7 +116,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Center details</h2>
+          <h2>Center Details</h2>
           <div className="table-scroll">
             <table className="data-table">
               <caption className="form-help">
@@ -197,7 +197,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
           {listing.hours.length > 0 && (
             <>
-              <h2>Hours of operation</h2>
+              <h2>Hours of Operation</h2>
               <div className="table-scroll">
                 <table className="data-table">
                   <thead>
@@ -225,7 +225,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
           {listing.attributes.length > 0 && (
             <>
-              <h2>Features and amenities</h2>
+              <h2>Features and Amenities</h2>
               <p className="form-help">
                 Reported by the business on its public map listing.
               </p>
@@ -255,7 +255,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
       <section className="section">
         <div className="wrap prose">
-          <h2>What to ask {listing.name}</h2>
+          <h2>What to Ask {listing.name}</h2>
           <ul>
             <li>What does the intake assessment measure, and how long does it take?</li>
             <li>Will my child work with the same instructor every week?</li>
@@ -274,7 +274,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
           {related.length > 0 && (
             <>
-              <h2>Similar centers</h2>
+              <h2>Similar Centers</h2>
               <LinkList
                 items={related.map((item) => ({
                   href: `/partners/${item.slug}`,

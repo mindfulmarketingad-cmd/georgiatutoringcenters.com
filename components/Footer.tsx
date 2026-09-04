@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="footer-cols">
           <div>
-            <h2>Popular cities</h2>
+            <h2>Popular Cities</h2>
             <ul>
               {topCities.map((city) => (
                 <li key={city.citySlug}>
@@ -72,7 +72,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h2>Popular subjects</h2>
+            <h2>Popular Subjects</h2>
             <ul>
               {topServices.map((service) => (
                 <li key={service.slug}>
@@ -86,6 +86,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/find">Find a center</Link></li>
               <li><Link href="/counties">Browse by county</Link></li>
+              <li><Link href="/zip-codes">Browse by ZIP code</Link></li>
               <li><Link href="/partners">Partner directory</Link></li>
               <li><Link href="/reviews">Reviews</Link></li>
               <li><Link href="/costs">Costs and pricing</Link></li>

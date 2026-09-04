@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             personal information, and your location never leaves your browser.
           </p>
 
-          <h2>Information you give us</h2>
+          <h2>Information You Give Us</h2>
           <p>
             If you send a message through our <Link href="/contact">contact page</Link>, we receive
             the name, email address, topic and message you submit. We use that information only to
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             we do not sell or rent it.
           </p>
 
-          <h2>Location data</h2>
+          <h2>Location Data</h2>
           <p>
             The &ldquo;centers near me&rdquo; feature on our homepage uses your browser&apos;s
             geolocation API, and only after you press the button and grant permission. Your
@@ -49,14 +49,14 @@ export default function PrivacyPage() {
             the permission prompt simply shows the highest rated centers statewide instead.
           </p>
 
-          <h2>Information collected automatically</h2>
+          <h2>Information Collected Automatically</h2>
           <p>
             Our hosting provider processes standard server request data, such as IP address, browser
             type and the pages requested, for security, abuse prevention and reliability. Contact
             form submissions are rate limited by IP address to prevent spam.
           </p>
 
-          <h2>Cookies and advertising</h2>
+          <h2>Cookies and Advertising</h2>
           <p>
             This site displays advertising through Google AdSense. Third-party vendors, including
             Google, use cookies to serve ads based on a user&apos;s prior visits to this and other
@@ -102,21 +102,21 @@ export default function PrivacyPage() {
             map view.
           </p>
 
-          <h2>Children&apos;s privacy</h2>
+          <h2>Children&apos;s Privacy</h2>
           <p>
             This site is written for parents and guardians. It is not directed at children under 13
             and we do not knowingly collect personal information from children. If you believe a
             child has sent us personal information, contact us and we will delete it.
           </p>
 
-          <h2>How long we keep information</h2>
+          <h2>How Long We Keep Information</h2>
           <p>
             Contact messages are kept only as long as needed to handle the request and any
             reasonable follow-up. Server logs are retained for a limited period by our hosting
             provider for security and diagnostics.
           </p>
 
-          <h2>Your choices and rights</h2>
+          <h2>Your Choices and Rights</h2>
           <p>
             You can ask us what personal information we hold about you, ask for it to be corrected,
             or ask for it to be deleted, by emailing{" "}
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
             zero.
           </p>
 
-          <h2>Changes to this policy</h2>
+          <h2>Changes to This Policy</h2>
           <p>
             We may update this policy as the site changes. The date at the top of this page always
             reflects the current version.

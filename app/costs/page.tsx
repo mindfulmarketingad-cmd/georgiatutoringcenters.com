@@ -95,7 +95,7 @@ export default function CostsHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Cost guides</h2>
+          <h2>Cost Guides</h2>
           <LinkList
             items={costGuides.map((guide) => ({
               href: `/costs/${guide.slug}`,
@@ -108,7 +108,7 @@ export default function CostsHub() {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>How to compare two quotes fairly</h2>
+          <h2>How to Compare Two Quotes Fairly</h2>
           <p>
             Divide every quote by the instructional hours it actually includes. A $300 monthly
             membership with four forty-five-minute sessions costs $100 an hour, which is more than

@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <AuthorCard author={author} />
 
-          <h2>Put this into practice</h2>
+          <h2>Put This Into Practice</h2>
           <p>
             Shortlist centers on the <Link href="/find">Find hub</Link>, compare ratings on the{" "}
             <Link href="/reviews">Reviews hub</Link>, and set your budget with our{" "}
@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             programs.
           </p>
 
-          <h2>More guides</h2>
+          <h2>More Guides</h2>
           <LinkList
             items={others.map((other) => ({
               href: `/blog/${other.slug}`,

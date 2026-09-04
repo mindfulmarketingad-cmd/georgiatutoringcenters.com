@@ -77,7 +77,7 @@ export default function FindHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Browse by subject</h2>
+          <h2>Browse by Subject</h2>
           <p className="lede">Start here when you know what your child needs to work on.</p>
           <LinkList
             split
@@ -92,7 +92,7 @@ export default function FindHub() {
 
       <section className="section">
         <div className="wrap">
-          <h2>Browse by city</h2>
+          <h2>Browse by City</h2>
           <p className="lede">Every Georgia city currently represented in the directory.</p>
           <LinkList
             split
@@ -107,7 +107,7 @@ export default function FindHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Browse by county</h2>
+          <h2>Browse by County</h2>
           <p className="lede">
             County lines follow Georgia school districts, so this is often the fastest way to
             narrow a search. The <Link href="/counties">county hub</Link> has the full list.
@@ -125,10 +125,10 @@ export default function FindHub() {
 
       <section className="section">
         <div className="wrap">
-          <h2>Browse by ZIP code</h2>
+          <h2>Browse by ZIP Code</h2>
           <p className="lede">
-            Every ZIP code with a center in the directory, closest-in first when you already know
-            the area you can drive to.
+            Every ZIP code with a center in the directory, for when you already know the area you
+            can drive to. The <Link href="/zip-codes">ZIP code hub</Link> has the searchable list.
           </p>
           <LinkList
             split
@@ -142,7 +142,7 @@ export default function FindHub() {
 
       <section className="section section--soft">
         <div className="wrap">
-          <h2>Highest rated centers statewide</h2>
+          <h2>Highest Rated Centers Statewide</h2>
           <p className="lede">
             A quick shortlist while you decide where to start. Filter chips jump straight to a
             subject page.

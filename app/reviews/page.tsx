@@ -73,7 +73,7 @@ export default function ReviewsHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Highest rated tutoring centers in Georgia</h2>
+          <h2>Highest Rated Tutoring Centers in Georgia</h2>
           <p className="lede">Ranked by star rating, then by review volume.</p>
           <ol className="listicle" style={{ marginTop: "1.4rem" }}>
             {ranked.slice(0, 20).map((listing, index) => (
@@ -108,7 +108,7 @@ export default function ReviewsHub() {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>Most reviewed centers</h2>
+          <h2>Most Reviewed Centers</h2>
           <ul>
             {mostReviewed.map((listing) => (
               <li key={listing.slug}>
@@ -118,7 +118,7 @@ export default function ReviewsHub() {
             ))}
           </ul>
 
-          <h2>How to read tutoring center reviews</h2>
+          <h2>How to Read Tutoring Center Reviews</h2>
           <p>
             Review counts matter more than the average. Ten reviews cannot tell you much; two
             hundred can. Read the three-star reviews first, since they tend to be the most specific,

@@ -19,6 +19,7 @@ export const headerLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/find", label: "Find" },
   { href: "/counties", label: "Counties" },
+  { href: "/zip-codes", label: "ZIP Codes" },
   { href: "/partners", label: "Partners" },
   { href: "/reviews", label: "Reviews" },
   { href: "/costs", label: "Costs" },

@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = ([
     { url: url("/"), changeFrequency: "daily", priority: 1 },
     { url: url("/find"), changeFrequency: "weekly", priority: 0.9 },
+    { url: url("/counties"), changeFrequency: "weekly", priority: 0.8 },
+    { url: url("/zip-codes"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/reviews"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/costs"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/blog"), changeFrequency: "weekly", priority: 0.8 },

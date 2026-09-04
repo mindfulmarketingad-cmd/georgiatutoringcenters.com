@@ -61,7 +61,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <h2>What we do</h2>
+          <h2>What We Do</h2>
           <p>
             We compile public business data for tutoring and learning centers operating in Georgia,
             normalise it into one consistent format, and publish it as numbered, comparable
@@ -77,7 +77,7 @@ export default function AboutPage() {
             program from an expensive one.
           </p>
 
-          <h2>What we are not</h2>
+          <h2>What We Are Not</h2>
           <p>
             We are not a tutoring company. We do not employ tutors, we do not sell instruction, and
             we do not take a commission on enrollments. We are not affiliated with the centers
@@ -85,7 +85,7 @@ export default function AboutPage() {
             pricing, credentials and availability directly with a center before enrolling.
           </p>
 
-          <h2>How listings are ranked</h2>
+          <h2>How Listings Are Ranked</h2>
           <p>
             Our listicles rank centers using star rating and review volume together, so a perfect
             rating from a handful of reviews does not outrank a strong rating from hundreds.
@@ -93,7 +93,7 @@ export default function AboutPage() {
             by a different rule, such as most reviewed, the page says so.
           </p>
 
-          <h2>How we are funded</h2>
+          <h2>How We Are Funded</h2>
           <p>
             The site is supported by advertising, including Google AdSense. Advertising revenue has
             no influence on which centers are listed or how they rank. See our{" "}
@@ -102,14 +102,14 @@ export default function AboutPage() {
             here.
           </p>
 
-          <h2>Who writes for the site</h2>
+          <h2>Who Writes for the Site</h2>
           <p>
             Every guide and cost page carries a byline linking to that editor&apos;s profile, with
             what they cover and everything else they have written. See the{" "}
             <Link href="/authors">editorial team page</Link> for the full list.
           </p>
 
-          <h2>Corrections and updates</h2>
+          <h2>Corrections and Updates</h2>
           <p>
             Business hours, phone numbers and ownership change constantly. If something on this site
             is wrong, tell us and we will fix it. Business owners can request a correction, an
@@ -117,7 +117,7 @@ export default function AboutPage() {
             the business name and address so we can match it to the right record.
           </p>
 
-          <h2>Start browsing</h2>
+          <h2>Start Browsing</h2>
           <p>
             Begin with the <Link href="/find">Find hub</Link> for your city or subject, the{" "}
             <Link href="/partners">partner directory</Link> for the complete list, the{" "}

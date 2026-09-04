@@ -77,6 +77,15 @@ Adding a real export replaces them automatically — no code changes needed. Cit
 and subject pages under `/find`, sitemap entries and internal links are all
 generated from the data.
 
+## Headings
+
+H1s and H2s render in AP-style title case via `titleCase()` in `lib/text.ts`.
+It is deliberately non-destructive: a word already carrying a capital is left
+alone, so acronyms (ZIP, GA, SAT), place names (DeKalb, LaGrange) and headings
+that were already title cased pass through unchanged. Generated headings are
+run through it at render (article sections, listicle headings, related-link
+blocks); static JSX headings were converted in place.
+
 ## Pagination and thin pages
 
 The directory is ~900 centers, so listing pages are paginated at 30 per page
@@ -111,7 +120,9 @@ listicles like every other find page:
 
 Both carry copy generated from their own data (constituent cities, subject mix
 with counts, rating and review aggregates), so no two pages share boilerplate.
-`/counties` is the hub listing every county page, and is linked from the header.
+`/counties` and `/zip-codes` are the hubs listing every county and ZIP page;
+both are in the header nav, the footer and the Find hub, and both carry a
+client-side ZIP / county / city search (`components/CountyZipSearch.tsx`).
 
 ## City + subject pages
 
@@ -131,6 +142,7 @@ that file.
 /                         Home: hero carousel, six hub blocks, SEO sections, FAQs
 /find                     Hub: browse by city and subject
 /counties                 Hub: every Georgia county in the directory
+/zip-codes                Hub: every Georgia ZIP code in the directory
 /find/[slug]              City, subject, city+subject, county and ZIP pages
                           (e.g. math-tutors-in-atlanta,
                           tutoring-centers-in-fulton-county,
@@ -203,6 +215,7 @@ presenting invented writers as real ones.
 | Blog, cost guide and find-page copy | `lib/content/` |
 | Author profiles | `lib/content/authors.ts` |
 | City to county lookup | `lib/content/counties.ts` |
+| Heading title casing | `lib/text.ts` |
 | Photo assignments | `lib/photos.ts` |
 
 ### Environment variables

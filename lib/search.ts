@@ -17,6 +17,8 @@ const staticPages: SearchDoc[] = [
   { title: "About Georgia Tutoring Centers", url: "/about", type: "Page", summary: "Who we are, how listings are gathered, and how the directory is funded.", keywords: "about editorial policy" },
   { title: "Contact", url: "/contact", type: "Page", summary: "Reach the directory team, claim a listing, or report an error.", keywords: "contact claim listing support" },
   { title: "Find a Tutoring Center", url: "/find", type: "Page", summary: "Browse tutoring centers by Georgia city and by subject.", keywords: "find browse city subject" },
+  { title: "Tutoring Centers by Georgia County", url: "/counties", type: "Page", summary: "Browse tutoring centers by Georgia county.", keywords: "county counties browse region" },
+  { title: "Tutoring Centers by Georgia ZIP Code", url: "/zip-codes", type: "Page", summary: "Browse tutoring centers by Georgia ZIP code.", keywords: "zip code postal browse near me" },
   { title: "Partner Directory", url: "/partners", type: "Page", summary: "The full numbered listicle of every tutoring center on the site.", keywords: "partners listicle directory all centers" },
   { title: "Reviews", url: "/reviews", type: "Page", summary: "Ratings and review counts for Georgia tutoring centers.", keywords: "reviews ratings stars" },
   { title: "Costs and Pricing", url: "/costs", type: "Page", summary: "What tutoring costs in Georgia by program and format.", keywords: "cost price rates pricing" },

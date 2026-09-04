@@ -31,14 +31,14 @@ export default function TermsPage() {
             the site.
           </p>
 
-          <h2>What this site is</h2>
+          <h2>What This Site Is</h2>
           <p>
             {site.name} is an independent directory of tutoring and learning centers in Georgia. We
             publish business information and editorial guidance. We do not provide tutoring, do not
             broker enrollments and are not a party to any agreement between you and a center.
           </p>
 
-          <h2>Acceptable use</h2>
+          <h2>Acceptable Use</h2>
           <p>You agree not to:</p>
           <ul>
             <li>Scrape, harvest or bulk-copy listing data for republication or resale</li>
@@ -49,7 +49,7 @@ export default function TermsPage() {
             <li>Use the site or its content in a way that violates any applicable law</li>
           </ul>
 
-          <h2>Intellectual property</h2>
+          <h2>Intellectual Property</h2>
           <p>
             The design, editorial content, guides, cost analysis and compilation of listings on this
             site are owned by {site.name} and protected by applicable law. Business names, logos and
@@ -58,7 +58,7 @@ export default function TermsPage() {
             without written permission.
           </p>
 
-          <h2>Listing information</h2>
+          <h2>Listing Information</h2>
           <p>
             Listings are compiled from public sources and provided without warranty of accuracy or
             completeness. See our <Link href="/disclaimer">disclaimer</Link> for full detail.
@@ -66,7 +66,7 @@ export default function TermsPage() {
             <Link href="/contact">contact page</Link>.
           </p>
 
-          <h2>Third-party links and advertising</h2>
+          <h2>Third-Party Links and Advertising</h2>
           <p>
             The site contains links to third-party sites and displays third-party advertising. We do
             not control and are not responsible for third-party content, products, services or
@@ -74,7 +74,7 @@ export default function TermsPage() {
             party.
           </p>
 
-          <h2>No warranty</h2>
+          <h2>No Warranty</h2>
           <p>
             The site is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without
             warranties of any kind, express or implied, including merchantability, fitness for a
@@ -82,7 +82,7 @@ export default function TermsPage() {
             error-free operation.
           </p>
 
-          <h2>Limitation of liability</h2>
+          <h2>Limitation of Liability</h2>
           <p>
             To the fullest extent permitted by law, {site.name} and its operators are not liable for
             any indirect, incidental, special, consequential or punitive damages, or any loss of
@@ -102,7 +102,7 @@ export default function TermsPage() {
             accept the revised terms. The date at the top of this page reflects the current version.
           </p>
 
-          <h2>Governing law</h2>
+          <h2>Governing Law</h2>
           <p>
             These terms are governed by the laws of the State of Georgia, United States, without
             regard to conflict of law principles.

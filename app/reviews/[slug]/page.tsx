@@ -129,7 +129,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
       <section className="section section--tint">
         <div className="wrap prose">
-          <h2>How {listing.name} compares in {listing.city}</h2>
+          <h2>How {listing.name} Compares In {listing.city}</h2>
           <p>
             {cityPeers.length
               ? `We list ${cityPeers.length + 1} tutoring centers in ${listing.city}. The city average rating is ${cityAverage || "not established"}, so ${listing.name} sits ${
@@ -144,7 +144,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
           {listing.ratingBreakdown.length > 0 && (
             <>
-              <h2>How the {listing.reviewCount.toLocaleString()} reviews break down</h2>
+              <h2>How The {listing.reviewCount.toLocaleString()} Reviews Break Down</h2>
               <ul className="rating-bars">
                 {[...listing.ratingBreakdown].reverse().map((bucket) => {
                   const share = listing.reviewCount
@@ -173,7 +173,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             </>
           )}
 
-          <h2>What to verify before enrolling</h2>
+          <h2>What to Verify Before Enrolling</h2>
           <ul>
             <li>Whether the instructor named in the reviews still works there</li>
             <li>The current student-to-instructor ratio in your preferred time slot</li>
@@ -184,7 +184,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
           {related.length > 0 && (
             <>
-              <h2>Compare with similar centers</h2>
+              <h2>Compare With Similar Centers</h2>
               <LinkList
                 items={related.map((item) => ({
                   href: `/reviews/${item.slug}`,

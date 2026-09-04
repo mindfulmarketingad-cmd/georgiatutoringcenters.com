@@ -51,6 +51,7 @@ export default function SitemapPage() {
       { href: "/", label: "Home" },
       { href: "/find", label: "Find a tutoring center" },
       { href: "/counties", label: "Tutoring centers by county" },
+      { href: "/zip-codes", label: "Tutoring centers by ZIP code" },
       { href: "/partners", label: "Partner directory" },
       { href: "/reviews", label: "Reviews" },
       { href: "/costs", label: "Costs and pricing" },
@@ -94,7 +95,7 @@ export default function SitemapPage() {
             lives at <Link href="/sitemap.xml">/sitemap.xml</Link>.
           </p>
 
-          <h2>Main pages</h2>
+          <h2>Main Pages</h2>
           <ul>
             {mainPages.map((page) => (
               <li key={page.href}>
@@ -121,7 +122,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Find by county ({countyPages.length})</h2>
+          <h2>Find by County ({countyPages.length})</h2>
           <ul>
             {countyPages.map((page) => (
               <li key={page.slug}>
@@ -130,7 +131,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Find by ZIP code ({zipPages.length})</h2>
+          <h2>Find by ZIP Code ({zipPages.length})</h2>
           <ul>
             {zipPages.map((page) => (
               <li key={page.slug}>
@@ -139,7 +140,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Find by city ({cityPages.length})</h2>
+          <h2>Find by City ({cityPages.length})</h2>
           <ul>
             {cityPages.map((page) => (
               <li key={page.slug}>
@@ -148,7 +149,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Find by subject ({servicePages.length})</h2>
+          <h2>Find by Subject ({servicePages.length})</h2>
           <ul>
             {servicePages.map((page) => (
               <li key={page.slug}>
@@ -157,7 +158,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Find by city and subject ({cityServicePages.length})</h2>
+          <h2>Find by City and Subject ({cityServicePages.length})</h2>
           <ul>
             {cityServicePages.map((page) => (
               <li key={page.slug}>
@@ -166,7 +167,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Cost guides ({sortedCostGuides.length})</h2>
+          <h2>Cost Guides ({sortedCostGuides.length})</h2>
           <ul>
             {sortedCostGuides.map((guide) => (
               <li key={guide.slug}>
@@ -175,7 +176,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Blog guides ({sortedBlogPosts.length})</h2>
+          <h2>Blog Guides ({sortedBlogPosts.length})</h2>
           <ul>
             {sortedBlogPosts.map((post) => (
               <li key={post.slug}>
@@ -184,7 +185,7 @@ export default function SitemapPage() {
             ))}
           </ul>
 
-          <h2>Tutoring center profiles ({sortedListings.length})</h2>
+          <h2>Tutoring Center Profiles ({sortedListings.length})</h2>
           <ul>
             {sortedListings.map((listing) => (
               <li key={listing.slug}>

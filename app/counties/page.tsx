@@ -103,7 +103,7 @@ export default function CountiesHub() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <h2>Every Georgia county in the directory</h2>
+          <h2>Every Georgia County in the Directory</h2>
           <p className="lede">
             Listed alphabetically, with the number of tutoring and learning centers in each.
           </p>
@@ -120,7 +120,7 @@ export default function CountiesHub() {
 
       <section className="section">
         <div className="wrap prose">
-          <h2>How county pages work</h2>
+          <h2>How County Pages Work</h2>
           <p>
             Each county guide is a ranked listicle of every center we hold in that county, drawn
             from the same data as the rest of the site: hours of operation, review counts, phone
