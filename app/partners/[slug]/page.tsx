@@ -82,6 +82,16 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
           <SampleNotice />
 
           <div className="listicle-actions">
+            {listing.bookingLink && (
+              <a
+                className="btn"
+                href={listing.bookingLink}
+                rel="noopener noreferrer nofollow"
+                target="_blank"
+              >
+                Book an appointment
+              </a>
+            )}
             {listing.phone && (
               <a className="btn" href={formatPhoneHref(listing.phone)}>
                 Call {listing.phone}
@@ -210,6 +220,27 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
                 Open {openDays.length} {openDays.length === 1 ? "day" : "days"} a week. Hours change
                 seasonally, so call ahead.
               </p>
+            </>
+          )}
+
+          {listing.attributes.length > 0 && (
+            <>
+              <h2>Features and amenities</h2>
+              <p className="form-help">
+                Reported by the business on its public map listing.
+              </p>
+              <div className="attribute-groups">
+                {listing.attributes.map((group) => (
+                  <div key={group.group}>
+                    <h3>{group.group}</h3>
+                    <ul>
+                      {group.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </>
           )}
 

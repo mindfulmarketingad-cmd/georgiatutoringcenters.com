@@ -4,6 +4,7 @@ import { findPages } from "@/lib/content/find";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
 import { authors } from "@/lib/content/authors";
+import { PER_PAGE, pageHref } from "@/lib/pagination";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = ([
     { url: url("/"), changeFrequency: "daily", priority: 1 },
     { url: url("/find"), changeFrequency: "weekly", priority: 0.9 },
-    { url: url("/partners"), changeFrequency: "weekly", priority: 0.9 },
     { url: url("/reviews"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/costs"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/blog"), changeFrequency: "weekly", priority: 0.8 },
@@ -27,12 +27,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/terms"), changeFrequency: "yearly", priority: 0.2 },
   ] as const).map((entry) => ({ ...entry, lastModified: listingsUpdated }));
 
-  const findEntries: MetadataRoute.Sitemap = findPages().map((page) => ({
-    url: url(`/find/${page.slug}`),
-    lastModified: listingsUpdated,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  // Pages held out of the index do not belong in the sitemap either.
+  const findEntries: MetadataRoute.Sitemap = findPages()
+    .filter((page) => !page.noindex)
+    .flatMap((page) => {
+      const pageCount = Math.max(1, Math.ceil(page.listings.length / PER_PAGE));
+      return Array.from({ length: pageCount }, (_, i) => ({
+        url: url(pageHref(`/find/${page.slug}`, i + 1)),
+        lastModified: listingsUpdated,
+        changeFrequency: "weekly" as const,
+        priority: i === 0 ? 0.8 : 0.5,
+      }));
+    });
+
+  const partnerIndexPages = Math.max(1, Math.ceil(listings.length / PER_PAGE));
+  const partnerIndexEntries: MetadataRoute.Sitemap = Array.from(
+    { length: partnerIndexPages },
+    (_, i) => ({
+      url: url(pageHref("/partners", i + 1)),
+      lastModified: listingsUpdated,
+      changeFrequency: "weekly" as const,
+      priority: i === 0 ? 0.9 : 0.5,
+    })
+  );
 
   const partnerEntries: MetadataRoute.Sitemap = listings.map((listing) => ({
     url: url(`/partners/${listing.slug}`),
@@ -71,6 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticEntries,
+    ...partnerIndexEntries,
     ...findEntries,
     ...partnerEntries,
     ...reviewEntries,

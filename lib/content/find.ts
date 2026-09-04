@@ -3,6 +3,8 @@ import type { Faq } from "./types";
 
 export type FindPage = {
   slug: string;
+  /** A page with a single listing is too thin to index; it stays crawlable and linked. */
+  noindex: boolean;
   kind: "city" | "service";
   key: string;
   label: string;
@@ -97,6 +99,7 @@ export function findPages(): FindPage[] {
   for (const group of cities()) {
     pages.push({
       slug: `tutoring-centers-in-${group.citySlug}`,
+      noindex: group.count < 2,
       kind: "city",
       key: group.citySlug,
       label: group.city,
@@ -116,6 +119,7 @@ export function findPages(): FindPage[] {
     const copy = SERVICE_COPY[group.slug];
     pages.push({
       slug: `${group.slug}-in-georgia`,
+      noindex: false,
       kind: "service",
       key: group.slug,
       label: group.label,

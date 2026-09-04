@@ -24,7 +24,7 @@ npm start
 
 ## Importing Outscraper data
 
-1. Export your Google Maps results from Outscraper as **CSV** or **JSON**.
+1. Export your Google Maps results from Outscraper as **XLSX**, **CSV** or **JSON**.
 2. Drop the file(s) into `data/outscraper/`.
 3. Run `npm run import` (this also runs automatically as part of `npm run build`).
 
@@ -36,13 +36,33 @@ which is the only listing source the site reads. Recognised columns include
 `verified`, `about`, `working_hours` and `place_id`. Unknown columns are ignored
 and missing ones degrade gracefully.
 
+The importer reads `.xlsx` directly, with no dependencies: an xlsx is a zip of
+XML parts, so it walks the zip central directory and reads the worksheet and
+shared-string tables itself.
+
+It filters as it goes, and prints what it dropped:
+
+- **Outside Georgia.** A radius search returns neighbouring states; rows whose
+  `state_code` is not GA are skipped (170 of 1,096 in the current export).
+- **Not education.** Rows whose category and subtypes contain no education
+  signal are skipped. A business with an off-topic primary category is kept when
+  it also reports itself as a tutoring or learning business.
+
 The importer also:
 
 - builds a URL slug per business (`/partners/<business-name>-<city>`), de-duplicating collisions;
 - parses `working_hours` from JSON, dict or `"Monday: 9AM-5PM, ..."` string forms;
 - tags each listing with subject areas (math, reading, test prep, STEM, special
   needs, early learning, homework help, online) used by the `/find` subject pages;
-- ranks listings by rating weighted with review volume.
+- ranks listings by rating weighted with review volume;
+- parses the `about` column, which holds a JSON map of attribute groups rather
+  than prose, into a features list ("Online classes", "Wheelchair accessible
+  entrance", and so on);
+- writes a factual summary per listing when the export carries no `description`,
+  built only from fields that are present: category, place, subtypes, features,
+  open days and review data;
+- captures the photo, street view, logo, booking link and the 1-5 star review
+  breakdown.
 
 ### Sample data
 
@@ -56,13 +76,28 @@ Adding a real export replaces them automatically — no code changes needed. Cit
 and subject pages under `/find`, sitemap entries and internal links are all
 generated from the data.
 
+## Pagination and thin pages
+
+The directory is ~900 centers, so listing pages are paginated at 30 per page
+(`lib/pagination.ts`): page 1 sits at the base path and later pages at
+`/page/<n>`. Without it `/partners` alone was a 4.7 MB document; it is now about
+220 KB per page. Each page carries its own canonical URL, continuous numbering
+and `ItemList` structured data, and every page is in the sitemap.
+
+City pages with only one listing are too thin to index. They stay crawlable and
+linked so nothing 404s, but they are marked `noindex, follow` and left out of
+the sitemap; they become indexable automatically once a second center is
+listed in that city.
+
 ## Site structure
 
 ```
 /                         Home: hero carousel, six hub blocks, SEO sections, FAQs
 /find                     Hub: browse by city and subject
 /find/[slug]              City pages (tutoring-centers-in-<city>) and subject pages
+/find/[slug]/page/[n]     Later pages of a long city or subject list
 /partners                 Hub: complete numbered listicle
+/partners/page/[n]        Later pages of the directory
 /partners/[slug]          Individual business profile (full Outscraper data)
 /reviews                  Hub: ratings leaderboard
 /reviews/[slug]           Per-business review summary

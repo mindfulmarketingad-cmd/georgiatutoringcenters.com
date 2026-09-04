@@ -142,6 +142,37 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             complaints repeat matter more than a tenth of a star. Read the three-star reviews first.
           </p>
 
+          {listing.ratingBreakdown.length > 0 && (
+            <>
+              <h2>How the {listing.reviewCount.toLocaleString()} reviews break down</h2>
+              <ul className="rating-bars">
+                {[...listing.ratingBreakdown].reverse().map((bucket) => {
+                  const share = listing.reviewCount
+                    ? Math.round((bucket.count / listing.reviewCount) * 100)
+                    : 0;
+                  return (
+                    <li key={bucket.score}>
+                      <span className="rating-bar-label">
+                        {bucket.score} star{bucket.score === 1 ? "" : "s"}
+                      </span>
+                      <span className="rating-bar-track">
+                        <span className="rating-bar-fill" style={{ width: `${share}%` }} />
+                      </span>
+                      <span className="rating-bar-value">
+                        {bucket.count.toLocaleString()} ({share}%)
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="form-help">
+                Counts come from the center&apos;s public review data. One-star reviews often
+                describe scheduling and billing rather than instruction, so read them before
+                deciding what the rating means.
+              </p>
+            </>
+          )}
+
           <h2>What to verify before enrolling</h2>
           <ul>
             <li>Whether the instructor named in the reviews still works there</li>

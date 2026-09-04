@@ -2,6 +2,8 @@ import raw from "@/data/listings.json";
 
 export type Hours = { day: string; hours: string };
 export type Service = { slug: string; label: string };
+export type AttributeGroup = { group: string; items: string[] };
+export type RatingBucket = { score: number; count: number };
 
 export type Listing = {
   id: string;
@@ -26,6 +28,10 @@ export type Listing = {
   photosCount: number;
   photo: string;
   streetView: string;
+  logo: string;
+  attributes: AttributeGroup[];
+  bookingLink: string;
+  ratingBreakdown: RatingBucket[];
   priceRange: string;
   businessStatus: string;
   verified: boolean;
