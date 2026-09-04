@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import LinkList from "@/components/LinkList";
+import PageBanner from "@/components/PageBanner";
 import Faqs from "@/components/Faqs";
 import Stars from "@/components/Stars";
 import SampleNotice from "@/components/SampleNotice";
@@ -48,9 +50,24 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       )
     : 0;
   const related = relatedListings(listing, 4);
+  const photo = listing.photo || listing.streetView;
 
   return (
     <>
+      <PageBanner
+        title={`${listing.name} Reviews`}
+        eyebrow="Review summary"
+        image={photo}
+        alt={photo ? `${listing.name} in ${listing.city}, Georgia` : ""}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{listing.rating ? `${listing.rating} out of 5` : "Not yet rated"}</li>
+          <li>{listing.reviewCount.toLocaleString()} reviews</li>
+          <li>{listing.city}, GA</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[
           { name: "Home", path: "/" },
@@ -61,8 +78,6 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Review summary</span>
-          <h1>{listing.name} Reviews</h1>
           <Stars rating={listing.rating} reviewCount={listing.reviewCount} />
           <p className="lede" style={{ marginTop: "0.8rem" }}>
             {listing.name} is a {listing.category.toLowerCase()} in {listing.city}, Georgia
@@ -139,22 +154,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           {related.length > 0 && (
             <>
               <h2>Compare with similar centers</h2>
-              <div className="card-grid">
-                {related.map((item) => (
-                  <article className="card" key={item.slug}>
-                    <p className="card-meta">
-                      {item.city}, GA &middot; {item.reviewCount} reviews
-                    </p>
-                    <h3>
-                      <Link href={`/reviews/${item.slug}`}>{item.name}</Link>
-                    </h3>
-                    <p>{item.rating ? `${item.rating} out of 5` : "Not yet rated"}</p>
-                    <Link className="card-link" href={`/reviews/${item.slug}`}>
-                      Review details &rarr;
-                    </Link>
-                  </article>
-                ))}
-              </div>
+              <LinkList
+                items={related.map((item) => ({
+                  href: `/reviews/${item.slug}`,
+                  label: `${item.name} reviews`,
+                  note: `${item.city}, GA${item.rating ? `, ${item.rating} out of 5 from ${item.reviewCount.toLocaleString()} reviews` : ", not yet rated"}`,
+                }))}
+              />
             </>
           )}
 

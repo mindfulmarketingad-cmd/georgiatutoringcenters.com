@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import type { Listing } from "@/lib/listings";
 import type { Faq } from "@/lib/content/types";
+import type { Author } from "@/lib/content/authors";
 
 type PageMetaInput = {
   title: string;
@@ -152,12 +153,38 @@ export function itemListSchema(listings: Listing[], path: string, name: string) 
   };
 }
 
+export function personSchema(author: Author, articleCount: number) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${site.url}/authors/${author.slug}#person`,
+      name: author.name,
+      url: `${site.url}/authors/${author.slug}`,
+      jobTitle: author.role,
+      description: author.bio.join(" "),
+      image: `${site.url}/authors/${author.slug}.svg`,
+      knowsAbout: author.covers,
+      worksFor: { "@id": `${site.url}#organization` },
+    },
+    url: `${site.url}/authors/${author.slug}`,
+    name: author.name,
+    interactionStatistic: {
+      "@type": "InteractionCounter",
+      interactionType: "https://schema.org/WriteAction",
+      userInteractionCount: articleCount,
+    },
+  };
+}
+
 export function articleSchema(input: {
   headline: string;
   description: string;
   path: string;
   published: string;
   modified: string;
+  author?: Author;
 }) {
   return {
     "@context": "https://schema.org",
@@ -167,7 +194,15 @@ export function articleSchema(input: {
     datePublished: input.published,
     dateModified: input.modified,
     mainEntityOfPage: `${site.url}${input.path}`,
-    author: { "@type": "Organization", name: site.name, url: site.url },
+    author: input.author
+      ? {
+          "@type": "Person",
+          "@id": `${site.url}/authors/${input.author.slug}#person`,
+          name: input.author.name,
+          url: `${site.url}/authors/${input.author.slug}`,
+          jobTitle: input.author.role,
+        }
+      : { "@type": "Organization", name: site.name, url: site.url },
     publisher: {
       "@type": "Organization",
       name: site.name,

@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import ContentPhoto from "@/components/ContentPhoto";
+import { photoFor } from "@/lib/photos";
+import LinkList from "@/components/LinkList";
 import ArticleBody from "@/components/ArticleBody";
 import Faqs from "@/components/Faqs";
 import JsonLd from "@/components/JsonLd";
+import { AuthorByline, AuthorCard } from "@/components/AuthorByline";
+import { authorOrDefault } from "@/lib/content/authors";
 import { costGuides, getCostGuide } from "@/lib/content/costs";
 import { articleSchema, pageMeta } from "@/lib/seo";
 
@@ -37,9 +43,24 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
   const guide = getCostGuide(slug);
   if (!guide) notFound();
   const others = costGuides.filter((g) => g.slug !== guide.slug);
+  const author = authorOrDefault(guide.author);
 
   return (
     <>
+      <PageBanner title={guide.title} eyebrow={guide.category} priority>
+        <ul className="banner-facts">
+          <li>
+            Updated{" "}
+            {new Date(guide.updated).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </li>
+          <li>{guide.readMinutes} minute read</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[
           { name: "Home", path: "/" },
@@ -50,23 +71,25 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
 
       <article className="section">
         <div className="wrap prose">
-          <span className="eyebrow">{guide.category}</span>
-          <h1>{guide.title}</h1>
-          <p className="form-help">
-            Updated{" "}
-            {new Date(guide.updated).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}{" "}
-            &middot; {guide.readMinutes} minute read
-          </p>
+          <AuthorByline
+            author={author}
+            published={guide.published}
+            updated={guide.updated}
+            readMinutes={guide.readMinutes}
+          />
           <div className="callout">
             <p style={{ margin: 0 }}>
               <strong>Quick answer:</strong> {guide.quickAnswer}
             </p>
           </div>
           <p className="lede">{guide.intro}</p>
+
+          <ContentPhoto
+            src={photoFor(guide.slug).inline}
+            alt={photoFor(guide.slug).alt}
+            caption={photoFor(guide.slug).caption}
+            priority
+          />
 
           <h2>Price ranges at a glance</h2>
           <div className="table-scroll">
@@ -95,6 +118,8 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
 
           <ArticleBody sections={guide.sections} />
 
+          <AuthorCard author={author} />
+
           <h2>Find centers in this price range</h2>
           <p>
             Use the <Link href="/find">Find hub</Link> to shortlist centers in your city, then check
@@ -104,15 +129,13 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
           </p>
 
           <h2>Other cost guides</h2>
-          <ul className="chips">
-            {others.map((other) => (
-              <li key={other.slug}>
-                <Link className="chip" href={`/costs/${other.slug}`}>
-                  {other.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            items={others.map((other) => ({
+              href: `/costs/${other.slug}`,
+              label: other.title,
+              note: other.category,
+            }))}
+          />
 
           <p>
             <Link className="btn btn--ghost" href="/costs">
@@ -134,6 +157,7 @@ export default async function CostGuidePage({ params }: { params: Promise<{ slug
           path: `/costs/${guide.slug}`,
           published: guide.published,
           modified: guide.updated,
+          author,
         })}
       />
     </>

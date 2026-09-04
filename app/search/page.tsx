@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import LinkList from "@/components/LinkList";
 import SearchForm from "@/components/SearchForm";
 import Faqs from "@/components/Faqs";
 import { popularSearches, runSearch, searchIndex } from "@/lib/search";
@@ -25,12 +27,17 @@ export default async function SearchHub({
 
   return (
     <>
+      <PageBanner title="Search Georgia Tutoring Centers" eyebrow="Search hub" priority>
+        <ul className="banner-facts">
+          <li>{searchIndex().length} pages searchable</li>
+          <li>Centers, guides and cost pages</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Search", path: "/search" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Search hub</span>
-          <h1>Search Georgia Tutoring Centers</h1>
           <p className="lede">
             One search box across every center profile, city page, subject page, cost guide and
             article on the site &mdash; {searchIndex().length} pages in total.
@@ -69,35 +76,30 @@ export default async function SearchHub({
       <section className="section section--tint">
         <div className="wrap">
           <h2>Popular searches</h2>
-          <ul className="chips" style={{ marginTop: "1rem" }}>
-            {popularSearches.map((term) => (
-              <li key={term}>
-                <Link className="chip" href={`/search/${encodeURIComponent(term)}`}>
-                  {term}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            split
+            items={popularSearches.map((term) => ({
+              href: `/search/${encodeURIComponent(term)}`,
+              label: term,
+            }))}
+          />
 
           <h2 style={{ marginTop: "2rem" }}>Browse instead of searching</h2>
-          <ul className="chips">
-            {services().map((service) => (
-              <li key={service.slug}>
-                <Link className="chip" href={`/find/${service.slug}-in-georgia`}>
-                  {service.label}
-                </Link>
-              </li>
-            ))}
-            {cities()
-              .slice(0, 10)
-              .map((city) => (
-                <li key={city.citySlug}>
-                  <Link className="chip" href={`/find/tutoring-centers-in-${city.citySlug}`}>
-                    {city.city}
-                  </Link>
-                </li>
-              ))}
-          </ul>
+          <LinkList
+            split
+            items={[
+              ...services().map((service) => ({
+                href: `/find/${service.slug}-in-georgia`,
+                label: `${service.label} in Georgia`,
+                note: `${service.count} centers`,
+              })),
+              ...cities().map((city) => ({
+                href: `/find/tutoring-centers-in-${city.citySlug}`,
+                label: `Tutoring centers in ${city.city}`,
+                note: `${city.count} centers`,
+              })),
+            ]}
+          />
         </div>
       </section>
 

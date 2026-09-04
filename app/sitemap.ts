@@ -3,6 +3,7 @@ import { listings, dataGeneratedAt } from "@/lib/listings";
 import { findPages } from "@/lib/content/find";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
+import { authors } from "@/lib/content/authors";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/blog"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/search"), changeFrequency: "monthly", priority: 0.4 },
     { url: url("/about"), changeFrequency: "yearly", priority: 0.5 },
+    { url: url("/authors"), changeFrequency: "monthly", priority: 0.5 },
     { url: url("/contact"), changeFrequency: "yearly", priority: 0.5 },
     { url: url("/sitemap"), changeFrequency: "weekly", priority: 0.3 },
     { url: url("/disclaimer"), changeFrequency: "yearly", priority: 0.2 },
@@ -46,6 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const authorEntries: MetadataRoute.Sitemap = authors.map((author) => ({
+    url: url(`/authors/${author.slug}`),
+    lastModified: listingsUpdated,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: url(`/blog/${post.slug}`),
     lastModified: new Date(post.updated),
@@ -67,5 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...reviewEntries,
     ...costEntries,
     ...blogEntries,
+    ...authorEntries,
   ];
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
 import Faqs from "@/components/Faqs";
 import Stars from "@/components/Stars";
 import SampleNotice from "@/components/SampleNotice";
@@ -23,12 +25,24 @@ export default function ReviewsHub() {
 
   return (
     <>
+      <PageBanner
+        title="Georgia Tutoring Center Reviews"
+        eyebrow="Reviews hub"
+        image={photos[1].banner}
+        alt={photos[1].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{averageRating()} average rating</li>
+          <li>{totalReviews().toLocaleString()} reviews counted</li>
+          <li>{listings.filter((l) => l.rating >= 4.5).length} centers rated 4.5+</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Reviews", path: "/reviews" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Reviews hub</span>
-          <h1>Georgia Tutoring Center Reviews</h1>
           <p className="lede">
             Ratings and review counts for every tutoring center in the directory, plus what those
             numbers actually tell you. A high rating from six reviews is a weaker signal than a

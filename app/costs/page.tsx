@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
+import LinkList from "@/components/LinkList";
 import Faqs from "@/components/Faqs";
 import { costGuides } from "@/lib/content/costs";
 import { pageMeta } from "@/lib/seo";
@@ -15,12 +18,24 @@ export const metadata: Metadata = pageMeta({
 export default function CostsHub() {
   return (
     <>
+      <PageBanner
+        title="How Much Does Tutoring Cost in Georgia?"
+        eyebrow="Costs hub"
+        image={photos[2].banner}
+        alt={photos[2].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>$40 - $80 per hour in small groups</li>
+          <li>$60 - $120 one-to-one</li>
+          <li>{costGuides.length} cost guides</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Costs", path: "/costs" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Costs hub</span>
-          <h1>How Much Does Tutoring Cost in Georgia?</h1>
           <p className="lede">
             Tutoring prices in Georgia vary more by format than by city. Small-group instruction at
             a center commonly runs $40 to $80 per hour, one-to-one runs $60 to $120, and monthly
@@ -81,20 +96,13 @@ export default function CostsHub() {
       <section className="section section--tint">
         <div className="wrap">
           <h2>Cost guides</h2>
-          <div className="card-grid" style={{ marginTop: "1.4rem" }}>
-            {costGuides.map((guide) => (
-              <article className="card" key={guide.slug}>
-                <p className="card-meta">{guide.category}</p>
-                <h3>
-                  <Link href={`/costs/${guide.slug}`}>{guide.title}</Link>
-                </h3>
-                <p>{guide.description}</p>
-                <Link className="card-link" href={`/costs/${guide.slug}`}>
-                  See the pricing &rarr;
-                </Link>
-              </article>
-            ))}
-          </div>
+          <LinkList
+            items={costGuides.map((guide) => ({
+              href: `/costs/${guide.slug}`,
+              label: guide.title,
+              note: guide.quickAnswer.replace(/^([^.]+\.).*$/s, "$1"),
+            }))}
+          />
         </div>
       </section>
 

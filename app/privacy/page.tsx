@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -15,11 +16,15 @@ export default function PrivacyPage() {
   const updated = "September 1, 2025";
   return (
     <>
+      <PageBanner title="Privacy Policy" eyebrow="Legal" priority>
+        <ul className="banner-facts">
+          <li>Last updated: {updated}</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy" }]} />
       <section className="section">
         <div className="wrap prose">
-          <span className="eyebrow">Legal</span>
-          <h1>Privacy Policy</h1>
           <p className="form-help">Last updated: {updated}</p>
           <p className="lede">
             This policy explains what {site.name} collects when you use {site.domain}, why, and what

@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import LinkList from "@/components/LinkList";
+import PageBanner from "@/components/PageBanner";
 import Faqs from "@/components/Faqs";
 import Stars from "@/components/Stars";
 import MapView from "@/components/MapView";
@@ -40,9 +42,28 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
   const related = relatedListings(listing, 6);
   const openDays = listing.hours.filter((h) => h.hours && !/closed/i.test(h.hours));
+  const photo = listing.photo || listing.streetView;
 
   return (
     <>
+      <PageBanner
+        title={listing.name}
+        eyebrow={listing.category}
+        image={photo}
+        alt={photo ? `${listing.name} in ${listing.city}, Georgia` : ""}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{listing.city}, GA</li>
+          <li>
+            {listing.rating
+              ? `${listing.rating} out of 5 from ${listing.reviewCount.toLocaleString()} reviews`
+              : "Not yet rated"}
+          </li>
+          {listing.priceRange ? <li>{listing.priceRange}</li> : null}
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[
           { name: "Home", path: "/" },
@@ -53,8 +74,6 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">{listing.category}</span>
-          <h1>{listing.name}</h1>
           <Stars rating={listing.rating} reviewCount={listing.reviewCount} />
           <p className="lede" style={{ marginTop: "0.8rem" }}>
             {listing.about ||
@@ -225,22 +244,13 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
           {related.length > 0 && (
             <>
               <h2>Similar centers</h2>
-              <div className="card-grid">
-                {related.map((item) => (
-                  <article className="card" key={item.slug}>
-                    <p className="card-meta">
-                      {item.city}, GA &middot; {item.rating || "n/a"} stars
-                    </p>
-                    <h3>
-                      <Link href={`/partners/${item.slug}`}>{item.name}</Link>
-                    </h3>
-                    <p>{item.category}</p>
-                    <Link className="card-link" href={`/partners/${item.slug}`}>
-                      View center &rarr;
-                    </Link>
-                  </article>
-                ))}
-              </div>
+              <LinkList
+                items={related.map((item) => ({
+                  href: `/partners/${item.slug}`,
+                  label: item.name,
+                  note: `${item.category} in ${item.city}${item.rating ? `, ${item.rating} stars` : ""}`,
+                }))}
+              />
             </>
           )}
 

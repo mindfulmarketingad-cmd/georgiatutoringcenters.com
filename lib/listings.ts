@@ -24,6 +24,8 @@ export type Listing = {
   reviewsLink: string;
   googleMapsLink: string;
   photosCount: number;
+  photo: string;
+  streetView: string;
   priceRange: string;
   businessStatus: string;
   verified: boolean;

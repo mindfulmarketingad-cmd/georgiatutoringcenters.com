@@ -1,7 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
+import LinkList from "@/components/LinkList";
 import Faqs from "@/components/Faqs";
+import { authorOrDefault } from "@/lib/content/authors";
 import { blogPosts } from "@/lib/content/blog";
 import { pageMeta } from "@/lib/seo";
 
@@ -17,46 +21,45 @@ export default function BlogHub() {
 
   return (
     <>
+      <PageBanner
+        title="Tutoring Guides for Georgia Parents"
+        eyebrow="Learning blog"
+        image={photos[2].banner}
+        alt={photos[2].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{blogPosts.length} guides</li>
+          <li>{categories.length} topics</li>
+          <li>Written for Georgia families</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Learning blog</span>
-          <h1>Tutoring Guides for Georgia Parents</h1>
           <p className="lede">
             Straightforward guides on choosing a tutoring center, preparing for the SAT and ACT,
             supporting math and reading at home, and deciding between online and in-person help.
             Written for families comparing real options in Georgia.
           </p>
-          <ul className="chips" style={{ marginTop: "1.2rem" }}>
-            {categories.map((category) => (
-              <li key={category}>
-                <span className="chip">{category}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="form-help">
+            Topics covered: {categories.join(", ")}.
+          </p>
         </div>
       </section>
 
       <section className="section section--tint">
         <div className="wrap">
           <h2>All guides</h2>
-          <div className="card-grid" style={{ marginTop: "1.4rem" }}>
-            {blogPosts.map((post) => (
-              <article className="card" key={post.slug}>
-                <p className="card-meta">
-                  {post.category} &middot; {post.readMinutes} min read
-                </p>
-                <h3>
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                <p>{post.description}</p>
-                <Link className="card-link" href={`/blog/${post.slug}`}>
-                  Read the guide &rarr;
-                </Link>
-              </article>
-            ))}
-          </div>
+          <LinkList
+            items={blogPosts.map((post) => ({
+              href: `/blog/${post.slug}`,
+              label: post.title,
+              note: `${post.category} · by ${authorOrDefault(post.author).name} · ${post.readMinutes} min read`,
+            }))}
+          />
         </div>
       </section>
 
@@ -73,7 +76,7 @@ export default function BlogHub() {
             faqs={[
               {
                 q: "Who writes these guides?",
-                a: "They are written by the Georgia Tutoring Centers editorial team from published research on instruction plus the pricing and program patterns we see across the centers in this directory.",
+                a: "Each guide carries a byline linking to that editor's profile. The team and how we work are described on the editorial team page.",
               },
               {
                 q: "Do centers pay to be mentioned in the blog?",

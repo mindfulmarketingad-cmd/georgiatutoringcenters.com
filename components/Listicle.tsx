@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import FeaturedImage from "@/components/FeaturedImage";
 import MapView from "@/components/MapView";
 import Stars from "@/components/Stars";
 import { formatPhoneHref, type Listing } from "@/lib/listings";
@@ -121,7 +122,14 @@ export default function Listicle({
                 <span className="rank" aria-hidden="true">
                   {startIndex + index}
                 </span>
-                <div>
+                <FeaturedImage
+                  variant="thumb"
+                  name={listing.name}
+                  city={listing.city}
+                  photo={listing.photo}
+                  streetView={listing.streetView}
+                />
+                <div className="listicle-text">
                   <h3 className="listicle-title">
                     <Link href={`/partners/${listing.slug}`}>{listing.name}</Link>
                   </h3>

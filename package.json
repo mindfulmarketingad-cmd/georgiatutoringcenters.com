@@ -10,7 +10,9 @@
     "build": "npm run import && next build",
     "start": "next start",
     "lint": "eslint .",
-    "import": "node scripts/import-outscraper.mjs"
+    "import": "node scripts/import-outscraper.mjs",
+    "photos": "node scripts/make-photos.mjs",
+    "brand": "node scripts/make-brand.mjs && node scripts/make-hero.mjs && node scripts/make-avatars.mjs"
   },
   "dependencies": {
     "next": "16.3.4",

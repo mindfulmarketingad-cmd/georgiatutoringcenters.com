@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
 import Faqs from "@/components/Faqs";
 import { cities, listings, services } from "@/lib/listings";
 import { pageMeta } from "@/lib/seo";
@@ -16,12 +18,24 @@ export const metadata: Metadata = pageMeta({
 export default function AboutPage() {
   return (
     <>
+      <PageBanner
+        title="About Georgia Tutoring Centers"
+        eyebrow="About us"
+        image={photos[0].banner}
+        alt={photos[0].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{listings.length} centers listed</li>
+          <li>{cities().length} cities covered</li>
+          <li>Free for families</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]} />
 
       <section className="section">
         <div className="wrap prose">
-          <span className="eyebrow">About us</span>
-          <h1>About Georgia Tutoring Centers</h1>
           <p className="lede">
             Georgia Tutoring Centers is an independent directory of tutoring and learning centers
             across the state. We exist to make one specific task easier: comparing real options for
@@ -86,6 +100,13 @@ export default function AboutPage() {
             <Link href="/privacy">privacy policy</Link> for how advertising cookies work and our{" "}
             <Link href="/disclaimer">disclaimer</Link> for the limits of the information published
             here.
+          </p>
+
+          <h2>Who writes for the site</h2>
+          <p>
+            Every guide and cost page carries a byline linking to that editor&apos;s profile, with
+            what they cover and everything else they have written. See the{" "}
+            <Link href="/authors">editorial team page</Link> for the full list.
           </p>
 
           <h2>Corrections and updates</h2>

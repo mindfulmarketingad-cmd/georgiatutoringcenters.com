@@ -8,6 +8,8 @@ export type Faq = { q: string; a: string };
 
 export type Article = {
   slug: string;
+  /** Author slug from lib/content/authors.ts */
+  author: string;
   title: string;
   metaTitle: string;
   description: string;

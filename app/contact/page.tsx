@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
 import ContactForm from "@/components/ContactForm";
 import Faqs from "@/components/Faqs";
 import { pageMeta } from "@/lib/seo";
@@ -16,12 +17,17 @@ export const metadata: Metadata = pageMeta({
 export default function ContactPage() {
   return (
     <>
+      <PageBanner title="Contact Georgia Tutoring Centers" eyebrow="Contact" priority>
+        <ul className="banner-facts">
+          <li>Add or correct a listing</li>
+          <li>Replies in two to three business days</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
 
       <section className="section">
         <div className="wrap prose">
-          <span className="eyebrow">Contact</span>
-          <h1>Contact Georgia Tutoring Centers</h1>
           <p className="lede">
             Questions about the directory, a listing that needs correcting, or a tutoring center
             that should be here? Send us a note. We read everything and reply to messages that need

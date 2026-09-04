@@ -76,6 +76,27 @@ export function slugify(value) {
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+/**
+ * Outscraper exports the main business photo under a few different column
+ * names depending on the export type, and `photos` can hold a list. Take the
+ * first usable https URL, whichever shape it arrives in.
+ */
+function firstImage(...values) {
+  for (const value of values) {
+    if (!value) continue;
+    const candidates = Array.isArray(value)
+      ? value
+      : String(value)
+          .split(/[,\s]+/)
+          .filter(Boolean);
+    for (const candidate of candidates) {
+      const url = typeof candidate === "string" ? candidate.trim() : String(candidate?.photo ?? "").trim();
+      if (/^https:\/\/\S+$/i.test(url)) return url;
+    }
+  }
+  return "";
+}
+
 function parseHours(raw) {
   if (!raw) return [];
   let data = raw;
@@ -196,6 +217,15 @@ function normalise(row, index) {
     reviewsLink: pick(row, "reviews_link"),
     googleMapsLink: pick(row, "location_link", "google_maps_url", "location_reviews_link"),
     photosCount: Number(pick(row, "photos_count")) || 0,
+    photo: firstImage(
+      row.photo,
+      row.photos,
+      row.photos_sample,
+      row.featured_image,
+      row.image,
+      row.logo
+    ),
+    streetView: firstImage(row.street_view, row.streetview),
     priceRange: pick(row, "range", "price_level", "price_range"),
     businessStatus: pick(row, "business_status") || "OPERATIONAL",
     verified: /true|yes|1/i.test(pick(row, "verified")),

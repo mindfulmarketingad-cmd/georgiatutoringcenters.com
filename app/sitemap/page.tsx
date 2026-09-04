@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
 import { findPages } from "@/lib/content/find";
 import { listings } from "@/lib/listings";
+import { authors } from "@/lib/content/authors";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -20,12 +22,18 @@ export default function SitemapPage() {
 
   return (
     <>
+      <PageBanner title="Sitemap" eyebrow="Site index" priority>
+        <ul className="banner-facts">
+          <li>{listings.length} center profiles</li>
+          <li>{cityPages.length + servicePages.length} find pages</li>
+          <li>{blogPosts.length + costGuides.length} guides</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Sitemap", path: "/sitemap" }]} />
 
       <section className="section">
         <div className="wrap prose">
-          <span className="eyebrow">Sitemap</span>
-          <h1>Sitemap</h1>
           <p className="lede">
             Every page on Georgia Tutoring Centers, grouped by section. The machine-readable version
             lives at <Link href="/sitemap.xml">/sitemap.xml</Link>.
@@ -42,6 +50,16 @@ export default function SitemapPage() {
             <li><Link href="/search">Search</Link></li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/authors">Our editorial team</Link></li>
+          </ul>
+
+          <h2>Authors ({authors.length})</h2>
+          <ul>
+            {authors.map((author) => (
+              <li key={author.slug}>
+                <Link href={`/authors/${author.slug}`}>{author.name}</Link> &mdash; {author.role}
+              </li>
+            ))}
           </ul>
 
           <h2>Legal</h2>

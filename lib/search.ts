@@ -2,6 +2,7 @@ import { listings } from "@/lib/listings";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
 import { findPages } from "@/lib/content/find";
+import { authors } from "@/lib/content/authors";
 
 export type SearchDoc = {
   title: string;
@@ -20,6 +21,7 @@ const staticPages: SearchDoc[] = [
   { title: "Reviews", url: "/reviews", type: "Page", summary: "Ratings and review counts for Georgia tutoring centers.", keywords: "reviews ratings stars" },
   { title: "Costs and Pricing", url: "/costs", type: "Page", summary: "What tutoring costs in Georgia by program and format.", keywords: "cost price rates pricing" },
   { title: "Blog", url: "/blog", type: "Page", summary: "Guides for parents on tutoring, test prep and study habits.", keywords: "blog articles guides" },
+  { title: "Our Editorial Team", url: "/authors", type: "Page", summary: "The editors who write the guides and cost pages.", keywords: "authors editorial team writers about" },
   { title: "Sitemap", url: "/sitemap", type: "Page", summary: "Every page on Georgia Tutoring Centers in one list.", keywords: "sitemap index" },
   { title: "Privacy Policy", url: "/privacy", type: "Page", summary: "How this site handles data, cookies and advertising.", keywords: "privacy cookies data" },
   { title: "Terms of Use", url: "/terms", type: "Page", summary: "The terms that govern use of this directory.", keywords: "terms conditions legal" },
@@ -69,6 +71,16 @@ export function searchIndex(): SearchDoc[] {
       type: "Guide",
       summary: post.description,
       keywords: `${post.title} ${post.category} ${post.description}`.toLowerCase(),
+    });
+  }
+
+  for (const author of authors) {
+    docs.push({
+      title: author.name,
+      url: `/authors/${author.slug}`,
+      type: "Page",
+      summary: `${author.role}. ${author.short}`,
+      keywords: `${author.name} ${author.role} ${author.covers.join(" ")} author`.toLowerCase(),
     });
   }
 

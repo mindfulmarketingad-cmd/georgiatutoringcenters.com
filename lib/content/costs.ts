@@ -3,6 +3,7 @@ import type { CostGuide } from "./types";
 export const costGuides: CostGuide[] = [
   {
     slug: "math-tutoring-cost",
+    author: "priya-raman",
     title: "How Much Does Math Tutoring Cost in Georgia?",
     metaTitle: "Math Tutoring Cost in Georgia | Hourly and Monthly Rates",
     description:
@@ -68,6 +69,7 @@ export const costGuides: CostGuide[] = [
   },
   {
     slug: "sat-act-test-prep-cost",
+    author: "marcus-reed",
     title: "SAT and ACT Test Prep Cost in Georgia",
     metaTitle: "SAT & ACT Test Prep Cost in Georgia | Class and Tutor Rates",
     description:
@@ -128,6 +130,7 @@ export const costGuides: CostGuide[] = [
   },
   {
     slug: "private-tutor-hourly-rates",
+    author: "dana-whitfield",
     title: "Private Tutor Hourly Rates in Georgia",
     metaTitle: "Private Tutor Hourly Rates in Georgia | 2025 Price Guide",
     description:
@@ -181,6 +184,7 @@ export const costGuides: CostGuide[] = [
   },
   {
     slug: "learning-center-membership-cost",
+    author: "dana-whitfield",
     title: "Learning Center Membership Cost in Georgia",
     metaTitle: "Learning Center Membership Cost in Georgia | Monthly Pricing",
     description:
@@ -234,6 +238,7 @@ export const costGuides: CostGuide[] = [
   },
   {
     slug: "online-tutoring-cost",
+    author: "marcus-reed",
     title: "Online Tutoring Cost for Georgia Families",
     metaTitle: "Online Tutoring Cost in Georgia | Hourly and Subscription",
     description:
@@ -281,6 +286,7 @@ export const costGuides: CostGuide[] = [
   },
   {
     slug: "special-needs-tutoring-cost",
+    author: "priya-raman",
     title: "Special Needs and Dyslexia Tutoring Cost in Georgia",
     metaTitle: "Special Needs & Dyslexia Tutoring Cost in Georgia",
     description:

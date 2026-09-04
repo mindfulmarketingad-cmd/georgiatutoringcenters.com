@@ -1,6 +1,8 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
+import LinkList from "@/components/LinkList";
 import Listicle from "@/components/Listicle";
 import Faqs from "@/components/Faqs";
 import SampleNotice from "@/components/SampleNotice";
@@ -22,12 +24,24 @@ export default function FindHub() {
 
   return (
     <>
+      <PageBanner
+        title="Find Tutoring Centers in Georgia"
+        eyebrow="Find hub"
+        image={photos[1].banner}
+        alt={photos[1].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{listings.length} centers listed</li>
+          <li>{cityGroups.length} cities</li>
+          <li>{serviceGroups.length} subject areas</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Find", path: "/find" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Find hub</span>
-          <h1>Find Tutoring Centers in Georgia</h1>
           <p className="lede">
             Two ways in: pick your city, or pick the subject your child needs help with. Every page
             below is a numbered listicle with hours, ratings, phone numbers and a toggleable map.
@@ -59,23 +73,14 @@ export default function FindHub() {
         <div className="wrap">
           <h2>Browse by subject</h2>
           <p className="lede">Start here when you know what your child needs to work on.</p>
-          <div className="card-grid" style={{ marginTop: "1.4rem" }}>
-            {serviceGroups.map((service) => (
-              <article className="card" key={service.slug}>
-                <p className="card-meta">{service.count} centers</p>
-                <h3>
-                  <Link href={`/find/${service.slug}-in-georgia`}>{service.label} in Georgia</Link>
-                </h3>
-                <p>
-                  Compare Georgia centers offering {service.label.toLowerCase()}, with hours,
-                  ratings and locations.
-                </p>
-                <Link className="card-link" href={`/find/${service.slug}-in-georgia`}>
-                  View {service.count} centers &rarr;
-                </Link>
-              </article>
-            ))}
-          </div>
+          <LinkList
+            split
+            items={serviceGroups.map((service) => ({
+              href: `/find/${service.slug}-in-georgia`,
+              label: `${service.label} in Georgia`,
+              note: `${service.count} centers`,
+            }))}
+          />
         </div>
       </section>
 
@@ -83,15 +88,14 @@ export default function FindHub() {
         <div className="wrap">
           <h2>Browse by city</h2>
           <p className="lede">Every Georgia city currently represented in the directory.</p>
-          <ul className="chips" style={{ marginTop: "1.2rem" }}>
-            {cityGroups.map((city) => (
-              <li key={city.citySlug}>
-                <Link className="chip" href={`/find/tutoring-centers-in-${city.citySlug}`}>
-                  Tutoring centers in {city.city} ({city.count})
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            split
+            items={cityGroups.map((city) => ({
+              href: `/find/tutoring-centers-in-${city.citySlug}`,
+              label: `Tutoring centers in ${city.city}`,
+              note: `${city.count} centers`,
+            }))}
+          />
         </div>
       </section>
 

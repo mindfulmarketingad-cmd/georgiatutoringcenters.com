@@ -57,6 +57,14 @@ Every external link uses `rel="noopener noreferrer nofollow"` with
 `target="_blank"`, which prevents reverse tabnabbing and keeps link equity from
 leaking to unvetted business websites.
 
+## Remote images
+
+Business photos from the Outscraper export are hot-linked from Google's image
+hosts, which are allow-listed in `img-src`. Every remote image carries
+`referrerPolicy="no-referrer"`, and a failure (including a CSP block) falls back
+to local artwork rather than a broken image — checked both on the error event
+and on mount, since an image can fail before React hydrates.
+
 ## Privacy-affecting behaviour
 
 - Geolocation is requested only on an explicit button press, used in-browser to

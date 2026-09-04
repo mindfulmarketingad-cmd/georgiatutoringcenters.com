@@ -2,6 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photoFor } from "@/lib/photos";
+import LinkList from "@/components/LinkList";
 import Listicle from "@/components/Listicle";
 import Faqs from "@/components/Faqs";
 import SampleNotice from "@/components/SampleNotice";
@@ -54,6 +57,20 @@ export default async function FindDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <>
+      <PageBanner
+        title={page.h1}
+        eyebrow={page.kind === "city" ? "City guide" : "Subject guide"}
+        image={photoFor(page.slug).banner}
+        alt={photoFor(page.slug).alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{page.listings.length} centers</li>
+          <li>{rating || "n/a"} average rating</li>
+          <li>{reviews.toLocaleString()} reviews</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[
           { name: "Home", path: "/" },
@@ -64,8 +81,6 @@ export default async function FindDetailPage({ params }: { params: Promise<{ slu
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">{page.kind === "city" ? "City guide" : "Subject guide"}</span>
-          <h1>{page.h1}</h1>
           {page.intro.map((paragraph) => (
             <p className="lede" key={paragraph.slice(0, 40)}>
               {paragraph}
@@ -124,15 +139,14 @@ export default async function FindDetailPage({ params }: { params: Promise<{ slu
           </p>
 
           <h2>Keep browsing</h2>
-          <ul className="chips">
-            {siblings.map((sibling) => (
-              <li key={sibling.slug}>
-                <Link className="chip" href={`/find/${sibling.slug}`}>
-                  {sibling.kind === "city" ? sibling.label : sibling.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            split
+            items={siblings.map((sibling) => ({
+              href: `/find/${sibling.slug}`,
+              label: sibling.h1,
+              note: `${sibling.listings.length} centers`,
+            }))}
+          />
           <p>
             <Link className="btn btn--ghost" href="/find">
               Back to the Find hub

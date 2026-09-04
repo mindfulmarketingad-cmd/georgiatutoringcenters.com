@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -15,13 +16,17 @@ export default function DisclaimerPage() {
   const updated = "September 1, 2025";
   return (
     <>
+      <PageBanner title="Disclaimer" eyebrow="Legal" priority>
+        <ul className="banner-facts">
+          <li>Last updated: {updated}</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[{ name: "Home", path: "/" }, { name: "Disclaimer", path: "/disclaimer" }]}
       />
       <section className="section">
         <div className="wrap prose">
-          <span className="eyebrow">Legal</span>
-          <h1>Disclaimer</h1>
           <p className="form-help">Last updated: {updated}</p>
 
           <h2>Information only</h2>

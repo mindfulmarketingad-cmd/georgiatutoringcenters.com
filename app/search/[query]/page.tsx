@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import LinkList from "@/components/LinkList";
 import SearchForm from "@/components/SearchForm";
 import { popularSearches, runSearch } from "@/lib/search";
 import { pageMeta } from "@/lib/seo";
@@ -46,6 +48,14 @@ export default async function SearchQueryPage({
 
   return (
     <>
+      <PageBanner title={`Results for \u201c${term}\u201d`} eyebrow="Search results" priority>
+        <ul className="banner-facts">
+          <li>
+            {results.length} matching {results.length === 1 ? "page" : "pages"}
+          </li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs
         trail={[
           { name: "Home", path: "/" },
@@ -56,8 +66,6 @@ export default async function SearchQueryPage({
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Search results</span>
-          <h1>Results for &ldquo;{term}&rdquo;</h1>
           <p className="lede">
             {results.length} {results.length === 1 ? "page" : "pages"} on Georgia Tutoring Centers
             match this search.
@@ -88,17 +96,12 @@ export default async function SearchQueryPage({
       <section className="section section--tint">
         <div className="wrap">
           <h2>Other popular searches</h2>
-          <ul className="chips" style={{ marginTop: "1rem" }}>
-            {popularSearches
+          <LinkList
+            split
+            items={popularSearches
               .filter((t) => t !== term)
-              .map((t) => (
-                <li key={t}>
-                  <Link className="chip" href={`/search/${encodeURIComponent(t)}`}>
-                    {t}
-                  </Link>
-                </li>
-              ))}
-          </ul>
+              .map((t) => ({ href: `/search/${encodeURIComponent(t)}`, label: t }))}
+          />
           <p style={{ marginTop: "1.4rem" }}>
             <Link className="btn btn--ghost" href="/search">
               Back to the Search hub

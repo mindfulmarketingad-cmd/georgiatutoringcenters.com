@@ -1,8 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroCarousel from "@/components/HeroCarousel";
+import PageBanner from "@/components/PageBanner";
+import ContentPhoto from "@/components/ContentPhoto";
 import HubGrid from "@/components/HubGrid";
 import Listicle from "@/components/Listicle";
+import LinkList from "@/components/LinkList";
 import Faqs from "@/components/Faqs";
 import SearchForm from "@/components/SearchForm";
 import SampleNotice from "@/components/SampleNotice";
@@ -74,38 +77,40 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="hero">
-        <div className="wrap hero-grid">
-          <div>
-            <span className="eyebrow">Georgia&apos;s tutoring directory</span>
-            <h1>Georgia Tutoring &amp; Learning Centers | Test Prep, Math Tutoring and More</h1>
-            <p className="lede">
-              Compare {listings.length} tutoring and learning centers across Georgia in one place.
-              Hours, ratings, subjects, pricing guidance and directions for every center, with no
-              sign-up and no fee for families.
-            </p>
-            <ul className="hero-stats">
-              <li>{listings.length} centers listed</li>
-              <li>{cityGroups.length} Georgia cities</li>
-              <li>{reviews.toLocaleString()} reviews analysed</li>
-              <li>{rating} average rating</li>
-            </ul>
-            <SearchForm />
-            <div className="listicle-actions">
-              <Link className="btn" href="/find">
-                Find a center near you
-              </Link>
-              <Link className="btn btn--ghost" href="/costs">
-                See what tutoring costs
-              </Link>
-            </div>
-          </div>
+      <PageBanner
+        title="Georgia Tutoring &amp; Learning Centers | Test Prep, Math Tutoring and More"
+        eyebrow="Georgia&apos;s tutoring directory"
+        image="/photos/tutor-and-student-banner.jpg"
+        alt="A tutor working one to one with a student"
+        priority
+      >
+        <SearchForm />
+        <ul className="banner-facts">
+          <li>{listings.length} centers listed</li>
+          <li>{cityGroups.length} Georgia cities</li>
+          <li>{reviews.toLocaleString()} reviews analysed</li>
+          <li>{rating} average rating</li>
+        </ul>
+        <div className="banner-actions">
+          <Link className="btn" href="/find">
+            Find a center near you
+          </Link>
+          <Link className="btn btn--ghost" href="/costs">
+            See what tutoring costs
+          </Link>
+        </div>
+      </PageBanner>
 
-          <div>
-            <h2>Tutoring Centers Near Me</h2>
-            <p className="form-help" style={{ marginBottom: "0.9rem" }}>
-              Browse centers closest to you, or start with the highest rated centers in the state.
-            </p>
+      <section className="section">
+        <div className="wrap center">
+          <h2>Tutoring Centers Near Me</h2>
+          <p className="lede">
+            Compare {listings.length} tutoring and learning centers across Georgia in one place.
+            Hours, ratings, subjects, pricing guidance and directions for every center, with no
+            sign-up and no fee for families. Browse the centers closest to you, or start with the
+            highest rated in the state.
+          </p>
+          <div className="carousel-shell">
             <HeroCarousel listings={featured} />
           </div>
         </div>
@@ -144,12 +149,22 @@ export default function HomePage() {
       <section className="section">
         <div className="wrap prose">
           <h2>Jumpstart learning with our One-to-One Instruction</h2>
-          <p>
-            One-to-one instruction is the fastest way to close a skill gap, and it is the format
-            most Georgia tutoring centers recommend for a student who is more than a grade level
-            behind. A single instructor working with a single student can diagnose in real time,
-            adjust pace mid-session, and rebuild confidence in a way a classroom of thirty cannot.
-          </p>
+          <div className="photo-split">
+            <div>
+              <p>
+                One-to-one instruction is the fastest way to close a skill gap, and it is the
+                format most Georgia tutoring centers recommend for a student who is more than a
+                grade level behind. A single instructor working with a single student can diagnose
+                in real time, adjust pace mid-session, and rebuild confidence in a way a classroom
+                of thirty cannot.
+              </p>
+            </div>
+            <ContentPhoto
+              src="/photos/one-to-one-instruction.jpg"
+              alt="A tutor and a student working through a problem together at a desk"
+              caption="One-to-one sessions move fastest for students who are behind grade level."
+            />
+          </div>
           <p>
             The centers in this directory offer a mix of formats: one-to-one sessions, small groups
             of three to six students working on individual plans, and supervised self-paced
@@ -212,59 +227,52 @@ export default function HomePage() {
             </li>
           </ol>
 
+          <ContentPhoto
+            src="/photos/online-tutoring.jpg"
+            alt="A student working through a lesson on a laptop at home"
+            caption="Many Georgia centers now teach online with the same instructors who teach in the building."
+          />
+
           <h2>Browse Georgia tutoring centers by city</h2>
-          <ul className="chips">
-            {cityGroups.map((city) => (
-              <li key={city.citySlug}>
-                <Link className="chip" href={`/find/tutoring-centers-in-${city.citySlug}`}>
-                  {city.city} ({city.count})
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            split
+            items={cityGroups.map((city) => ({
+              href: `/find/tutoring-centers-in-${city.citySlug}`,
+              label: `Tutoring centers in ${city.city}`,
+              note: `${city.count} centers`,
+            }))}
+          />
 
           <h2>Browse by subject</h2>
-          <ul className="chips">
-            {serviceGroups.map((service) => (
-              <li key={service.slug}>
-                <Link className="chip" href={`/find/${service.slug}-in-georgia`}>
-                  {service.label} ({service.count})
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LinkList
+            split
+            items={serviceGroups.map((service) => ({
+              href: `/find/${service.slug}-in-georgia`,
+              label: `${service.label} in Georgia`,
+              note: `${service.count} centers`,
+            }))}
+          />
         </div>
       </section>
 
       <section className="section section--soft">
         <div className="wrap">
           <h2>Guides and cost breakdowns</h2>
-          <div className="card-grid">
-            {blogPosts.slice(0, 3).map((post) => (
-              <article className="card" key={post.slug}>
-                <p className="card-meta">{post.category}</p>
-                <h3>
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                <p>{post.description}</p>
-                <Link className="card-link" href={`/blog/${post.slug}`}>
-                  Read the guide &rarr;
-                </Link>
-              </article>
-            ))}
-            {costGuides.slice(0, 3).map((guide) => (
-              <article className="card" key={guide.slug}>
-                <p className="card-meta">{guide.category}</p>
-                <h3>
-                  <Link href={`/costs/${guide.slug}`}>{guide.title}</Link>
-                </h3>
-                <p>{guide.description}</p>
-                <Link className="card-link" href={`/costs/${guide.slug}`}>
-                  See the pricing &rarr;
-                </Link>
-              </article>
-            ))}
-          </div>
+          <LinkList
+            split
+            items={[
+              ...blogPosts.map((post) => ({
+                href: `/blog/${post.slug}`,
+                label: post.title,
+                note: `${post.category}, ${post.readMinutes} min read`,
+              })),
+              ...costGuides.map((guide) => ({
+                href: `/costs/${guide.slug}`,
+                label: guide.title,
+                note: guide.category,
+              })),
+            ]}
+          />
         </div>
       </section>
 

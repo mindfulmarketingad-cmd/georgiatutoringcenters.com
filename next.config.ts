@@ -12,7 +12,7 @@ const csp = [
   "form-action 'self'",
   "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://www.googletagservices.com https://adservice.google.com https://googleads.g.doubleclick.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://tile.openstreetmap.org https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://tpc.googlesyndication.com",
+  "img-src 'self' data: https://lh3.googleusercontent.com https://lh4.googleusercontent.com https://lh5.googleusercontent.com https://lh6.googleusercontent.com https://streetviewpixels-pa.googleapis.com https://maps.googleapis.com https://tile.openstreetmap.org https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://tpc.googlesyndication.com",
   "font-src 'self' data:",
   "connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net",
   "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com",
@@ -43,7 +43,14 @@ const nextConfig: NextConfig = {
   // Every image on the site is a pre-optimised static asset (SVG logos, PNG
   // icons and the social card), so the image optimizer — and its sharp
   // dependency — is not needed at runtime.
-  images: { unoptimized: true },
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "**.googleusercontent.com" },
+      { protocol: "https", hostname: "streetviewpixels-pa.googleapis.com" },
+      { protocol: "https", hostname: "maps.googleapis.com" },
+    ],
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

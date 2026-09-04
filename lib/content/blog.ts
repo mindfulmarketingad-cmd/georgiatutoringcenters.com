@@ -3,6 +3,7 @@ import type { Article } from "./types";
 export const blogPosts: Article[] = [
   {
     slug: "how-to-choose-a-tutoring-center-in-georgia",
+    author: "dana-whitfield",
     title: "How to Choose a Tutoring Center in Georgia: A Parent's Checklist",
     metaTitle: "How to Choose a Tutoring Center in Georgia | Parent Checklist",
     description:
@@ -78,6 +79,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "sat-and-act-prep-timeline-for-georgia-students",
+    author: "marcus-reed",
     title: "SAT and ACT Prep Timeline for Georgia Students",
     metaTitle: "SAT & ACT Prep Timeline for Georgia Students | Study Plan",
     description:
@@ -153,6 +155,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "signs-your-child-needs-a-tutor",
+    author: "dana-whitfield",
     title: "Seven Signs Your Child Needs a Tutor (and Three Signs They Do Not)",
     metaTitle: "Signs Your Child Needs a Tutor | Georgia Parent Guide",
     description:
@@ -214,6 +217,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "math-tutoring-that-actually-works",
+    author: "priya-raman",
     title: "What Effective Math Tutoring Looks Like",
     metaTitle: "What Effective Math Tutoring Looks Like | Georgia Guide",
     description:
@@ -283,6 +287,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "reading-help-for-elementary-students",
+    author: "priya-raman",
     title: "Reading Help for Elementary Students: What to Look For",
     metaTitle: "Reading Help for Elementary Students | Georgia Tutoring",
     description:
@@ -348,6 +353,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "online-vs-in-person-tutoring-in-georgia",
+    author: "marcus-reed",
     title: "Online vs In-Person Tutoring in Georgia: How to Decide",
     metaTitle: "Online vs In-Person Tutoring in Georgia | Comparison",
     description:
@@ -407,6 +413,7 @@ export const blogPosts: Article[] = [
   },
   {
     slug: "summer-learning-loss-in-georgia",
+    author: "priya-raman",
     title: "Summer Learning Loss: A Realistic Plan for Georgia Families",
     metaTitle: "Summer Learning Loss | Georgia Summer Tutoring Plan",
     description:

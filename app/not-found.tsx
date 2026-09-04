@@ -1,5 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import LinkList from "@/components/LinkList";
+import PageBanner from "@/components/PageBanner";
 import SearchForm from "@/components/SearchForm";
 import { pageMeta } from "@/lib/seo";
 
@@ -12,25 +13,29 @@ export const metadata: Metadata = pageMeta({
 
 export default function NotFound() {
   return (
-    <section className="section">
+    <>
+      <PageBanner title="We could not find that page" eyebrow="404" priority />
+      <section className="section">
       <div className="wrap prose">
-        <span className="eyebrow">404</span>
-        <h1>We could not find that page</h1>
         <p className="lede">
           The link may be out of date, or the page may have moved. Search the directory or pick a
           hub below.
         </p>
         <SearchForm />
-        <ul className="chips">
-          <li><Link className="chip" href="/">Home</Link></li>
-          <li><Link className="chip" href="/find">Find a center</Link></li>
-          <li><Link className="chip" href="/partners">Partner directory</Link></li>
-          <li><Link className="chip" href="/reviews">Reviews</Link></li>
-          <li><Link className="chip" href="/costs">Costs</Link></li>
-          <li><Link className="chip" href="/blog">Blog</Link></li>
-          <li><Link className="chip" href="/sitemap">Sitemap</Link></li>
-        </ul>
+        <LinkList
+          split
+          items={[
+            { href: "/", label: "Home", note: "Georgia tutoring directory" },
+            { href: "/find", label: "Find a center", note: "Browse by city or subject" },
+            { href: "/partners", label: "Partner directory", note: "Every center listed" },
+            { href: "/reviews", label: "Reviews", note: "Ratings and review counts" },
+            { href: "/costs", label: "Costs", note: "What tutoring costs in Georgia" },
+            { href: "/blog", label: "Blog", note: "Guides for parents" },
+            { href: "/sitemap", label: "Sitemap", note: "Every page on the site" },
+          ]}
+        />
       </div>
-    </section>
+      </section>
+    </>
   );
 }

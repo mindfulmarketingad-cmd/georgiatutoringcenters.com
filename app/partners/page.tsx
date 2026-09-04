@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageBanner from "@/components/PageBanner";
+import { photos } from "@/lib/photos";
 import Listicle from "@/components/Listicle";
 import Faqs from "@/components/Faqs";
 import SampleNotice from "@/components/SampleNotice";
@@ -21,12 +23,25 @@ export default function PartnersHub() {
 
   return (
     <>
+      <PageBanner
+        title="Georgia Tutoring Center Partner Directory"
+        eyebrow="Partner directory"
+        image={photos[0].banner}
+        alt={photos[0].alt}
+        priority
+      >
+        <ul className="banner-facts">
+          <li>{listings.length} centers</li>
+          <li>{cityGroups.length} cities</li>
+          <li>{averageRating()} average rating</li>
+          <li>{totalReviews().toLocaleString()} reviews</li>
+        </ul>
+      </PageBanner>
+
       <Breadcrumbs trail={[{ name: "Home", path: "/" }, { name: "Partners", path: "/partners" }]} />
 
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow">Partner directory</span>
-          <h1>Georgia Tutoring Center Partner Directory</h1>
           <p className="lede">
             Every tutoring and learning center in the directory, in one numbered listicle. Ranked by
             rating and review volume, with hours of operation, review counts, addresses, phone
