@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageBanner from "@/components/PageBanner";
 import LinkList from "@/components/LinkList";
+import CountyZipSearch, { type CountyEntry, type ZipEntry } from "@/components/CountyZipSearch";
 import Faqs from "@/components/Faqs";
 import JsonLd from "@/components/JsonLd";
 import { photos } from "@/lib/photos";
-import { counties } from "@/lib/content/counties";
+import { counties, countyOf } from "@/lib/content/counties";
 import { averageRating, listings, totalReviews } from "@/lib/listings";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -21,6 +22,30 @@ export const metadata: Metadata = pageMeta({
 export default function CountiesHub() {
   const groups = counties();
   const cityCount = new Set(listings.map((l) => l.citySlug)).size;
+
+  const zipMap = new Map<string, ZipEntry>();
+  for (const listing of listings) {
+    const zip = listing.postalCode.trim();
+    if (!/^\d{5}$/.test(zip)) continue;
+    const county = countyOf(listing) ?? "";
+    const entry = zipMap.get(zip) ?? {
+      zip,
+      city: listing.city,
+      county,
+      countySlug: county.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      count: 0,
+    };
+    entry.count += 1;
+    zipMap.set(zip, entry);
+  }
+  const zipEntries = [...zipMap.values()].sort((a, b) => a.zip.localeCompare(b.zip));
+
+  const countyEntries: CountyEntry[] = groups.map((group) => ({
+    county: group.county,
+    countySlug: group.countySlug,
+    count: group.count,
+    cities: group.cities.map((city) => city.city),
+  }));
 
   return (
     <>
@@ -44,8 +69,15 @@ export default function CountiesHub() {
         <div className="wrap">
           <p className="lede">
             County lines are how Georgia school districts are drawn, so they are often the fastest
-            way to narrow a search. Every county below has its own guide listing the centers in it,
-            the cities it covers, and how those centers rate.
+            way to narrow a search. Enter your ZIP code to jump straight to the centers near you,
+            or search by county or city name.
+          </p>
+
+          <CountyZipSearch zips={zipEntries} counties={countyEntries} />
+
+          <p className="lede">
+            Every county below has its own guide listing the centers in it, the cities it covers,
+            and how those centers rate.
           </p>
 
           <div className="stat-row">

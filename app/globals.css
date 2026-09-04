@@ -884,3 +884,16 @@ li { margin-bottom: 0.4em; }
 .pagination-current { background: var(--green-600); border-color: var(--green-600); color: #fff; }
 .pagination-step { border-color: var(--green-300); }
 .pagination-gap { color: var(--muted); padding: 0 0.15rem; }
+
+/* --------------------------------------------------------------- zip search */
+.zip-search {
+  background: var(--green-50);
+  border: 3px solid var(--green-100);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.3rem;
+  margin: 0 0 1.6rem;
+}
+.zip-search .search-form { margin-bottom: 0; }
+.zip-search-results { margin-top: 1rem; }
+.zip-search-results .link-list { margin-bottom: 0; }
+.zip-search-results .notice { margin-bottom: 0; }
