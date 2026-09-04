@@ -18,6 +18,7 @@ export const headerLinks = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/find", label: "Find" },
+  { href: "/counties", label: "Counties" },
   { href: "/partners", label: "Partners" },
   { href: "/reviews", label: "Reviews" },
   { href: "/costs", label: "Costs" },

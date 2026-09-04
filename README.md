@@ -90,6 +90,29 @@ to index. They stay crawlable and linked so nothing 404s, but they are marked
 `noindex, follow` and left out of the sitemap; they become indexable
 automatically once a second center is listed there.
 
+## County and ZIP code pages
+
+`lib/content/counties.ts` holds a hand-maintained city to county lookup and
+groups the listings by county. The export ships a `county` column, but it
+contains Google's neighbourhood name ("Buckhead", "Midtown Atlanta"), so it is
+unusable; the lookup is keyed on `citySlug` instead. **The county assignments
+are best-effort and should be checked against an authoritative source before
+being treated as an official record** — a few Georgia towns straddle a county
+line and are mapped to the county holding the town centre.
+
+That produces two more programmatic page types under `/find`, both ranked
+listicles like every other find page:
+
+- `/find/tutoring-centers-in-<county>-county` — "Tutoring & Learning Centers in
+  Fulton County Georgia", listing every center in the county and linking to
+  each city it covers.
+- `/find/tutoring-centers-in-<zip>` — "Tutoring & Learning Centers in 30309",
+  with the city and county the ZIP sits in.
+
+Both carry copy generated from their own data (constituent cities, subject mix
+with counts, rating and review aggregates), so no two pages share boilerplate.
+`/counties` is the hub listing every county page, and is linked from the header.
+
 ## City + subject pages
 
 For every city/subject pair with at least one listing, `lib/content/find.ts`
@@ -107,8 +130,11 @@ that file.
 ```
 /                         Home: hero carousel, six hub blocks, SEO sections, FAQs
 /find                     Hub: browse by city and subject
-/find/[slug]              City pages, subject pages, and city+subject pages
-                          (e.g. math-tutors-in-atlanta)
+/counties                 Hub: every Georgia county in the directory
+/find/[slug]              City, subject, city+subject, county and ZIP pages
+                          (e.g. math-tutors-in-atlanta,
+                          tutoring-centers-in-fulton-county,
+                          tutoring-centers-in-30309)
 /find/[slug]/page/[n]     Later pages of a long city, subject or combo list
 /partners                 Hub: complete numbered listicle
 /partners/page/[n]        Later pages of the directory
@@ -176,6 +202,7 @@ presenting invented writers as real ones.
 | Redirects | `next.config.ts` |
 | Blog, cost guide and find-page copy | `lib/content/` |
 | Author profiles | `lib/content/authors.ts` |
+| City to county lookup | `lib/content/counties.ts` |
 | Photo assignments | `lib/photos.ts` |
 
 ### Environment variables

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageBanner from "@/components/PageBanner";
@@ -8,6 +9,7 @@ import Faqs from "@/components/Faqs";
 import SampleNotice from "@/components/SampleNotice";
 import JsonLd from "@/components/JsonLd";
 import { cities, listings, services, topRated } from "@/lib/listings";
+import { counties } from "@/lib/content/counties";
 import { itemListSchema, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -20,7 +22,11 @@ export const metadata: Metadata = pageMeta({
 export default function FindHub() {
   const cityGroups = cities();
   const serviceGroups = services();
+  const countyGroups = counties();
   const featured = topRated(8);
+  const zips = [...new Set(listings.map((l) => l.postalCode.trim()))]
+    .filter((zip) => /^\d{5}$/.test(zip))
+    .sort();
 
   return (
     <>
@@ -62,8 +68,8 @@ export default function FindHub() {
               <span>Subject areas</span>
             </div>
             <div className="stat">
-              <b>{cityGroups.length + serviceGroups.length}</b>
-              <span>Find pages</span>
+              <b>{countyGroups.length}</b>
+              <span>Counties</span>
             </div>
           </div>
         </div>
@@ -94,6 +100,41 @@ export default function FindHub() {
               href: `/find/tutoring-centers-in-${city.citySlug}`,
               label: `Tutoring centers in ${city.city}`,
               note: `${city.count} centers`,
+            }))}
+          />
+        </div>
+      </section>
+
+      <section className="section section--tint">
+        <div className="wrap">
+          <h2>Browse by county</h2>
+          <p className="lede">
+            County lines follow Georgia school districts, so this is often the fastest way to
+            narrow a search. The <Link href="/counties">county hub</Link> has the full list.
+          </p>
+          <LinkList
+            split
+            items={countyGroups.map((county) => ({
+              href: `/find/tutoring-centers-in-${county.countySlug}-county`,
+              label: `Tutoring & Learning Centers in ${county.county} County Georgia`,
+              note: `${county.count} ${county.count === 1 ? "center" : "centers"}`,
+            }))}
+          />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <h2>Browse by ZIP code</h2>
+          <p className="lede">
+            Every ZIP code with a center in the directory, closest-in first when you already know
+            the area you can drive to.
+          </p>
+          <LinkList
+            split
+            items={zips.map((zip) => ({
+              href: `/find/tutoring-centers-in-${zip}`,
+              label: `Tutoring & Learning Centers in ${zip}`,
             }))}
           />
         </div>

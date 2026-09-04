@@ -79,7 +79,7 @@ export default function HomePage() {
     <>
       <PageBanner
         title="Georgia Tutoring &amp; Learning Centers | Test Prep, Math Tutoring and More"
-        eyebrow="Georgia&apos;s tutoring directory"
+        eyebrow="The #1 resource for tutoring and learning services in Georgia"
         image="/photos/tutor-and-student-banner.jpg"
         alt="A tutor working one to one with a student"
         priority

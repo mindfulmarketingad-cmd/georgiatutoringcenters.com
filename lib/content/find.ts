@@ -1,11 +1,14 @@
-import { cities, services, type Listing } from "@/lib/listings";
+import { cities, listings as allListings, services, type Listing } from "@/lib/listings";
+import { counties, countyOf, countySlugOf } from "./counties";
 import type { Faq } from "./types";
+
+export type RelatedBlock = { heading: string; items: { href: string; label: string; note?: string }[] };
 
 export type FindPage = {
   slug: string;
   /** A page with a single listing is too thin to index; it stays crawlable and linked. */
   noindex: boolean;
-  kind: "city" | "service" | "city-service";
+  kind: "city" | "service" | "city-service" | "county" | "zip";
   key: string;
   label: string;
   h1: string;
@@ -17,7 +20,39 @@ export type FindPage = {
   /** Set on "city-service" pages so the view can link back to each parent page. */
   cityPage?: { slug: string; label: string };
   servicePage?: { slug: string; label: string };
+  /** Extra link lists rendered under the listicle, e.g. cities within a county. */
+  related?: RelatedBlock[];
 };
+
+/** Programs ranked by how many centers in this set offer them. */
+function subjectMix(items: Listing[]): { slug: string; label: string; count: number }[] {
+  const map = new Map<string, { slug: string; label: string; count: number }>();
+  for (const listing of items) {
+    for (const service of listing.services) {
+      const entry = map.get(service.slug) ?? { slug: service.slug, label: service.label, count: 0 };
+      entry.count += 1;
+      map.set(service.slug, entry);
+    }
+  }
+  return [...map.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+}
+
+function ratingSummary(items: Listing[]) {
+  const rated = items.filter((l) => l.rating > 0);
+  const reviews = items.reduce((sum, l) => sum + l.reviewCount, 0);
+  const average = rated.length
+    ? Number((rated.reduce((sum, l) => sum + l.rating, 0) / rated.length).toFixed(2))
+    : 0;
+  return { rated: rated.length, reviews, average };
+}
+
+function listSentence(parts: string[], max = 6): string {
+  const shown = parts.slice(0, max);
+  const rest = parts.length - shown.length;
+  const joined =
+    shown.length > 1 ? `${shown.slice(0, -1).join(", ")} and ${shown[shown.length - 1]}` : shown[0];
+  return rest > 0 ? `${joined}, plus ${rest} more` : joined;
+}
 
 const SERVICE_COPY: Record<string, { blurb: string; who: string }> = {
   "math-tutoring": {
@@ -92,6 +127,40 @@ function cityServiceFaqs(tutorLabel: string, city: string, count: number): Faq[]
     {
       q: `Is there a closer option outside ${city}?`,
       a: `Check the nearby city pages linked below, or browse this subject across all of Georgia for the full list.`,
+    },
+  ];
+}
+
+function countyFaqs(county: string, count: number, cityNames: string[]): Faq[] {
+  return [
+    {
+      q: `How many tutoring centers are in ${county} County, Georgia?`,
+      a: `This directory lists ${count} tutoring and learning ${count === 1 ? "center" : "centers"} in ${county} County, across ${cityNames.length} ${cityNames.length === 1 ? "city" : "cities"}: ${cityNames.join(", ")}.`,
+    },
+    {
+      q: `Which ${county} County city should I search first?`,
+      a: `Start with the city you already drive through on a school day. Twenty minutes each way is the practical limit for twice-weekly sessions, so a center on an existing route beats a better-rated one across the county.`,
+    },
+    {
+      q: `Do these centers serve students from neighbouring counties?`,
+      a: `Most do. County lines rarely matter to enrollment, so if you live near the edge of ${county} County it is worth checking the adjacent county pages as well.`,
+    },
+  ];
+}
+
+function zipFaqs(zip: string, city: string, county: string, count: number): Faq[] {
+  return [
+    {
+      q: `How many tutoring centers are in the ${zip} ZIP code?`,
+      a: `We list ${count} tutoring and learning ${count === 1 ? "center" : "centers"} with a ${zip} address. ${zip} covers part of ${city}${county ? ` in ${county} County` : ""}, Georgia.`,
+    },
+    {
+      q: `Should I only look at centers in ${zip}?`,
+      a: `No. A ZIP code is a mail boundary, not a catchment area. Use it to find the closest options, then widen to the ${city} city page, which lists every center in town.`,
+    },
+    {
+      q: `What does tutoring cost around ${zip}?`,
+      a: `Georgia rates run roughly $40 to $80 per hour for small-group instruction and $60 to $120 one-to-one, with monthly memberships between $150 and $500. Our cost guides break that down by program.`,
     },
   ];
 }
@@ -205,6 +274,174 @@ export function findPages(): FindPage[] {
         cityPage: { slug: cityPageSlug, label: cityGroup.city },
         servicePage: { slug: servicePageSlug, label: serviceGroup.label },
       });
+    }
+  }
+
+  for (const group of counties()) {
+    const cityNames = group.cities.map((c) => c.city);
+    const mix = subjectMix(group.listings);
+    const { average, reviews } = ratingSummary(group.listings);
+    const topSubjects = mix.slice(0, 3);
+
+    pages.push({
+      slug: `tutoring-centers-in-${group.countySlug}-county`,
+      noindex: group.count < 2,
+      kind: "county",
+      key: group.countySlug,
+      label: `${group.county} County`,
+      h1: `Tutoring & Learning Centers in ${group.county} County Georgia`,
+      metaTitle: `Tutoring & Learning Centers in ${group.county} County Georgia | ${group.count} ${group.count === 1 ? "Center" : "Centers"}`,
+      description: `Compare ${group.count} tutoring and learning centers across ${group.county} County, Georgia, covering ${listSentence(cityNames, 4)}. Hours, ratings, subjects and contact details.`,
+      intro: [
+        `${group.county} County has ${group.count} tutoring and learning ${group.count === 1 ? "center" : "centers"} in this directory, spread across ${cityNames.length} ${cityNames.length === 1 ? "city" : "cities"}: ${listSentence(cityNames, 8)}.`,
+        topSubjects.length
+          ? `The most common programs in the county are ${listSentence(topSubjects.map((t) => `${t.label.toLowerCase()} (${t.count} ${t.count === 1 ? "center" : "centers"})`), 3)}.${average ? ` Centers here average ${average} stars across ${reviews.toLocaleString("en-US")} reviews.` : ""}`
+          : `Every listing below shows hours of operation, review counts and contact details.`,
+      ],
+      listings: group.listings,
+      faqs: countyFaqs(group.county, group.count, cityNames),
+      related: [
+        {
+          heading: `Cities in ${group.county} County`,
+          items: group.cities.map((city) => ({
+            href: `/find/tutoring-centers-in-${city.citySlug}`,
+            label: `Tutoring centers in ${city.city}`,
+            note: `${city.count} ${city.count === 1 ? "center" : "centers"}`,
+          })),
+        },
+      ],
+    });
+  }
+
+  const zipGroups = new Map<string, Listing[]>();
+  for (const listing of allListings) {
+    const zip = listing.postalCode.trim();
+    if (!/^\d{5}$/.test(zip)) continue;
+    zipGroups.set(zip, [...(zipGroups.get(zip) ?? []), listing]);
+  }
+
+  for (const [zip, items] of zipGroups) {
+    const cityCounts = new Map<string, { city: string; citySlug: string; count: number }>();
+    for (const listing of items) {
+      const entry = cityCounts.get(listing.citySlug) ?? {
+        city: listing.city,
+        citySlug: listing.citySlug,
+        count: 0,
+      };
+      entry.count += 1;
+      cityCounts.set(listing.citySlug, entry);
+    }
+    const mainCity = [...cityCounts.values()].sort((a, b) => b.count - a.count)[0];
+    const county = countyOf(items[0]) ?? "";
+    const mix = subjectMix(items);
+    const { average, reviews } = ratingSummary(items);
+
+    pages.push({
+      slug: `tutoring-centers-in-${zip}`,
+      noindex: items.length < 2,
+      kind: "zip",
+      key: zip,
+      label: zip,
+      h1: `Tutoring & Learning Centers in ${zip}`,
+      metaTitle: `Tutoring & Learning Centers in ${zip} (${mainCity.city}, GA) | ${items.length} ${items.length === 1 ? "Center" : "Centers"}`,
+      description: `${items.length} tutoring and learning ${items.length === 1 ? "center" : "centers"} in the ${zip} ZIP code, ${mainCity.city}, Georgia. Hours, ratings, phone numbers and directions.`,
+      intro: [
+        `The ${zip} ZIP code covers part of ${mainCity.city}${county ? `, in ${county} County` : ""}, and has ${items.length} tutoring and learning ${items.length === 1 ? "center" : "centers"} in this directory.`,
+        mix.length
+          ? `Centers here offer ${listSentence(mix.slice(0, 3).map((t) => t.label.toLowerCase()), 3)}.${average ? ` They average ${average} stars across ${reviews.toLocaleString("en-US")} reviews.` : ""} A ZIP code is a mail boundary rather than a catchment area, so widen the search to ${mainCity.city} if nothing here fits.`
+          : `A ZIP code is a mail boundary rather than a catchment area, so widen the search to ${mainCity.city} if nothing here fits.`,
+      ],
+      listings: items,
+      faqs: zipFaqs(zip, mainCity.city, county, items.length),
+      related: [
+        {
+          heading: "Wider searches",
+          items: [
+            {
+              href: `/find/tutoring-centers-in-${mainCity.citySlug}`,
+              label: `Tutoring centers in ${mainCity.city}`,
+              note: `${mainCity.count} in this ZIP`,
+            },
+            ...(county
+              ? [
+                  {
+                    href: `/find/tutoring-centers-in-${countySlugOf(county)}-county`,
+                    label: `Tutoring & Learning Centers in ${county} County Georgia`,
+                  },
+                ]
+              : []),
+          ],
+        },
+      ],
+    });
+  }
+
+  // City and subject pages link down into the deeper combos and ZIP pages.
+  for (const page of pages) {
+    if (page.kind === "city") {
+      const zips = [...new Set(page.listings.map((l) => l.postalCode.trim()))]
+        .filter((zip) => /^\d{5}$/.test(zip))
+        .sort();
+      const combos = pages.filter(
+        (p) => p.kind === "city-service" && p.cityPage?.slug === page.slug
+      );
+      const county = countyOf(page.listings[0]);
+      page.related = [
+        ...(combos.length
+          ? [
+              {
+                heading: `${page.label} tutors by subject`,
+                items: combos.map((combo) => ({
+                  href: `/find/${combo.slug}`,
+                  label: combo.h1,
+                  note: `${combo.listings.length} ${combo.listings.length === 1 ? "center" : "centers"}`,
+                })),
+              },
+            ]
+          : []),
+        ...(zips.length
+          ? [
+              {
+                heading: `ZIP codes in ${page.label}`,
+                items: zips.map((zip) => ({
+                  href: `/find/tutoring-centers-in-${zip}`,
+                  label: `Tutoring & Learning Centers in ${zip}`,
+                })),
+              },
+            ]
+          : []),
+        ...(county
+          ? [
+              {
+                heading: "Wider search",
+                items: [
+                  {
+                    href: `/find/tutoring-centers-in-${countySlugOf(county)}-county`,
+                    label: `Tutoring & Learning Centers in ${county} County Georgia`,
+                  },
+                ],
+              },
+            ]
+          : []),
+      ];
+    }
+
+    if (page.kind === "service") {
+      const combos = pages.filter(
+        (p) => p.kind === "city-service" && p.servicePage?.slug === page.slug
+      );
+      if (combos.length) {
+        page.related = [
+          {
+            heading: `${page.label} by city`,
+            items: combos.map((combo) => ({
+              href: `/find/${combo.slug}`,
+              label: combo.h1,
+              note: `${combo.listings.length} ${combo.listings.length === 1 ? "center" : "centers"}`,
+            })),
+          },
+        ];
+      }
     }
   }
 

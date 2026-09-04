@@ -26,25 +26,29 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
   const rating = averageRating(page.listings);
   const reviews = totalReviews(page.listings);
 
+  const subjectChips = services().map((service) => ({
+    label: service.label,
+    href: `/find/${service.slug}-in-georgia`,
+  }));
+
   const chips =
-    page.kind === "city"
-      ? services().map((service) => ({
-          label: service.label,
-          href: `/find/${service.slug}-in-georgia`,
-        }))
-      : page.kind === "service"
-        ? cities()
-            .slice(0, 10)
-            .map((city) => ({
-              label: city.city,
-              href: `/find/tutoring-centers-in-${city.citySlug}`,
-            }))
-        : [
-            ...(page.cityPage ? [{ label: page.cityPage.label, href: `/find/${page.cityPage.slug}` }] : []),
+    page.kind === "service"
+      ? cities()
+          .slice(0, 10)
+          .map((city) => ({
+            label: city.city,
+            href: `/find/tutoring-centers-in-${city.citySlug}`,
+          }))
+      : page.kind === "city-service"
+        ? [
+            ...(page.cityPage
+              ? [{ label: page.cityPage.label, href: `/find/${page.cityPage.slug}` }]
+              : []),
             ...(page.servicePage
               ? [{ label: page.servicePage.label, href: `/find/${page.servicePage.slug}` }]
               : []),
-          ];
+          ]
+        : subjectChips;
 
   const siblings = findPages()
     .filter((p) => p.kind === page.kind && p.slug !== page.slug)
@@ -55,8 +59,21 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
     )
     .slice(0, 10);
 
-  const eyebrow =
-    page.kind === "city" ? "City guide" : page.kind === "service" ? "Subject guide" : "City and subject guide";
+  const eyebrow = {
+    city: "City guide",
+    service: "Subject guide",
+    "city-service": "City and subject guide",
+    county: "County guide",
+    zip: "ZIP code guide",
+  }[page.kind];
+
+  const listHeading = {
+    city: `Tutoring centers in ${page.label}, ranked`,
+    service: `${page.label} centers in Georgia, ranked`,
+    "city-service": `${page.label}, ranked`,
+    county: `Tutoring centers in ${page.label}, ranked`,
+    zip: `Tutoring centers in ${page.label}, ranked`,
+  }[page.kind];
 
   return (
     <>
@@ -112,11 +129,7 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
       <section className="section section--tint">
         <div className="wrap">
           <h2>
-            {page.kind === "city"
-              ? `Tutoring centers in ${page.label}, ranked`
-              : page.kind === "service"
-                ? `${page.label} centers in Georgia, ranked`
-                : `${page.label}, ranked`}
+            {listHeading}
             {paged.pageCount > 1 ? ` (page ${paged.page} of ${paged.pageCount})` : ""}
           </h2>
           <p className="lede">
@@ -165,6 +178,13 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
               <Link href={`/find/${page.servicePage.slug}`}>all of Georgia</Link>.
             </p>
           )}
+
+          {page.related?.map((block) => (
+            <div key={block.heading}>
+              <h2>{block.heading}</h2>
+              <LinkList split={block.items.length > 6} items={block.items} />
+            </div>
+          ))}
 
           <h2>Keep browsing</h2>
           <LinkList

@@ -85,6 +85,7 @@ export default function Footer() {
             <h2>Explore</h2>
             <ul>
               <li><Link href="/find">Find a center</Link></li>
+              <li><Link href="/counties">Browse by county</Link></li>
               <li><Link href="/partners">Partner directory</Link></li>
               <li><Link href="/reviews">Reviews</Link></li>
               <li><Link href="/costs">Costs and pricing</Link></li>

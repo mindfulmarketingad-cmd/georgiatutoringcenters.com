@@ -33,6 +33,14 @@ export default function SitemapPage() {
     findPages().filter((p) => p.kind === "city-service" && !p.noindex),
     (p) => p.h1
   );
+  const countyPages = byLabel(
+    findPages().filter((p) => p.kind === "county"),
+    (p) => p.h1
+  );
+  const zipPages = byLabel(
+    findPages().filter((p) => p.kind === "zip" && !p.noindex),
+    (p) => p.h1
+  );
   const sortedAuthors = byLabel(authors, (a) => a.name);
   const sortedCostGuides = byLabel(costGuides, (g) => g.title);
   const sortedBlogPosts = byLabel(blogPosts, (post) => post.title);
@@ -42,6 +50,7 @@ export default function SitemapPage() {
     [
       { href: "/", label: "Home" },
       { href: "/find", label: "Find a tutoring center" },
+      { href: "/counties", label: "Tutoring centers by county" },
       { href: "/partners", label: "Partner directory" },
       { href: "/reviews", label: "Reviews" },
       { href: "/costs", label: "Costs and pricing" },
@@ -68,7 +77,10 @@ export default function SitemapPage() {
       <PageBanner title="Sitemap" eyebrow="Site index" priority>
         <ul className="banner-facts">
           <li>{listings.length} center profiles</li>
-          <li>{cityPages.length + servicePages.length + cityServicePages.length} find pages</li>
+          <li>
+            {cityPages.length + servicePages.length + cityServicePages.length + countyPages.length + zipPages.length}{" "}
+            find pages
+          </li>
           <li>{blogPosts.length + costGuides.length} guides</li>
         </ul>
       </PageBanner>
@@ -105,6 +117,24 @@ export default function SitemapPage() {
             {legalPages.map((page) => (
               <li key={page.href}>
                 <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Find by county ({countyPages.length})</h2>
+          <ul>
+            {countyPages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/find/${page.slug}`}>{page.h1}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Find by ZIP code ({zipPages.length})</h2>
+          <ul>
+            {zipPages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/find/${page.slug}`}>{page.h1}</Link>
               </li>
             ))}
           </ul>
