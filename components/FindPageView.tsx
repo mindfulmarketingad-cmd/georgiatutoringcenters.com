@@ -65,6 +65,8 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
     service: "Subject guide",
     "city-service": "City and subject guide",
     "city-keyword": "City guide",
+    category: "Program type",
+    "city-category": "Program type by city",
     county: "County guide",
     zip: "ZIP code guide",
   }[page.kind];
@@ -74,6 +76,8 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
     service: `${page.label} centers in Georgia, ranked`,
     "city-service": `${page.label}, ranked`,
     "city-keyword": `${page.label}, ranked`,
+    category: `${page.label} in Georgia, ranked`,
+    "city-category": `${page.label}, ranked`,
     county: `Tutoring centers in ${page.label}, ranked`,
     zip: `Tutoring centers in ${page.label}, ranked`,
   }[page.kind] as string;
@@ -145,19 +149,36 @@ export default function FindPageView({ page, pageNumber }: { page: FindPage; pag
 
       <section className="section">
         <div className="wrap prose">
-          <h2>How to Choose Between These Centers</h2>
-          <p>
-            Shortlist two or three, then ask each the same five questions: what the intake
-            assessment measures, who teaches your child each week, the student-to-instructor ratio
-            in your time slot, the total first-month cost including registration and materials fees,
-            and how progress is reported. The answers separate centers faster than any rating does.
-          </p>
-          <p>
-            Before you call, it helps to know the going rate. Our{" "}
-            <Link href="/costs">cost guides</Link> publish current Georgia ranges by subject and
-            format, and our <Link href="/blog">learning blog</Link> covers what effective tutoring
-            looks like week to week.
-          </p>
+          {page.advice ? (
+            <>
+              <h2>{titleCase(page.advice.heading)}</h2>
+              {page.advice.body.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+              <p>
+                Our <Link href="/costs">cost guides</Link> publish current Georgia ranges by program
+                and format, and our <Link href="/blog">learning blog</Link> covers what effective
+                tutoring looks like week to week.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>How to Choose Between These Centers</h2>
+              <p>
+                Shortlist two or three, then ask each the same five questions: what the intake
+                assessment measures, who teaches your child each week, the student-to-instructor
+                ratio in your time slot, the total first-month cost including registration and
+                materials fees, and how progress is reported. The answers separate centers faster
+                than any rating does.
+              </p>
+              <p>
+                Before you call, it helps to know the going rate. Our{" "}
+                <Link href="/costs">cost guides</Link> publish current Georgia ranges by subject and
+                format, and our <Link href="/blog">learning blog</Link> covers what effective
+                tutoring looks like week to week.
+              </p>
+            </>
+          )}
 
           {page.kind === "city-service" && page.cityPage && page.servicePage && (
             <p>

@@ -1,5 +1,6 @@
 import { cities, listings as allListings, services, type Listing } from "@/lib/listings";
 import { counties, countyOf, countySlugOf } from "./counties";
+import { CATEGORY_VARIANTS } from "./categories";
 import type { Faq } from "./types";
 
 export type RelatedBlock = { heading: string; items: { href: string; label: string; note?: string }[] };
@@ -8,7 +9,15 @@ export type FindPage = {
   slug: string;
   /** A page with a single listing is too thin to index; it stays crawlable and linked. */
   noindex: boolean;
-  kind: "city" | "service" | "city-service" | "county" | "zip" | "city-keyword";
+  kind:
+    | "city"
+    | "service"
+    | "city-service"
+    | "county"
+    | "zip"
+    | "city-keyword"
+    | "category"
+    | "city-category";
   key: string;
   label: string;
   h1: string;
@@ -22,6 +31,8 @@ export type FindPage = {
   servicePage?: { slug: string; label: string };
   /** Extra link lists rendered under the listicle, e.g. cities within a county. */
   related?: RelatedBlock[];
+  /** Replaces the shared "How to Choose Between These Centers" prose. */
+  advice?: { heading: string; body: string[] };
 };
 
 /** Programs ranked by how many centers in this set offer them. */
@@ -214,7 +225,7 @@ function countyFaqs(county: string, count: number, cityNames: string[]): Faq[] {
       a: `Start with the city you already drive through on a school day. Twenty minutes each way is the practical limit for twice-weekly sessions, so a center on an existing route beats a better-rated one across the county.`,
     },
     {
-      q: `Do these centers serve students from neighbouring counties?`,
+      q: `Do these centers serve students from neighboring counties?`,
       a: `Most do. County lines rarely matter to enrollment, so if you live near the edge of ${county} County it is worth checking the adjacent county pages as well.`,
     },
   ];
@@ -413,6 +424,116 @@ export function findPages(): FindPage[] {
     }
   }
 
+  // ---- Business-category pages: one statewide parent per category, plus a
+  // page per city that has at least one match. Copy comes from the variant, so
+  // no two categories share an intro, an advice block or a FAQ set.
+  for (const variant of CATEGORY_VARIANTS) {
+    const statewideMatches = allListings.filter(variant.match);
+    if (!statewideMatches.length) continue;
+
+    const cityGroups = cities()
+      .map((cityGroup) => ({
+        cityGroup,
+        matches: cityGroup.listings.filter(variant.match),
+      }))
+      .filter((entry) => entry.matches.length > 0);
+
+    const statewideSlug = `${variant.slugWord}-in-georgia`;
+    const { average: stateAverage, reviews: stateReviews } = ratingSummary(statewideMatches);
+
+    pages.push({
+      slug: statewideSlug,
+      noindex: false,
+      kind: "category",
+      key: variant.key,
+      label: variant.label,
+      h1: `${variant.label} in Georgia`,
+      metaTitle: `${variant.label} in Georgia | ${statewideMatches.length} Listed`,
+      description: `Compare ${statewideMatches.length} ${variant.label.toLowerCase()} across Georgia in ${cityGroups.length} cities. Hours, ratings, phone numbers and what to ask before enrolling.`,
+      intro: [
+        `${statewideMatches.length} ${variant.label.toLowerCase()} across ${cityGroups.length} Georgia ${cityGroups.length === 1 ? "city" : "cities"}. ${variant.statewide[0]}`,
+        `${variant.statewide[1]}${stateAverage ? ` The ${variant.label.toLowerCase()} listed here average ${stateAverage} stars across ${stateReviews.toLocaleString("en-US")} reviews.` : ""}`,
+      ],
+      listings: statewideMatches,
+      faqs: variant.faqs("Georgia", statewideMatches.length),
+      advice: variant.advice,
+      related: [
+        {
+          heading: `${variant.label} by City`,
+          items: cityGroups.map(({ cityGroup, matches }) => ({
+            href: `/find/${variant.slugWord}-in-${cityGroup.citySlug}`,
+            label: `${variant.label} in ${cityGroup.city}`,
+            note: `${matches.length} ${matches.length === 1 ? "listing" : "listings"}`,
+          })),
+        },
+      ],
+    });
+
+    for (const { cityGroup, matches } of cityGroups) {
+      const county = countyOf(matches[0]);
+      const { average, reviews } = ratingSummary(matches);
+      const siblingCities = cityGroups
+        .filter((entry) => entry.cityGroup.citySlug !== cityGroup.citySlug)
+        .slice(0, 12);
+
+      pages.push({
+        slug: `${variant.slugWord}-in-${cityGroup.citySlug}`,
+        noindex: matches.length < 2,
+        kind: "city-category",
+        key: `${variant.key}:${cityGroup.citySlug}`,
+        label: `${variant.label} in ${cityGroup.city}`,
+        h1: `${variant.label} in ${cityGroup.city} Georgia`,
+        metaTitle: `${variant.label} in ${cityGroup.city} Georgia | ${matches.length} Listed`,
+        description: `Compare ${matches.length} ${variant.label.toLowerCase()} in ${cityGroup.city}, Georgia. Hours, ratings, phone numbers and what to ask before you enroll.`,
+        intro: [
+          ...variant.intro(cityGroup.city, matches.length),
+          ...(average
+            ? [
+                `The ${matches.length === 1 ? "listing" : "listings"} below average ${average} stars across ${reviews.toLocaleString("en-US")} reviews, ranked by rating and review volume.`,
+              ]
+            : []),
+        ],
+        listings: matches,
+        faqs: variant.faqs(cityGroup.city, matches.length),
+        advice: variant.advice,
+        cityPage: { slug: `tutoring-centers-in-${cityGroup.citySlug}`, label: cityGroup.city },
+        related: [
+          {
+            heading: `${variant.label} in Other Cities`,
+            items: siblingCities.map(({ cityGroup: sibling, matches: siblingMatches }) => ({
+              href: `/find/${variant.slugWord}-in-${sibling.citySlug}`,
+              label: `${variant.label} in ${sibling.city}`,
+              note: `${siblingMatches.length} ${siblingMatches.length === 1 ? "listing" : "listings"}`,
+            })),
+          },
+          {
+            heading: `More in ${cityGroup.city}`,
+            items: [
+              {
+                href: `/find/tutoring-centers-in-${cityGroup.citySlug}`,
+                label: `Tutoring centers in ${cityGroup.city}`,
+                note: `${cityGroup.count} in total`,
+              },
+              {
+                href: `/find/${statewideSlug}`,
+                label: `${variant.label} across Georgia`,
+                note: `${statewideMatches.length} listings`,
+              },
+              ...(county
+                ? [
+                    {
+                      href: `/find/tutoring-centers-in-${countySlugOf(county)}-county`,
+                      label: `Tutoring & Learning Centers in ${county} County Georgia`,
+                    },
+                  ]
+                : []),
+            ],
+          },
+        ],
+      });
+    }
+  }
+
   for (const group of counties()) {
     const cityNames = group.cities.map((c) => c.city);
     const mix = subjectMix(group.listings);
@@ -521,8 +642,23 @@ export function findPages(): FindPage[] {
       const combos = pages.filter(
         (p) => p.kind === "city-service" && p.cityPage?.slug === page.slug
       );
+      const categoryPages = pages.filter(
+        (p) => p.kind === "city-category" && p.cityPage?.slug === page.slug
+      );
       const county = countyOf(page.listings[0]);
       page.related = [
+        ...(categoryPages.length
+          ? [
+              {
+                heading: `Program Types in ${page.label}`,
+                items: categoryPages.map((categoryPage) => ({
+                  href: `/find/${categoryPage.slug}`,
+                  label: categoryPage.h1,
+                  note: `${categoryPage.listings.length} ${categoryPage.listings.length === 1 ? "listing" : "listings"}`,
+                })),
+              },
+            ]
+          : []),
         ...(combos.length
           ? [
               {

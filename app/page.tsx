@@ -48,7 +48,7 @@ const faqs: Faq[] = [
   },
   {
     q: "How are listings added to this directory?",
-    a: "Listings are compiled from public business data, then normalised into a single format so hours, ratings, review counts and contact details can be compared side by side. Business owners can request an update or correction through our contact page.",
+    a: "Listings are compiled from public business data, then normalized into a single format so hours, ratings, review counts and contact details can be compared side by side. Business owners can request an update or correction through our contact page.",
   },
   {
     q: "Can a tutoring center get listed or claim its profile?",

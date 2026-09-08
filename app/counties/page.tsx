@@ -120,11 +120,11 @@ export default function CountiesHub() {
             faqs={[
               {
                 q: "Why search by county instead of city?",
-                a: "School districts in Georgia are organised by county, so a county view lines up with how families already think about schools, calendars and testing. It also catches centers one town over that a city search would miss.",
+                a: "School districts in Georgia are organized by county, so a county view lines up with how families already think about schools, calendars and testing. It also catches centers one town over that a city search would miss.",
               },
               {
                 q: "How is a center assigned to a county?",
-                a: "From the city on its listing. A handful of Georgia towns straddle a county line; those are assigned to the county holding the town centre, so check the neighbouring county page too if you live near a boundary.",
+                a: "From the city on its listing. A handful of Georgia towns straddle a county line; those are assigned to the county holding the town center, so check the neighboring county page too if you live near a boundary.",
               },
               {
                 q: "Do centers only serve their own county?",

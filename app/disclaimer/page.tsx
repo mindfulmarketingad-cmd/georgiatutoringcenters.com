@@ -39,7 +39,7 @@ export default function DisclaimerPage() {
 
           <h2>Listing Accuracy</h2>
           <p>
-            Business listings are compiled from public data sources and normalised for comparison.
+            Business listings are compiled from public data sources and normalized for comparison.
             Hours of operation, phone numbers, websites, pricing, program offerings, ratings and
             review counts change frequently and may be out of date or incomplete at any moment. We
             make no warranty that any listing is accurate, current or complete. Always verify

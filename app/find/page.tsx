@@ -11,6 +11,7 @@ import SampleNotice from "@/components/SampleNotice";
 import JsonLd from "@/components/JsonLd";
 import { cities, listings, services, topRated } from "@/lib/listings";
 import { counties } from "@/lib/content/counties";
+import { CATEGORY_VARIANTS } from "@/lib/content/categories";
 import { itemListSchema, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -24,6 +25,10 @@ export default function FindHub() {
   const cityGroups = cities();
   const serviceGroups = services();
   const countyGroups = counties();
+  const categoryCounts = CATEGORY_VARIANTS.map((variant) => ({
+    variant,
+    count: listings.filter(variant.match).length,
+  })).filter((entry) => entry.count > 0);
   const featured = topRated(8);
   const zips = [...new Set(listings.map((l) => l.postalCode.trim()))]
     .filter((zip) => /^\d{5}$/.test(zip))
@@ -86,6 +91,24 @@ export default function FindHub() {
               href: `/find/tutoring-centers-in-${city.citySlug}`,
               label: `Tutoring centers in ${city.city}`,
               note: `${city.count} centers`,
+            }))}
+          />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <h2>Browse by Program Type</h2>
+          <p className="lede">
+            An after school program, a learning center and a private tutor solve different
+            problems. Each guide explains what that kind of provider actually does, what it costs
+            and what to ask before enrolling.
+          </p>
+          <LinkList
+            items={categoryCounts.map(({ variant, count }) => ({
+              href: `/find/${variant.slugWord}-in-georgia`,
+              label: `${variant.label} in Georgia`,
+              note: `${count} listed`,
             }))}
           />
         </div>

@@ -101,7 +101,7 @@ export default function PartnersView({ page }: { page: number }) {
         <div className="wrap prose">
           <h2>How This Directory Is Put Together</h2>
           <p>
-            Listings are compiled from public business data and normalised into a single format so
+            Listings are compiled from public business data and normalized into a single format so
             every center can be compared on the same fields. Ranking is calculated from rating and
             review volume together, so a center with a 5.0 rating from four reviews does not
             outrank a 4.8 with several hundred. Centers cannot pay for placement.

@@ -124,6 +124,32 @@ with counts, rating and review aggregates), so no two pages share boilerplate.
 both are in the header nav, the footer and the Find hub, and both carry a
 client-side ZIP / county / city search (`components/CountyZipSearch.tsx`).
 
+## Program-type pages
+
+`lib/content/categories.ts` defines five page families built from the Google
+business categories in the export's `subtypes` column, rather than from the
+derived subject tags. Each has a statewide parent at
+`/find/<type>-in-georgia` and a page per city that has a match:
+
+| Page family | Listings | City pages |
+| --- | --- | --- |
+| After School Programs | 240 | 72 |
+| Learning Centers | 227 | 72 |
+| Private Tutors | 118 | 52 |
+| Educational Consultants | 131 | 53 |
+| Math Schools | 58 | 34 |
+
+These describe what kind of business a provider is, so the copy is written per
+category rather than templated: an after-school program is childcare-shaped and
+priced monthly, an educational consultant does not teach at all, a math school
+places by fluency rather than school grade. Each variant supplies its own
+intro, its own advice section (which replaces the shared "How to Choose Between
+These Centers" prose via `FindPage.advice`) and its own FAQ set.
+
+Linking runs both ways: a city page lists the program types available in it, a
+program-type city page links up to its statewide parent, across to the same
+type in other cities, and out to the city and county pages.
+
 ## Keyword pages
 
 `KEYWORD_VARIANTS` in `lib/content/find.ts` defines page families that target a
@@ -167,7 +193,8 @@ that file.
 /counties                 Hub: every Georgia county in the directory
 /zip-codes                Hub: every Georgia ZIP code in the directory
 /find-index.json          Static search index behind the Find hub search box
-/find/[slug]              City, subject, city+subject, keyword, county and ZIP pages
+/find/[slug]              City, subject, city+subject, keyword, program-type,
+                          county and ZIP pages
                           (e.g. math-tutors-in-atlanta,
                           tutoring-centers-in-fulton-county,
                           tutoring-centers-in-30309)
@@ -238,6 +265,7 @@ presenting invented writers as real ones.
 | Redirects | `next.config.ts` |
 | Blog, cost guide and find-page copy | `lib/content/` |
 | Author profiles | `lib/content/authors.ts` |
+| Program-type page copy | `lib/content/categories.ts` |
 | City to county lookup | `lib/content/counties.ts` |
 | Heading title casing | `lib/text.ts` |
 | Photo assignments | `lib/photos.ts` |
