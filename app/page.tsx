@@ -89,7 +89,7 @@ export default function HomePage() {
         <ul className="banner-facts">
           <li>{listings.length} centers listed</li>
           <li>{cityGroups.length} Georgia cities</li>
-          <li>{reviews.toLocaleString()} reviews analysed</li>
+          <li>{reviews.toLocaleString()} reviews analyzed</li>
           <li>{rating} average rating</li>
         </ul>
         <div className="banner-actions">
@@ -188,7 +188,7 @@ export default function HomePage() {
             Georgia Tutoring Centers is an independent directory of tutoring and learning centers
             operating across the state, from metro Atlanta through Savannah, Augusta, Columbus,
             Macon, Athens and the smaller markets in between. We collect public business data for
-            each center, normalise it into one consistent format, and publish it so parents can
+            each center, normalize it into one consistent format, and publish it so parents can
             compare centers on the details that actually matter: subjects taught, hours of
             operation, review counts, ratings, price range and location.
           </p>

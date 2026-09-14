@@ -46,7 +46,7 @@ export default function AboutPage() {
           <h2>What We Do</h2>
           <p>
             We compile public business data for tutoring and learning centers operating in Georgia,
-            normalise it into one consistent format, and publish it as numbered, comparable
+            normalize it into one consistent format, and publish it as numbered, comparable
             listings. Every center page carries the same fields: address, hours of operation, phone
             number, website, category, programs, price range where published, star rating and review
             count. Consistency is the product. When every center is described the same way, a parent

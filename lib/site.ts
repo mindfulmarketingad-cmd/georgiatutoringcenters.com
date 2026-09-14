@@ -14,6 +14,16 @@ export const site = {
   },
 } as const;
 
+/**
+ * Site-wide promotional bar. `href` is a paid affiliate link, so every
+ * placement must label it as one and mark the anchor rel="sponsored".
+ */
+export const promo = {
+  headline: "70% Off All School Supplies",
+  subline: "Notebooks, pencils and study gear for the school year.",
+  href: "https://amzn.to/4dvYroX",
+} as const;
+
 export const headerLinks = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },

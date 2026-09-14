@@ -223,7 +223,7 @@ export const costGuides: CostGuide[] = [
         body: ["Ask which of these are in the monthly price and which are extra."],
         list: [
           "Initial and periodic re-assessments",
-          "Workbooks and digital licences",
+          "Workbooks and digital licenses",
           "Parent conferences and written progress reports",
           "Makeup sessions for absences",
           "Access to online sessions when you cannot travel",

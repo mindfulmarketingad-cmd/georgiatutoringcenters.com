@@ -104,6 +104,12 @@ export default function Footer() {
             hours, pricing and availability directly with a center.
           </p>
           <p>
+            Some outbound links, including the school supplies promotion at the top of the page,
+            are affiliate links, and we may earn a commission from purchases made through them. As
+            an Amazon Associate we earn from qualifying purchases. See our{" "}
+            <Link href="/disclaimer">disclaimer</Link> for details.
+          </p>
+          <p>
             &copy; {year} {site.name}. All rights reserved. &middot;{" "}
             <Link href="/privacy">Privacy</Link> &middot; <Link href="/terms">Terms</Link> &middot;{" "}
             <Link href="/disclaimer">Disclaimer</Link> &middot;{" "}

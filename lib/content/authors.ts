@@ -24,7 +24,7 @@ export const authors: Author[] = [
     role: "Directory research and data",
     short: "Compiles and verifies the listing data behind every page on the site.",
     bio: [
-      "The editorial team maintains the directory itself: importing business data, normalising it into one comparable format, checking addresses and hours against public sources, and handling correction requests from families and business owners.",
+      "The editorial team maintains the directory itself: importing business data, normalizing it into one comparable format, checking addresses and hours against public sources, and handling correction requests from families and business owners.",
       "Anything published under this byline is a data-driven page rather than an opinion piece. When numbers appear on the site, this is the team that gathered them and that will correct them when a reader writes in.",
     ],
     covers: ["Directory data", "Listing corrections", "Methodology"],

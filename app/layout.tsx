@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import PromoBanner from "@/components/PromoBanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdSense from "@/components/AdSense";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to main content
         </a>
+        <PromoBanner />
         <Header />
         <main id="main">{children}</main>
         <Footer />

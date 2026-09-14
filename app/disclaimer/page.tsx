@@ -70,6 +70,15 @@ export default function DisclaimerPage() {
             external link is at your own risk.
           </p>
 
+          <h2>Affiliate Links</h2>
+          <p>
+            Some links on this site, including the school supplies promotion in the bar at the top
+            of every page, are affiliate links. If you buy something after following one, we may
+            earn a commission at no extra cost to you. As an Amazon Associate we earn from
+            qualifying purchases. Affiliate relationships never affect which tutoring centers are
+            listed, how they are ranked or what our guides say about them.
+          </p>
+
           <h2>Advertising</h2>
           <p>
             This site displays advertising, including Google AdSense. Advertisements are served by
