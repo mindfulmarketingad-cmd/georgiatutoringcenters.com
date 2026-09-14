@@ -152,11 +152,6 @@ li { margin-bottom: 0.4em; }
   white-space: nowrap;
   border: 0;
 }
-.promo-bar-note {
-  font-size: 0.72rem;
-  color: var(--green-200);
-  letter-spacing: 0.03em;
-}
 @media (max-width: 720px) {
   .promo-bar-sub { display: none; }
   .promo-bar-link { padding: 0.5rem 1rem; font-size: 0.9rem; }

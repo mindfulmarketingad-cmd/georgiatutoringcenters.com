@@ -2,8 +2,8 @@ import { promo } from "@/lib/site";
 
 /**
  * Site-wide promotional bar above the header. The destination is a paid
- * affiliate link, so the bar is labeled as one on its face and the link
- * carries rel="sponsored" as search engines require.
+ * affiliate link, so the link carries rel="sponsored" as search engines
+ * require. The disclosure itself lives in the footer and on /disclaimer.
  */
 export default function PromoBanner() {
   return (
@@ -22,9 +22,7 @@ export default function PromoBanner() {
         <span className="promo-bar-cta" aria-hidden="true">
           Shop Now
         </span>
-        <span className="promo-bar-note">
-          Affiliate link<span className="visually-hidden">, opens in a new tab</span>
-        </span>
+        <span className="visually-hidden">Opens in a new tab</span>
       </a>
     </aside>
   );
