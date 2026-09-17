@@ -64,6 +64,7 @@ export default function SitemapPage() {
       { href: "/reviews", label: "Reviews" },
       { href: "/costs", label: "Costs and pricing" },
       { href: "/blog", label: "Learning blog" },
+      { href: "/resume-builder", label: "Free resume builder" },
       { href: "/search", label: "Search" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },

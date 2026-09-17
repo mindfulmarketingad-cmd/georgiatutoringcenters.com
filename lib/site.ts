@@ -33,6 +33,7 @@ export const headerLinks = [
   { href: "/partners", label: "Partners" },
   { href: "/reviews", label: "Reviews" },
   { href: "/costs", label: "Costs" },
+  { href: "/resume-builder", label: "Resume" },
   { href: "/about", label: "About" },
   { href: "/search", label: "Search" },
 ] as const;

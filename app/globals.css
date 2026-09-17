@@ -179,11 +179,13 @@ li { margin-bottom: 0.4em; }
 .nav { display: flex; align-items: center; gap: 0.15rem; flex-wrap: wrap; }
 .nav a {
   display: inline-block;
-  padding: 0.5rem 0.75rem;
+  /* The nav row is capped by the 1180px content width, not the viewport, so
+     eleven links only fit on one line at this size. */
+  padding: 0.5rem 0.55rem;
   border-radius: 999px;
   color: var(--ink);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
 }
 .nav a:hover { background: var(--green-100); text-decoration: none; }
 .nav a[aria-current="page"] { background: var(--green-600); color: #fff; }
@@ -198,7 +200,7 @@ li { margin-bottom: 0.4em; }
   font-family: inherit;
   cursor: pointer;
 }
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .nav-toggle { display: block; }
   .nav {
     display: none;

@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/reviews"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/costs"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/blog"), changeFrequency: "weekly", priority: 0.8 },
+    { url: url("/resume-builder"), changeFrequency: "monthly", priority: 0.7 },
     { url: url("/search"), changeFrequency: "monthly", priority: 0.4 },
     { url: url("/about"), changeFrequency: "yearly", priority: 0.5 },
     { url: url("/authors"), changeFrequency: "monthly", priority: 0.5 },

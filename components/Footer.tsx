@@ -91,6 +91,7 @@ export default function Footer() {
               <li><Link href="/reviews">Reviews</Link></li>
               <li><Link href="/costs">Costs and pricing</Link></li>
               <li><Link href="/blog">Learning blog</Link></li>
+              <li><Link href="/resume-builder">Free resume builder</Link></li>
               <li><Link href="/search">Search</Link></li>
               <li><Link href="/authors">Our editorial team</Link></li>
             </ul>

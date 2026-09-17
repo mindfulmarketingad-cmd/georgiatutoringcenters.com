@@ -1,0 +1,371 @@
+/*
+ * Resume builder styles. Loaded only on /resume-builder, so the templates and
+ * print rules are not shipped with the other 3,000-odd pages.
+ */
+
+.rb {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------- the two CTAs */
+.rb-start {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.rb-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 2px solid var(--green-200);
+  color: var(--body);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.55;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.rb-choice:hover {
+  border-color: var(--green-600);
+  background: var(--green-50);
+  transform: translateY(-2px);
+}
+.rb-choice-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.rb-resume-note { margin-top: 0; }
+
+/* ------------------------------------------------------------- questions */
+.rb-progress { margin-bottom: 1.5rem; }
+.rb-progress-bar {
+  height: 8px;
+  background: var(--green-100);
+  overflow: hidden;
+}
+.rb-progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--green-600);
+  transition: width 0.25s ease;
+}
+.rb-progress-label {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.rb-question {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  margin-bottom: 0.4rem;
+}
+.rb-question:focus-visible { outline-offset: 6px; }
+.rb-help {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin-bottom: 1.4rem;
+  max-width: 62ch;
+}
+.rb-error { border-color: #b0472f; color: #7c2d18; }
+.rb-missing { margin-top: 0; }
+
+.rb-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--green-700);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.rb-link:hover { color: var(--green-600); }
+.rb-remove {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #8c3d27;
+}
+
+.rb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+.rb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------------------- repeatable jobs and schools */
+.rb-rows { display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-start; }
+.rb-row {
+  width: 100%;
+  border: 2px solid var(--line);
+  padding: 1.1rem 1.2rem 1.2rem;
+  margin: 0;
+}
+.rb-row legend {
+  padding: 0 0.5rem;
+  font-weight: 800;
+  color: var(--green-700);
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0 1rem;
+}
+.rb-grid .rb-wide { grid-column: 1 / -1; }
+.rb-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.8rem; }
+.rb-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.rb-check input { width: auto; accent-color: var(--green-600); }
+
+/* -------------------------------------------------------- template picker */
+.rb-templates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  list-style: none;
+}
+.rb-templates li { margin: 0; }
+.rb-template {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 1rem;
+  background: var(--white);
+  border: 2px solid var(--green-200);
+  font-family: inherit;
+  color: var(--body);
+  cursor: pointer;
+}
+.rb-template:hover { border-color: var(--green-500); background: var(--green-50); }
+.rb-template.is-picked { border-color: var(--green-600); background: var(--green-50); box-shadow: inset 0 0 0 2px var(--green-600); }
+.rb-template-name { font-weight: 800; color: var(--ink); font-size: 1.1rem; }
+.rb-template-blurb { font-size: 0.92rem; }
+.rb-template-best, .rb-template-ats { font-size: 0.82rem; color: var(--muted); }
+.rb-template-ats { font-weight: 700; color: var(--green-700); }
+.rb-template-ats.is-warn { color: #8c3d27; }
+
+/* Miniature of each layout, drawn with bars rather than a screenshot. */
+.rb-thumb {
+  display: block;
+  position: relative;
+  aspect-ratio: 8.5 / 11;
+  max-height: 150px;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 12%;
+  overflow: hidden;
+}
+.rb-thumb-name { display: block; height: 7px; width: 62%; background: #4a4a4a; margin-bottom: 5px; }
+.rb-thumb-rule { display: block; height: 2px; width: 100%; background: #c9c9c9; margin-bottom: 7px; }
+.rb-thumb-body { display: block; }
+.rb-thumb-body span { display: block; height: 3px; background: #d6d6d6; margin-bottom: 5px; }
+.rb-thumb-body span:nth-child(1) { width: 100%; }
+.rb-thumb-body span:nth-child(2) { width: 92%; }
+.rb-thumb-body span:nth-child(3) { width: 96%; }
+.rb-thumb-body span:nth-child(4) { width: 70%; }
+.rb-thumb--classic .rb-thumb-name { margin-left: auto; margin-right: auto; width: 54%; }
+.rb-thumb--classic .rb-thumb-rule { background: #6b6b6b; }
+.rb-thumb--modern .rb-thumb-rule { background: var(--green-600); height: 3px; }
+.rb-thumb--minimal .rb-thumb-rule { background: transparent; }
+.rb-thumb--minimal .rb-thumb-body span { margin-bottom: 8px; }
+.rb-thumb--executive { padding: 10%; }
+.rb-thumb--executive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 26%;
+  bottom: 0;
+  width: 34%;
+  background: var(--green-100);
+}
+.rb-thumb--executive .rb-thumb-body { position: relative; margin-left: 38%; }
+.rb-thumb--compact .rb-thumb-body span { height: 2px; margin-bottom: 3px; }
+.rb-thumb--compact .rb-thumb-name { height: 5px; }
+
+/* --------------------------------------------------------- the resume itself */
+.resume-sheet {
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: clamp(1.2rem, 4vw, 2.6rem);
+  overflow-x: auto;
+}
+.resume {
+  --r-ink: #1d1d1d;
+  --r-muted: #555;
+  --r-rule: #cfcfcf;
+  --r-accent: #2e6b34;
+  color: var(--r-ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  min-width: 0;
+}
+.resume-main, .resume-side { display: contents; }
+.resume-head { margin-bottom: 1.2rem; }
+.resume-name {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.resume-role {
+  margin: 0.15rem 0 0;
+  font-size: 1.02rem;
+  color: var(--r-muted);
+  font-weight: 700;
+}
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.55rem 0 0;
+  font-size: 0.87rem;
+  color: var(--r-muted);
+}
+.resume-contact li { margin: 0; }
+.resume-section { margin-bottom: 1.3rem; }
+.resume-section h3 {
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--r-ink);
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--r-rule);
+}
+.resume-section p { margin: 0 0 0.45rem; }
+.resume-entry { margin-bottom: 0.9rem; }
+.resume-entry:last-child { margin-bottom: 0; }
+.resume-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+}
+.resume-entry-title { margin: 0; font-weight: 800; }
+.resume-entry-dates { margin: 0; color: var(--r-muted); font-size: 0.87rem; white-space: nowrap; }
+.resume-entry-meta { margin: 0 0 0.3rem; color: var(--r-muted); font-size: 0.9rem; font-style: italic; }
+.resume-entry-detail { margin: 0.15rem 0 0; font-size: 0.9rem; }
+.resume-bullets { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+.resume-bullets li { margin-bottom: 0.2rem; }
+.resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.resume-skills li { margin: 0; position: relative; padding-left: 0.85rem; }
+.resume-skills li::before { content: "\2022"; position: absolute; left: 0; color: var(--r-accent); }
+
+/* Classic: serif, centered heading, heavier rules. */
+.resume--classic { font-family: Georgia, "Times New Roman", serif; --r-rule: #8a8a8a; }
+.resume--classic .resume-head { text-align: center; }
+.resume--classic .resume-name { letter-spacing: 0.06em; text-transform: uppercase; font-size: 1.6rem; }
+.resume--classic .resume-contact { justify-content: center; }
+.resume--classic .resume-section h3 { text-align: center; border-bottom-width: 2px; }
+
+/* Modern: sans-serif with a green rule under the name. */
+.resume--modern .resume-head { border-bottom: 3px solid var(--r-accent); padding-bottom: 0.7rem; }
+.resume--modern .resume-section h3 { color: var(--r-accent); border-bottom-color: var(--green-200); }
+
+/* Minimal: no rules anywhere, more air. */
+.resume--minimal .resume-name { font-weight: 400; letter-spacing: 0.02em; }
+.resume--minimal .resume-section { margin-bottom: 1.8rem; }
+.resume--minimal .resume-section h3 { border-bottom: 0; color: var(--r-muted); padding-bottom: 0; }
+
+/* Executive: contact, skills and education in a left sidebar. */
+.resume--executive { display: grid; grid-template-columns: 32% 1fr; column-gap: 1.6rem; }
+.resume--executive .resume-head { grid-column: 1 / -1; border-bottom: 2px solid var(--r-accent); padding-bottom: 0.7rem; }
+.resume--executive .resume-main {
+  display: block;
+  grid-column: 2;
+  grid-row: 2;
+  padding-top: 1.2rem;
+}
+.resume--executive .resume-side {
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  background: var(--green-50);
+  padding: 1.2rem 1rem;
+  /* Browsers drop background colors when printing unless asked not to, and
+     the sidebar tint is the whole point of this layout. */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.resume--executive .resume-side .resume-entry-head { display: block; }
+.resume--executive .resume-side .resume-entry-dates { white-space: normal; }
+.resume--executive .resume-skills { flex-direction: column; gap: 0.25rem; }
+
+/* Compact: smaller type and tighter spacing for a long history. */
+.resume--compact { font-size: 0.86rem; line-height: 1.38; }
+.resume--compact .resume-name { font-size: 1.5rem; }
+.resume--compact .resume-section { margin-bottom: 0.85rem; }
+.resume--compact .resume-section h3 { margin-bottom: 0.4rem; font-size: 0.8rem; }
+.resume--compact .resume-entry { margin-bottom: 0.6rem; }
+.resume--compact .resume-bullets li { margin-bottom: 0.08rem; }
+
+@media (max-width: 640px) {
+  .resume--executive { display: block; }
+  .resume--executive .resume-main, .resume--executive .resume-side { display: block; }
+}
+
+/* ------------------------------------------------------------------ print */
+@media print {
+  .promo-bar,
+  .site-header,
+  .site-footer,
+  .breadcrumb,
+  .page-banner,
+  .skip-link,
+  .rb-noprint,
+  .rb > *:not(.resume-sheet) {
+    display: none !important;
+  }
+  body { background: #fff; font-size: 12px; }
+  .section { padding: 0 !important; }
+  .wrap { max-width: none; padding: 0; }
+  .rb { max-width: none; }
+  .resume-sheet { border: 0; box-shadow: none; padding: 0; overflow: visible; }
+  .resume-section, .resume-entry { break-inside: avoid; }
+  .resume-section h3 { break-after: avoid; }
+  @page { margin: 0.5in; }
+}
