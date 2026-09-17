@@ -14,6 +14,10 @@ import { averageRating, cities, listings, services, topRated, totalReviews } fro
 import { itemListSchema, pageMeta } from "@/lib/seo";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
+import { resumeCities } from "@/lib/content/resume-cities";
+import { billingLive } from "@/lib/billing";
+import { plan } from "@/lib/plan";
+import { steps, templates } from "@/lib/resume";
 import type { Faq } from "@/lib/content/types";
 
 export const metadata: Metadata = {
@@ -59,6 +63,8 @@ const faqs: Faq[] = [
 export default function HomePage() {
   const featured = topRated(8);
   const best = topRated(10);
+  // The biggest markets, so the homepage feeds the deepest city pages first.
+  const topResumeCities = resumeCities().slice(0, 8);
   const cityGroups = cities();
   const serviceGroups = services();
   const rating = averageRating();
@@ -273,6 +279,35 @@ export default function HomePage() {
                 note: guide.category,
               })),
             ]}
+          />
+        </div>
+      </section>
+
+      <section className="section section--tint">
+        <div className="wrap">
+          <h2>Build a Tutor Resume in Minutes</h2>
+          <p className="lede">
+            The other side of this directory. If you are the one looking for tutoring work rather
+            than tutoring, the free{" "}
+            <Link href="/resume-builder">resume builder</Link> walks you through {steps.length}{" "}
+            questions and lays the answers out in {templates.length} templates.{" "}
+            {billingLive()
+              ? `Building and previewing it costs nothing; downloading the finished file is ${plan.priceLabel} ${plan.intervalLabel}.`
+              : "No account, no watermark and nothing to install."}{" "}
+            Each city page pairs it with the local centers your resume is actually aimed at.
+          </p>
+          <p style={{ marginBottom: "1.6rem" }}>
+            <Link className="btn" href="/resume-builder">
+              Start your resume
+            </Link>
+          </p>
+          <LinkList
+            items={topResumeCities.map((entry) => ({
+              href: `/resume-builder/${entry.citySlug}`,
+              label: `Resume Builder in ${entry.city}, Georgia`,
+              note: `${entry.count} ${entry.count === 1 ? "employer" : "employers"}`,
+            }))}
+            split
           />
         </div>
       </section>
