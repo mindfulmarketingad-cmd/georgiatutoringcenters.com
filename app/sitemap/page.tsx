@@ -8,6 +8,7 @@ import { findPages } from "@/lib/content/find";
 import { listings } from "@/lib/listings";
 import { authors } from "@/lib/content/authors";
 import { resumeCities } from "@/lib/content/resume-cities";
+import { experiences } from "@/lib/content/experiences";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -50,6 +51,7 @@ export default function SitemapPage() {
     findPages().filter((p) => p.kind === "zip" && !p.noindex),
     (p) => p.h1
   );
+  const sortedExperiences = byLabel(experiences, (entry) => entry.title);
   const sortedResumeCities = byLabel(resumeCities(), (entry) => entry.city);
   const sortedAuthors = byLabel(authors, (a) => a.name);
   const sortedCostGuides = byLabel(costGuides, (g) => g.title);
@@ -67,6 +69,7 @@ export default function SitemapPage() {
       { href: "/costs", label: "Costs and pricing" },
       { href: "/blog", label: "Learning blog" },
       { href: "/resume-builder", label: "Free resume builder" },
+      { href: "/experiences", label: "Experiences" },
       { href: "/search", label: "Search" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
@@ -129,6 +132,15 @@ export default function SitemapPage() {
             {legalPages.map((page) => (
               <li key={page.href}>
                 <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Experiences ({sortedExperiences.length})</h2>
+          <ul>
+            {sortedExperiences.map((entry) => (
+              <li key={entry.slug}>
+                <Link href={`/experiences/${entry.slug}`}>{entry.title}</Link>
               </li>
             ))}
           </ul>
