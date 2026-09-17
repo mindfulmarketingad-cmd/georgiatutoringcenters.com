@@ -4,6 +4,7 @@ import { findPages } from "@/lib/content/find";
 import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
 import { authors } from "@/lib/content/authors";
+import { resumeCities } from "@/lib/content/resume-cities";
 import { PER_PAGE, pageHref } from "@/lib/pagination";
 import { site } from "@/lib/site";
 
@@ -42,6 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: i === 0 ? 0.8 : 0.5,
       }));
     });
+
+  const resumeCityEntries: MetadataRoute.Sitemap = resumeCities().map((entry) => ({
+    url: url(`/resume-builder/${entry.citySlug}`),
+    lastModified: listingsUpdated,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   const partnerIndexPages = Math.max(1, Math.ceil(listings.length / PER_PAGE));
   const partnerIndexEntries: MetadataRoute.Sitemap = Array.from(
@@ -91,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticEntries,
+    ...resumeCityEntries,
     ...partnerIndexEntries,
     ...findEntries,
     ...partnerEntries,

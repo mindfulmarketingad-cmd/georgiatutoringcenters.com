@@ -7,6 +7,7 @@ import { costGuides } from "@/lib/content/costs";
 import { findPages } from "@/lib/content/find";
 import { listings } from "@/lib/listings";
 import { authors } from "@/lib/content/authors";
+import { resumeCities } from "@/lib/content/resume-cities";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -49,6 +50,7 @@ export default function SitemapPage() {
     findPages().filter((p) => p.kind === "zip" && !p.noindex),
     (p) => p.h1
   );
+  const sortedResumeCities = byLabel(resumeCities(), (entry) => entry.city);
   const sortedAuthors = byLabel(authors, (a) => a.name);
   const sortedCostGuides = byLabel(costGuides, (g) => g.title);
   const sortedBlogPosts = byLabel(blogPosts, (post) => post.title);
@@ -127,6 +129,17 @@ export default function SitemapPage() {
             {legalPages.map((page) => (
               <li key={page.href}>
                 <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <h2>Resume Builder by City ({sortedResumeCities.length})</h2>
+          <ul>
+            {sortedResumeCities.map((entry) => (
+              <li key={entry.citySlug}>
+                <Link href={`/resume-builder/${entry.citySlug}`}>
+                  Resume Builder in {entry.city}, Georgia
+                </Link>
               </li>
             ))}
           </ul>

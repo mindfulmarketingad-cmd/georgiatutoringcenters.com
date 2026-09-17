@@ -76,6 +76,10 @@ and on mount, since an image can fail before React hydrates.
 
 1. Serve over HTTPS only, with HTTP redirected to HTTPS (HSTS is preloaded).
 2. Set `CONTACT_WEBHOOK_URL` if the contact form should reach an inbox.
+3. Set `STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID` and `SESSION_SECRET` to turn on
+   the resume builder subscription. `SESSION_SECRET` must be at least 32
+   characters of random data and must never be committed; it signs the account
+   cookie, and anyone holding it can mint a paid session.
 3. Put a WAF or edge rate limit in front of `/api/*` if the site attracts abuse.
 4. Keep dependencies patched: `npm audit` and `npm outdated` on a schedule.
 5. Re-run `npm run build` after every data import so pages and the sitemap match.

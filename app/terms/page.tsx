@@ -4,6 +4,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageBanner from "@/components/PageBanner";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { plan } from "@/lib/plan";
+import { billingLive } from "@/lib/billing";
 
 export const metadata: Metadata = pageMeta({
   title: "Terms of Use | Georgia Tutoring Centers",
@@ -65,6 +67,46 @@ export default function TermsPage() {
             Business owners may request corrections or removal through the{" "}
             <Link href="/contact">contact page</Link>.
           </p>
+
+          {billingLive() && (
+            <>
+          <h2>Resume Builder Subscription</h2>
+          <p>
+            The resume builder is free to use: you can answer every question, switch between all
+            five templates, edit as often as you like and read the finished resume on screen without
+            an account and without paying. Downloading the finished file requires an account and a
+            paid subscription.
+          </p>
+          <p>
+            The subscription costs {plan.priceLabel} {plan.intervalLabel}. It is a recurring
+            subscription: unless you cancel, it renews automatically each month and your payment
+            method is charged {plan.priceLabel} on each renewal date. There is no minimum term.
+          </p>
+          <p>
+            You may cancel at any time, with no cancellation fee. Cancelling is done from the
+            account panel on the <Link href="/resume-builder">resume builder</Link>, which opens the
+            billing portal where the subscription can be ended in one step. Cancellation stops
+            future renewals; access continues until the end of the period you have already paid for.
+            We do not pro-rate or refund part-months, and because the download is delivered
+            immediately, a period that has been used is not refundable. If something went wrong with
+            a charge, tell us through the <Link href="/contact">contact page</Link> and we will look
+            at it.
+          </p>
+          <p>
+            Payments are processed by Stripe. We never receive or store your card details. Your
+            resume content is sent to us only at the moment you download it, is converted to a file
+            and returned, and is not retained afterwards. We may change the subscription price, and
+            if we do, existing subscribers will be told before the change takes effect and may
+            cancel before being charged the new amount.
+          </p>
+          <p>
+            The builder produces a document from what you type. We do not review, verify or warrant
+            the accuracy of anything on your resume, and we do not guarantee an interview, a job
+            offer or that any particular employer or applicant tracking system will read the file
+            the way you expect.
+          </p>
+            </>
+          )}
 
           <h2>Third-Party Links and Advertising</h2>
           <p>

@@ -214,6 +214,32 @@
 .rb-thumb--compact .rb-thumb-body span { height: 2px; margin-bottom: 3px; }
 .rb-thumb--compact .rb-thumb-name { height: 5px; }
 
+/* ------------------------------------------------------- download and plan */
+.rb-gate { margin-bottom: 1.2rem; }
+.rb-gate-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.rb-gate-account { margin-top: 0.7rem; margin-bottom: 0; }
+.rb-plan {
+  border: 2px solid var(--green-600);
+  background: var(--green-50);
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  max-width: 520px;
+}
+.rb-plan h3 { margin-bottom: 0.3rem; }
+.rb-plan-price { display: flex; align-items: baseline; gap: 0.5rem; margin: 0 0 0.8rem; }
+.rb-plan-amount { font-size: 2.3rem; font-weight: 800; color: var(--green-700); line-height: 1; }
+.rb-plan-interval { font-weight: 700; color: var(--muted); }
+.rb-plan-includes { margin: 0 0 0.9rem; padding-left: 1.15rem; }
+.rb-plan-includes li { margin-bottom: 0.25rem; }
+.rb-plan-terms {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-left: 3px solid var(--green-300);
+  padding-left: 0.75rem;
+  margin-bottom: 1rem;
+}
+.rb-plan .form-field input { background: var(--white); }
+.rb-plan-back { font-size: 0.9rem; margin: 0.8rem 0 0; }
+
 /* --------------------------------------------------------- the resume itself */
 .resume-sheet {
   background: #fff;
@@ -366,6 +392,19 @@
   .rb { max-width: none; }
   .resume-sheet { border: 0; box-shadow: none; padding: 0; overflow: visible; }
   .resume-section, .resume-entry { break-inside: avoid; }
+  /* Printing is one of the paid downloads, so a locked preview prints a note
+     instead of the resume. The server-side download endpoint is the actual
+     gate; this only keeps an unsubscribed print dialog from being a way past
+     the paywall by accident. */
+  .resume-sheet[data-locked="true"] .resume { display: none !important; }
+  .resume-sheet[data-locked="true"]::after {
+    content: "Subscribe at georgiatutoringcenters.com/resume-builder to download this resume.";
+    display: block;
+    font-family: var(--font);
+    font-size: 14px;
+    text-align: center;
+    padding: 2in 0.5in;
+  }
   .resume-section h3 { break-after: avoid; }
   @page { margin: 0.5in; }
 }

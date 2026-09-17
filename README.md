@@ -275,6 +275,32 @@ presenting invented writers as real ones.
 | Variable | Purpose |
 | --- | --- |
 | `CONTACT_WEBHOOK_URL` | Optional. Where `/api/contact` forwards validated submissions (any JSON webhook: email service, form backend, automation). Without it the form tells visitors to email directly instead of silently dropping messages. |
+| `STRIPE_SECRET_KEY` | Resume builder subscription. A Stripe secret key (`sk_live_…`). |
+| `STRIPE_PRICE_ID` | Resume builder subscription. The id of a recurring monthly Stripe price at $5.99 (`price_…`). |
+| `SESSION_SECRET` | Resume builder subscription. At least 32 characters of random data, used to sign the account cookie. Generate with `openssl rand -base64 48`. Rotating it signs everyone out. |
+
+### Turning the resume builder subscription on
+
+All three variables above must be set together. With any of them missing the
+builder runs as a free tool: `/api/resume/download` skips the paywall, the
+account panel shows download buttons rather than a checkout, and the pricing
+copy, the subscription section of the terms page and the `Offer` in the page
+JSON-LD are all left out. Set them and the paywall, the pricing copy and the
+terms section switch on together, with no code change.
+
+In the Stripe dashboard you need a product with a recurring monthly price
+(that price's id goes in `STRIPE_PRICE_ID`) and the customer billing portal
+enabled, since the cancel link in the account panel opens it. The Stripe calls
+in `lib/billing.ts` are plain `fetch` requests against the REST API rather than
+the SDK, so there is no dependency to install.
+
+What the gate does and does not stop: `/api/resume/download` asks Stripe
+whether the signed-in customer has a live subscription before it returns a
+byte, so the file downloads are genuinely gated. Printing the preview is
+blocked by a print stylesheet keyed off `data-locked`, which stops an
+unsubscribed print dialog but is client-side and can be worked around by
+someone determined. The resume itself is only ever transmitted at download
+time and is not stored.
 
 ## URLs
 

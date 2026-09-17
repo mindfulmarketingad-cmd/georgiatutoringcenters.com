@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import ResumePreview, { resumeText } from "@/components/ResumePreview";
+import ResumePreview from "@/components/ResumePreview";
+import ResumeDownload from "@/components/ResumeDownload";
 import {
   MAX_PASTE,
   draftSummary,
@@ -88,7 +89,7 @@ export default function ResumeBuilder() {
   const [error, setError] = useState("");
   const [paste, setPaste] = useState("");
   const [pasteNote, setPasteNote] = useState("");
-  const [copied, setCopied] = useState("");
+  const [locked, setLocked] = useState(true);
 
   const firstFieldRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
@@ -191,15 +192,6 @@ export default function ResumeBuilder() {
     setPaste("");
     setPasteNote("");
     setStage("start");
-  }
-
-  async function copyText() {
-    try {
-      await navigator.clipboard.writeText(resumeText(data));
-      setCopied("Plain text resume copied. Paste it into the application box.");
-    } catch {
-      setCopied("Your browser blocked the copy. Select the resume above and copy it by hand.");
-    }
   }
 
   /* ------------------------------------------------------------- screens */
@@ -785,13 +777,9 @@ export default function ResumeBuilder() {
         Your Resume
       </h2>
 
+      <ResumeDownload data={data} template={template} onLockChange={setLocked} />
+
       <div className="rb-toolbar">
-        <button type="button" className="btn" onClick={() => window.print()}>
-          Save as PDF
-        </button>
-        <button type="button" className="btn btn--ghost" onClick={copyText}>
-          Copy as Plain Text
-        </button>
         <button type="button" className="btn btn--ghost" onClick={() => setStage("templates")}>
           Change Template
         </button>
@@ -810,14 +798,10 @@ export default function ResumeBuilder() {
         </button>
       </div>
       <p className="rb-help">
-        Save as PDF opens your browser&apos;s print dialog. Choose &ldquo;Save as PDF&rdquo; as the
-        destination and the site header, footer and this toolbar are left off the page.
+        Editing, switching templates and reading your resume on this page are free and always will
+        be. Downloading the finished file, as a PDF, a Word document or plain text, is what the
+        subscription covers.
       </p>
-      {copied && (
-        <p className="notice" role="status">
-          {copied}
-        </p>
-      )}
       {missing.length > 0 && (
         <p className="notice rb-missing">
           This resume does not have {missingList}. It will still print, but most employers expect
@@ -836,7 +820,7 @@ export default function ResumeBuilder() {
         </p>
       )}
 
-      <div className="resume-sheet">
+      <div className="resume-sheet" data-locked={locked ? "true" : undefined}>
         <ResumePreview data={data} template={template} />
       </div>
     </div>

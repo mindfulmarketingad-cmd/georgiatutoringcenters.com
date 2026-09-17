@@ -8,29 +8,50 @@ import JsonLd from "@/components/JsonLd";
 import LinkList from "@/components/LinkList";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { plan } from "@/lib/plan";
+import { billingLive } from "@/lib/billing";
 import { steps, templates } from "@/lib/resume";
+import { resumeCities } from "@/lib/content/resume-cities";
 import "./resume.css";
+
+const paid = billingLive();
 
 export const metadata: Metadata = pageMeta({
   title: "Free Resume Builder | Build a Resume Online in Minutes",
-  description:
-    "Free resume builder for tutors, teachers and students in Georgia. Answer ten questions, pick from five templates and save a finished resume as a PDF. No account, no watermark.",
+  description: paid
+    ? `Resume builder for tutors, teachers and students in Georgia. Answer ten questions and lay the result out in five templates, free. Downloads are ${plan.priceLabel} a month, cancel anytime.`
+    : "Free resume builder for tutors, teachers and students in Georgia. Answer ten questions, pick from five templates and download a finished resume. No account, no watermark.",
   path: "/resume-builder",
 });
 
+const pricingFaqs = paid
+  ? [
+      {
+        q: "What is free and what costs money?",
+        a: `Building a resume, editing it, switching between all five templates and reading the finished page on screen are free and need no account. Downloading the file, as a PDF, a Word document or plain text, needs an account and a subscription at ${plan.priceLabel} a month.`,
+      },
+      {
+        q: `How does the ${plan.priceLabel} subscription work?`,
+        a: `It is a monthly subscription that renews automatically at ${plan.priceLabel} until you cancel. It covers unlimited downloads and re-downloads in every template while it is active. You can cancel at any time from the account panel on this page, which opens the billing portal directly, and there is no cancellation fee.`,
+      },
+      {
+        q: "Where does my information go?",
+        a: "While you are building, every answer stays in your browser and a draft is saved on your own device so you can close the tab and come back. Your resume is sent to our server only at the moment you download it, where it is turned into a file and returned. It is not stored, logged or shared. Payment details never touch this site at all: the checkout is handled by Stripe.",
+      },
+    ]
+  : [
+      {
+        q: "Is the resume builder really free?",
+        a: "Yes. There is no account to create, no trial that expires, no watermark on the finished resume and no payment step.",
+      },
+      {
+        q: "Where does my information go?",
+        a: "While you are building, every answer stays in your browser and a draft is saved on your own device so you can close the tab and come back. Your resume is sent to our server only at the moment you download it, where it is turned into a file and returned. It is not stored, logged or shared.",
+      },
+    ];
+
 const faqs = [
-  {
-    q: "Is the resume builder really free?",
-    a: "Yes. There is no account to create, no trial that expires, no watermark on the finished resume and no payment step. The builder is a static page on this site, the same as every other page here.",
-  },
-  {
-    q: "Where does my information go?",
-    a: "Nowhere. Every answer stays in your browser. The builder saves a draft to your own device so you can close the tab and come back, and that draft is deleted when you use the start over button. Nothing is sent to us or to anyone else.",
-  },
-  {
-    q: "How do I download my resume as a PDF?",
-    a: "Choose save as PDF on the finished resume. That opens your browser's print dialog, where you set the destination to save as PDF. The site header, footer and the builder controls are left off the printed page, so what you get is the resume on its own.",
-  },
+  ...pricingFaqs,
   {
     q: "Which template should I pick?",
     a: "If you are applying through an online portal, pick one of the four single-column templates, because applicant tracking software reads a single column far more reliably than a sidebar. The Executive template is the two-column option and is better suited to a resume you email or hand over in person.",
@@ -61,6 +82,12 @@ const relatedLinks = [
 ];
 
 export default function ResumeBuilderPage() {
+  const cityLinks = resumeCities().map((entry) => ({
+    href: `/resume-builder/${entry.citySlug}`,
+    label: `Resume Builder in ${entry.city}, Georgia`,
+    note: `${entry.count} ${entry.count === 1 ? "employer" : "employers"}`,
+  }));
+
   return (
     <>
       <PageBanner
@@ -73,7 +100,7 @@ export default function ResumeBuilderPage() {
         <ul className="banner-facts">
           <li>{steps.length} questions</li>
           <li>{templates.length} templates</li>
-          <li>Nothing leaves your browser</li>
+          <li>Free to build</li>
         </ul>
       </PageBanner>
 
@@ -85,9 +112,12 @@ export default function ResumeBuilderPage() {
         <div className="wrap">
           <div className="rb-noprint">
             <p className="lede">
-              Build a resume one question at a time, then lay it out in one of five templates and
-              save it as a PDF. Written for the tutors, teachers, aides and students who apply to
-              the centers listed on this site, and it works just as well for any other job.
+              Build a resume one question at a time, then lay it out in one of five templates.{" "}
+              {paid
+                ? `Building and previewing it costs nothing; downloading the finished file is ${plan.priceLabel} ${plan.intervalLabel}.`
+                : "Free, with no account to create and no watermark on the finished page."}{" "}
+              Written for the tutors, teachers, aides and students who apply to the centers listed
+              on this site, and it works just as well for any other job.
             </p>
           </div>
           <ResumeBuilder />
@@ -111,6 +141,28 @@ export default function ResumeBuilderPage() {
             that tie it together. The summary comes last on purpose. It is much easier to write once
             the rest of the page exists.
           </p>
+
+          {paid && (
+            <>
+              <h2>What It Costs</h2>
+              <p>
+                Everything up to the download is free and needs no account: the questions, all five
+                templates, as many edits as you like and the finished resume on screen. The{" "}
+                {plan.priceLabel} {plan.intervalLabel} subscription covers the download itself.
+              </p>
+              <ul>
+                {plan.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>{plan.renewalNotice}</p>
+              <p>
+                Cancelling takes the same number of clicks as subscribing: the account panel on the
+                finished resume opens the billing portal, where you cancel in one step. Full terms
+                are on the <Link href="/terms">terms of use</Link> page.
+              </p>
+            </>
+          )}
 
           <h2>What Goes on a Tutoring Resume</h2>
           <p>
@@ -166,23 +218,23 @@ export default function ResumeBuilderPage() {
               </li>
             ))}
           </ul>
-          <p>
-            If you are applying both ways, build once and save twice: the finished resume also has a
-            copy as plain text button, which gives you a version to paste into the boxes an online
-            application uses instead of a file upload.
-          </p>
 
-          <h2>Your Answers Stay on Your Device</h2>
+          <h2>What Happens to Your Details</h2>
           <p>
             A resume holds a full set of personal details: your name, your phone number, your home
-            city, where you have worked and where you studied. This builder never transmits any of
-            it. There is no account, no server storing drafts and no third party receiving a copy.
-            The draft it keeps so you can close the tab and come back is stored by your own browser
-            on your own device, and the start over button deletes it.
+            city, where you have worked and where you studied. While you are building, none of it
+            leaves your browser. The draft that lets you close the tab and come back is stored by
+            your own browser on your own device, and the start over button deletes it.
           </p>
           <p>
-            That does mean a draft is visible to anyone else using the same browser profile on the
-            same computer. On a shared or library machine, use the start over button when you are
+            The one moment your resume is transmitted is when you download it: the answers go to our
+            server, are turned into a file and are sent straight back. Nothing is written to a
+            database or kept afterwards.{" "}
+            {paid ? "Card details never reach this site at any point, because the checkout runs on Stripe." : ""}
+          </p>
+          <p>
+            A saved draft is visible to anyone else using the same browser profile on the same
+            computer. On a shared or library machine, use the start over button when you are
             finished. See our <Link href="/privacy">privacy policy</Link> for how the rest of{" "}
             {site.domain} handles data.
           </p>
@@ -201,6 +253,18 @@ export default function ResumeBuilderPage() {
 
       <section className="section rb-noprint">
         <div className="wrap prose">
+          <h2>Resume Builder by City</h2>
+          <p>
+            Each city page carries the same builder plus the local employers your resume is aimed
+            at: who runs tutoring in that city, what they teach, what the work pays there and which
+            neighboring cities are worth applying to.
+          </p>
+          <LinkList items={cityLinks} split />
+        </div>
+      </section>
+
+      <section className="section section--tint rb-noprint">
+        <div className="wrap prose">
           <Faqs faqs={faqs} heading="Resume Builder Questions" />
         </div>
       </section>
@@ -209,15 +273,24 @@ export default function ResumeBuilderPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: "Free Resume Builder",
+          name: "Resume Builder",
           url: `${site.url}/resume-builder`,
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any modern web browser",
           browserRequirements: "Requires JavaScript",
-          description:
-            "Free browser-based resume builder: answer ten questions, choose one of five templates and save the result as a PDF. No account and no data sent off the device.",
-          isAccessibleForFree: true,
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          description: paid
+            ? "Browser-based resume builder: answer ten questions and choose one of five templates. Building and previewing is free; downloading the finished file requires a subscription."
+            : "Free browser-based resume builder: answer ten questions, choose one of five templates and download the result.",
+          ...(paid
+            ? {
+                offers: {
+                  "@type": "Offer",
+                  price: plan.price.toFixed(2),
+                  priceCurrency: plan.currency,
+                  description: `${plan.priceLabel} ${plan.intervalLabel}, cancel at any time. Building and previewing a resume is free.`,
+                },
+              }
+            : { isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }),
           publisher: { "@type": "Organization", name: site.name, url: site.url },
         }}
       />
