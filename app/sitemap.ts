@@ -5,7 +5,6 @@ import { blogPosts } from "@/lib/content/blog";
 import { costGuides } from "@/lib/content/costs";
 import { authors } from "@/lib/content/authors";
 import { resumeCities } from "@/lib/content/resume-cities";
-import { experiences } from "@/lib/content/experiences";
 import { PER_PAGE, pageHref } from "@/lib/pagination";
 import { site } from "@/lib/site";
 
@@ -22,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/costs"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/blog"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/resume-builder"), changeFrequency: "monthly", priority: 0.7 },
-    { url: url("/experiences"), changeFrequency: "weekly", priority: 0.7 },
     { url: url("/search"), changeFrequency: "monthly", priority: 0.4 },
     { url: url("/about"), changeFrequency: "yearly", priority: 0.5 },
     { url: url("/authors"), changeFrequency: "monthly", priority: 0.5 },
@@ -50,13 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: url(`/resume-builder/${entry.citySlug}`),
     lastModified: listingsUpdated,
     changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  const experienceEntries: MetadataRoute.Sitemap = experiences.map((entry) => ({
-    url: url(`/experiences/${entry.slug}`),
-    lastModified: listingsUpdated,
-    changeFrequency: "weekly",
     priority: 0.6,
   }));
 
@@ -109,7 +100,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticEntries,
     ...resumeCityEntries,
-    ...experienceEntries,
     ...partnerIndexEntries,
     ...findEntries,
     ...partnerEntries,

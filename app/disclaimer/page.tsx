@@ -72,24 +72,11 @@ export default function DisclaimerPage() {
 
           <h2>Affiliate Links</h2>
           <p>
-            Some links on this site are affiliate links. If you buy or book something after
-            following one, we may earn a commission at no extra cost to you. This applies to the
-            school supplies promotion in the bar at the top of every page, where we participate in
-            the Amazon Associates program and earn from qualifying purchases, and to the travel
-            experiences on our <Link href="/experiences">experiences</Link> pages, which are booked
-            through Viator.
-          </p>
-          <p>
-            We are not the seller in either case. Payment, confirmation, changes, cancellations and
-            the product or experience itself are handled by the merchant or the operator, and any
-            problem with a booking is resolved with them rather than with us. Prices, ratings and
-            review counts quoted on our pages were read from the seller&apos;s listing on the date
-            shown beside them and change without notice; the seller&apos;s own page is always the
-            authoritative one.
-          </p>
-          <p>
-            Affiliate relationships never affect which tutoring centers are listed, how they are
-            ranked or what our guides say about them.
+            Some links on this site, including the school supplies promotion in the bar at the top
+            of every page, are affiliate links. If you buy something after following one, we may
+            earn a commission at no extra cost to you. As an Amazon Associate we earn from
+            qualifying purchases. Affiliate relationships never affect which tutoring centers are
+            listed, how they are ranked or what our guides say about them.
           </p>
 
           <h2>Advertising</h2>

@@ -172,10 +172,6 @@ li { margin-bottom: 0.4em; }
   justify-content: space-between;
   gap: 1rem;
   min-height: 74px;
-  /* Twelve links plus the wordmark need more room than the 1180px content
-     column, so the header alone runs wider rather than wrapping to two rows
-     or shrinking the labels to the point of being cramped. */
-  max-width: 1320px;
 }
 .brand { display: flex; align-items: center; gap: 0.65rem; }
 .brand:hover { text-decoration: none; }
@@ -204,7 +200,7 @@ li { margin-bottom: 0.4em; }
   font-family: inherit;
   cursor: pointer;
 }
-@media (max-width: 1250px) {
+@media (max-width: 1150px) {
   .nav-toggle { display: block; }
   .nav {
     display: none;

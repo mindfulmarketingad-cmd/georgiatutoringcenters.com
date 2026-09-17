@@ -92,7 +92,6 @@ export default function Footer() {
               <li><Link href="/costs">Costs and pricing</Link></li>
               <li><Link href="/blog">Learning blog</Link></li>
               <li><Link href="/resume-builder">Free resume builder</Link></li>
-              <li><Link href="/experiences">Experiences</Link></li>
               <li><Link href="/search">Search</Link></li>
               <li><Link href="/authors">Our editorial team</Link></li>
             </ul>
@@ -106,10 +105,9 @@ export default function Footer() {
             hours, pricing and availability directly with a center.
           </p>
           <p>
-            Some outbound links are affiliate links, including the school supplies promotion at the
-            top of the page and the bookings on our <Link href="/experiences">experiences</Link>{" "}
-            page, and we may earn a commission from purchases made through them at no extra cost to
-            you. As an Amazon Associate we earn from qualifying purchases. See our{" "}
+            Some outbound links, including the school supplies promotion at the top of the page,
+            are affiliate links, and we may earn a commission from purchases made through them. As
+            an Amazon Associate we earn from qualifying purchases. See our{" "}
             <Link href="/disclaimer">disclaimer</Link> for details.
           </p>
           <p>
